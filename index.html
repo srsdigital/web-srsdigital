@@ -7,7 +7,22 @@
     <!-- Favicon (replace with your actual favicon) -->
     <link rel="icon" href="https://placehold.co/32x32/5F00FF/FFFFFF?text=SRS" type="image/x-icon">
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'srs-violet': '#5F00FF',
+                        'srs-fuchsia': '#DB00FF',
+                        'srs-charcoal-grey': '#333333',
+                        'srs-light-grey': '#F5F5F5',
+                        'srs-teal': '#00BCD4',
+                        'srs-gold': '#FFD700',
+                    }
+                }
+            }
+        }
+    </script>
     <!-- Google Fonts for Poppins and Inter (as suggested in style guide) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

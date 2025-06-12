@@ -3,6 +3,7 @@
 /* Google Fonts are linked in HTML head, but explicitly declare here if needed */
 body {
     font-family: 'Inter', sans-serif;
+    color: #333333;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -40,3 +41,20 @@ a, button {
 /* *, *::before, *::after {
     box-sizing: border-box;
 } */
+
+/* Ensure text is visible in light backgrounds */
+.bg-white {
+    color: #333333;
+}
+
+/* Override text color for sections with dark backgrounds */
+.hero-section,
+.bg-gradient-to-r,
+.bg-srs-charcoal-grey {
+    color: #ffffff;
+}
+
+/* Ensure product cards have proper contrast */
+.bg-srs-light-grey {
+    color: #333333;
+}
