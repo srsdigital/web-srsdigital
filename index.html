@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SRS Digital - Smart Digital Solutions for Indonesian Solopreneurs</title>
-    <!-- Favicon (replace with your actual favicon) -->
     <link rel="icon" href="https://placehold.co/32x32/5F00FF/FFFFFF?text=SRS" type="image/x-icon">
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,11 +22,9 @@
             }
         }
     </script>
-    <!-- Google Fonts for Poppins and Inter (as suggested in style guide) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <style>
         /* Define custom CSS variables for your brand colors */
@@ -69,9 +65,17 @@
             position: relative;
             overflow: hidden; /* Ensure rounded corners are applied correctly */
         }
+
+        /* Sticky Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 50; /* Ensure it stays on top of other content */
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DV9955ZNR8"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -83,14 +87,39 @@
 </head>
 <body class="bg-white text-srs-charcoal-grey">
 
-    <!-- Header & Hero Section -->
-    <header class="hero-section text-white py-16 md:py-24 rounded-b-2xl shadow-xl">
-        <div class="container mx-auto px-4 flex flex-col items-center text-center">
-            <!-- Logo - Simplified for HTML (You'll replace this with your actual logo img when ready) -->
-            <div class="mb-8 p-4 rounded-xl shadow-lg" style="background: linear-gradient(90deg, var(--srs-violet) 0%, var(--srs-fuchsia) 100%);">
-                <span class="text-6xl md:text-7xl font-bold font-poppins uppercase tracking-wide">SRS</span>
+    <nav class="navbar py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#hero" class="flex items-center space-x-2">
+                <img src="images/logo.png" alt="SRS Digital Logo" class="h-10 w-auto"> <span class="text-srs-charcoal-grey text-xl font-semibold">Digital</span>
+            </a>
+
+            <div class="hidden md:flex space-x-8">
+                <a href="#hero" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200">Home</a>
+                <a href="#about" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200">About Us</a>
+                <a href="#why-choose-us" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200">Why Choose Us</a>
+                <a href="#products" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200">Products</a>
+                <a href="#contact" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200">Contact</a>
             </div>
-            
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-srs-charcoal-grey focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-srs-light-grey">
+            <a href="#hero" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey">Home</a>
+            <a href="#about" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey">About Us</a>
+            <a href="#why-choose-us" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey">Why Choose Us</a>
+            <a href="#products" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey">Products</a>
+            <a href="#contact" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey">Contact</a>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero-section text-white py-16 md:py-24 rounded-b-2xl shadow-xl">
+        <div class="container mx-auto px-4 flex flex-col items-center text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight font-poppins">
                 Smart Digital Solutions for Indonesian Solopreneurs
             </h1>
@@ -101,15 +130,14 @@
                 <a href="https://myresale.app" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg">
                     Explore MyResale
                 </a>
-                <a href="https://myresale.app" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg">
+                <a href="https://klaimr.app" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg">
                     Discover Klaimr
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section class="py-16 md:py-24 bg-white">
+    <section id="about" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-4 max-w-4xl text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-6 font-poppins">About SRS Digital</h2>
             <p class="text-lg md:text-xl leading-relaxed mb-4">
@@ -121,8 +149,7 @@
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="py-16 md:py-24 bg-srs-light-grey rounded-2xl mx-4 my-8 shadow-inner">
+    <section id="why-choose-us" class="py-16 md:py-24 bg-srs-light-grey rounded-2xl mx-4 my-8 shadow-inner">
         <div class="container mx-auto px-4 max-w-5xl">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-poppins">Why Choose SRS Digital?</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -160,12 +187,10 @@
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="py-16 md:py-24 bg-white">
+    <section id="products" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-4 max-w-5xl">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-poppins">Our Products</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <!-- MyResale Product Card -->
                 <div class="flex flex-col md:flex-row items-center bg-srs-light-grey p-8 rounded-2xl shadow-lg">
                     <img src="https://placehold.co/120x120/5F00FF/FFFFFF/png?text=MyResale" alt="MyResale Product Image" class="w-24 h-24 md:w-32 md:h-32 rounded-xl mb-6 md:mb-0 md:mr-8 flex-shrink-0">
                     <div>
@@ -179,7 +204,6 @@
                     </div>
                 </div>
 
-                <!-- klaimr Product Card -->
                 <div class="flex flex-col md:flex-row items-center bg-srs-light-grey p-8 rounded-2xl shadow-lg">
                     <img src="https://placehold.co/120x120/DB00FF/FFFFFF/png?text=Klaimr" alt="Klaimr Product Image" class="w-24 h-24 md:w-32 md:h-32 rounded-xl mb-6 md:mb-0 md:mr-8 flex-shrink-0">
                     <div>
@@ -196,7 +220,7 @@
         </div>
     </section>
 
-<section class="py-16 md:py-24 bg-gradient-to-r from-srs-violet to-srs-fuchsia text-white text-center rounded-t-2xl shadow-xl">
+    <section id="contact" class="py-16 md:py-24 bg-gradient-to-r from-srs-violet to-srs-fuchsia text-white text-center rounded-t-2xl shadow-xl">
         <div class="container mx-auto px-4 max-w-4xl">
             <h2 class="text-3xl md:text-5xl font-bold mb-6 font-poppins leading-tight">
                 Ready to Transform Your Resale Business?
@@ -221,11 +245,36 @@
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM4 9h4v12H4zM6 3a2 2 0 110 4 2 2 0 010-4z"/></svg>
                 </a>
                 <a href="#" class="text-white hover:text-srs-teal transition-colors duration-200" aria-label="Instagram">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.792.01 3.249.071.427.065.714.18.923.293.283.15.56.371.86.671a3.02 3.02 0 01.671.86c.113.209.228.496.293.923.061.458.071.81.071 3.249V16.31c0 2.43-.01 2.792-.071 3.249-.065.427-.18.714-.293.923a3.02 3.02 0 01-.671.86c-.15.283-.371.56-.671.86-.209.113-.496.228-.923.293-.458.061-.81.071-3.249.071H7.685c-2.43 0-2.792-.01-3.249-.071-.427-.065-.714-.18-.923-.293a3.02 3.02 0 01-.671-.86c-.283-.15-.56-.371-.671-.86-.113-.209-.228-.496-.293-.923C2.01 19.117 2 18.765 2 16.315V7.685c0-2.43.01-2.792.071-3.249.065-.427.18-.714.293-.923a3.02 3.02 0 01.671-.86c.15-.283.371-.56.671-.86.209-.113.496-.228.923-.293C4.883 2.01 5.235 2 7.685 2h4.63ZM12 4.103c-2.463 0-2.846.01-3.262.072-.34.053-.559.12-.663.175-.12.062-.234.133-.349.248-.114.114-.186.228-.248.349-.055.104-.122.323-.175.663-.062.416-.072.799-.072 3.262v4.63c0 2.463.01 2.846.072 3.262.053.34.12.559.175.663.062.12.133.234.248.349.114.114.228.186.349.248.104.055.323.122.663.175.416.062.799.072 3.262.072h4.63c2.463 0 2.846-.01 3.262-.072.34-.053.559-.12.663-.175.12-.062.234-.133.349-.248.114-.114.186-.228.248-.349.055-.104.122-.323.175-.663-.062-.416-.072-.799-.072-3.262V7.685c0-2.463-.01-2.846-.072-3.262-.053-.34-.12-.559-.175-.663-.062-.12-.133-.234-.248-.349-.114-.114-.186-.228-.248-.349-.055-.104-.122-.323-.175-.663-.062-.416-.072-.799-.072-3.262h-4.63Zm0 3.638a4.316 4.316 0 100 8.632 4.316 4.316 0 000-8.632ZM12 15.867a3.867 3.867 0 110-7.734 3.867 3.867 0 010 7.734ZM19.294 4.31a.952.952 0 10-.952.952.952.952 0 00.952-.952Z" clip-rule="evenodd"/></svg>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.792.01 3.249.071.427.065.714.18.923.293.283.15.56.371.86.671a3.02 3.02 0 01.671.86c.113.209.228.496.293.923.061.458.071.81.071 3.249V16.31c0 2.43-.01 2.792-.071 3.249-.065.427-.18.714-.293.923a3.02 3.02 0 01-.671.86c-.15.283-.371.56-.671.86-.209.113-.496.228-.923.293-.458.061-.81.071-3.249.071H7.685c-2.43 0-2.792-.01-3.249-.071-.427-.065-.714-.18-.923-.293a3.02 3.02 0 01-.671-.86c-.283-.15-.56-.371-.671-.86-.113-.209-.228-.496-.293-.923C2.01 19.117 2 18.765 2 16.315V7.685c0-2.43.01-2.792.071-3.249.065-.427.18-.714.293-.923a3.02 3.02 0 01.671-.86c.15-.283.371-.56.671-.86.209-.113.496-.228.923-.293C4.883 2.01 5.235 2 7.685 2h4.63ZM12 4.103c-2.463 0-2.846.01-3.262.072-.34.053-.559.12-.663.175-.12.062-.234.133-.349.248-.114.114-.186.228-.248.349-.055.104-.122.323-.175.663-.062.416-.072.799-.072 3.262v4.63c0 2.463.01 2.846.072 3.262.053.34.12.559.175.663.062.12.133.234.248.349.114.114.228.186.349.248.104.055.323.122.663.175.416.062.799.072 3.262.072h4.63c2.463 0 2.846-.01 3.262-.072.34-.053.559-.12.663-.175.12-.062.234-.133.349-.248.114.114.186.228.248.349-.055.104-.122.323-.175.663-.062-.416-.072-.799-.072-3.262V7.685c0-2.463-.01-2.846-.072-3.262-.053-.34-.12-.559-.175-.663-.062-.12-.133-.234-.248-.349-.114-.114-.186-.228-.248-.349-.055-.104-.122-.323-.175-.663-.062-.416-.072-.799-.072-3.262h-4.63Zm0 3.638a4.316 4.316 0 100 8.632 4.316 4.316 0 000-8.632ZM12 15.867a3.867 3.867 0 110-7.734 3.867 3.867 0 010 7.734ZM19.294 4.31a.952.952 0 10-.952.952.952.952 0 00.952-.952Z" clip-rule="evenodd"/></svg>
                 </a>
                 </div>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu after clicking a link
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Toggle mobile menu
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 
 </body>
 </html>
