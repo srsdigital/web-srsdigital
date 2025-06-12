@@ -1,12 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Simple GitHub Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT SRS Solusi Digital - Smart Digital Solutions for Indonesian Solopreneurs</title>
+    <!-- Favicon (replace with your actual favicon) -->
+    <link rel="icon" href="https://placehold.co/32x32/5F00FF/FFFFFF?text=SRS" type="image/x-icon">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Poppins and Inter (as suggested in style guide) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Define custom CSS variables for your brand colors */
+        :root {
+            --srs-violet: #5F00FF;
+            --srs-fuchsia: #DB00FF;
+            --srs-charcoal-grey: #333333;
+            --srs-light-grey: #F5F5F5;
+            --srs-teal: #00BCD4;
+            --srs-gold: #FFD700;
+        }
+
+        /* Apply Poppins for headings and Inter for body text */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--srs-charcoal-grey); /* Default heading color */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--srs-charcoal-grey); /* Default body text color */
+        }
+
+        /* Custom gradient button style */
+        .btn-gradient {
+            background: linear-gradient(90deg, var(--srs-violet) 0%, var(--srs-fuchsia) 100%);
+            color: white;
+            transition: transform 0.2s ease-in-out;
+        }
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(95, 0, 255, 0.3), 0 4px 8px rgba(219, 0, 255, 0.3);
+        }
+
+        /* Hero section specific styling for gradient overlay */
+        .hero-section {
+            background-color: var(--srs-violet); /* Fallback color */
+            background-image: linear-gradient(135deg, var(--srs-violet) 0%, var(--srs-fuchsia) 100%);
+            position: relative;
+            overflow: hidden; /* Ensure rounded corners are applied correctly */
+        }
+    </style>
 </head>
-<body>
-<h1>Welcome to My Simple Website!</h1>
-<p>This is a basic HTML page hosted on GitHub Pages.</p>
+<body class="bg-white text-srs-charcoal-grey">
+
+    <!-- Header & Hero Section -->
+    <header class="hero-section text-white py-16 md:py-24 rounded-b-2xl shadow-xl">
+        <div class="container mx-auto px-4 flex flex-col items-center text-center">
+            <!-- Logo - Simplified for HTML (You'll replace this with your actual logo img when ready) -->
+            <div class="mb-8 p-4 rounded-xl shadow-lg" style="background: linear-gradient(90deg, var(--srs-violet) 0%, var(--srs-fuchsia) 100%);">
+                <span class="text-6xl md:text-7xl font-bold font-poppins uppercase tracking-wide">SRS</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight font-poppins">
+                Smart Digital Solutions for Indonesian Solopreneurs
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl">
+                Empowering your preloved & live-selling business with intelligent tools.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="https://myresale.app" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg">
+                    Explore MyResale
+                </a>
+                <a href="https://klaimrr.app" class="bg-white text-srs-violet px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg transition-colors duration-200 hover:text-srs-fuchsia">
+                    Discover Klaimrr
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 font-poppins">About PT SRS Solusi Digital</h2>
+            <p class="text-lg md:text-xl leading-relaxed mb-4">
+                At **PT SRS Solusi Digital**, we are driven by the immense potential of Indonesian solopreneurs. We understand that you're not just building a business; you're fostering community and contributing to a more sustainable future by giving preloved items a second life.
+            </p>
+            <p class="text-lg md:text-xl leading-relaxed">
+                Our mission is to provide intelligent digital tools that simplify your operations, save you valuable time, and equip you with the insights needed to grow. We focus on transforming administrative burdens into strategic advantages, allowing you to focus on what you do best: selling and engaging with your audience.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 md:py-24 bg-srs-light-grey rounded-2xl mx-4 my-8 shadow-inner">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-poppins">Why Choose PT SRS Solusi Digital?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://placehold.co/64x64/00BCD4/FFFFFF/png?text=Target" alt="Tailored for Solopreneurs Icon" class="mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 font-poppins">Tailored for Solopreneurs</h3>
+                    <p class="text-srs-charcoal-grey">Solutions built specifically to meet the unique needs of individual entrepreneurs and micro-businesses in Indonesia.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://placehold.co/64x64/00BCD4/FFFFFF/png?text=UX" alt="Intuitive & User-Friendly Icon" class="mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 font-poppins">Intuitive & User-Friendly</h3>
+                    <p class="text-srs-charcoal-grey">Powerful tools designed for maximum ease of use, ensuring a smooth experience even for those less tech-savvy.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://placehold.co/64x64/00BCD4/FFFFFF/png?text=AI" alt="Smart Automation Icon" class="mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 font-poppins">Smart Automation</h3>
+                    <p class="text-srs-charcoal-grey">Automate tedious administrative tasks, freeing you to focus on selling and engaging with your community.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://placehold.co/64x64/00BCD4/FFFFFF/png?text=Chart" alt="Data-Driven Growth Icon" class="mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 font-poppins">Data-Driven Growth</h3>
+                    <p class="text-srs-charcoal-grey">Gain valuable insights from your sales data to make informed decisions and effectively scale your business.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://placehold.co/64x64/00BCD4/FFFFFF/png?text=Eco" alt="Committed to Sustainability Icon" class="mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 font-poppins">Committed to Sustainability</h3>
+                    <p class="text-srs-charcoal-grey">Supporting businesses that contribute to a circular economy by extending the life of preloved goods.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+                    <img src="https://placehold.co/64x64/00BCD4/FFFFFF/png?text=Partner" alt="Your Trusted Partner Icon" class="mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 font-poppins">Your Trusted Partner</h3>
+                    <p class="text-srs-charcoal-grey">We're dedicated to helping you achieve greater efficiency and unlock new growth opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-poppins">Our Products</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- MyResale Product Card -->
+                <div class="flex flex-col md:flex-row items-center bg-srs-light-grey p-8 rounded-2xl shadow-lg">
+                    <img src="https://placehold.co/120x120/5F00FF/FFFFFF/png?text=MyResale" alt="MyResale Product Image" class="w-24 h-24 md:w-32 md:h-32 rounded-xl mb-6 md:mb-0 md:mr-8 flex-shrink-0">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 font-poppins text-srs-violet">MyResale</h3>
+                        <p class="text-lg leading-relaxed mb-4">
+                            The complete end-to-end toolchest for preloved resellers. Manage inventory, streamline payments, auto-reimburse consignors, and get insightful analytics to grow your business.
+                        </p>
+                        <a href="https://myresale.app" class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md hover:shadow-lg">
+                            Learn More about MyResale
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Klaimrr Product Card -->
+                <div class="flex flex-col md:flex-row items-center bg-srs-light-grey p-8 rounded-2xl shadow-lg">
+                    <img src="https://placehold.co/120x120/DB00FF/FFFFFF/png?text=Klaimrr" alt="Klaimrr Product Image" class="w-24 h-24 md:w-32 md:h-32 rounded-xl mb-6 md:mb-0 md:mr-8 flex-shrink-0">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 font-poppins text-srs-fuchsia">Klaimrr</h3>
+                        <p class="text-lg leading-relaxed mb-4">
+                            Automate claim identification and build waitlists during your TikTok Live sessions. Klaimrr organizes data in real-time for easy tracking and post-live recaps.
+                        </p>
+                        <a href="https://klaimrr.app" class="bg-srs-violet text-white px-6 py-2 rounded-full text-md font-semibold shadow-md hover:shadow-lg transition-colors duration-200 hover:bg-srs-fuchsia">
+                            Discover Klaimrr
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-r from-srs-violet to-srs-fuchsia text-white text-center rounded-t-2xl shadow-xl">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 font-poppins leading-tight">
+                Ready to Transform Your Resale Business?
+            </h2>
+            <p class="text-xl md:text-2xl mb-10">
+                Join Indonesian solopreneurs who are simplifying their operations and accelerating their growth with SRS Solusi Digital.
+            </p>
+            <a href="mailto:halo@srsdigital.co.id" class="bg-srs-gold text-srs-charcoal-grey px-10 py-4 rounded-full text-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                Contact Us Today!
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-srs-charcoal-grey text-white py-12 md:py-16">
+        <div class="container mx-auto px-4 text-center text-sm md:text-base">
+            <p class="mb-2">&copy; 2025 PT SRS Solusi Digital. All rights reserved.</p>
+            <p class="mb-4">Jakarta, Indoneisa</p>
+            <p class="mb-2">Email: <a href="mailto:halo@srsdigital.co.id" class="text-srs-teal hover:underline">halo@srsdigital.co.id</a></p>
+            <p>Phone: <a href="tel:+6285780800000" class="text-srs-teal hover:underline">+62 857-8080-0000</a></p>
+            <!-- Add social media links here if desired -->
+            <div class="flex justify-center gap-4 mt-6">
+                <!-- Example: Replace with actual social links and icons -->
+                <a href="#" class="text-white hover:text-srs-teal transition-colors duration-200" aria-label="LinkedIn">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM4 9h4v12H4zM6 3a2 2 0 110 4 2 2 0 010-4z"/></svg>
+                </a>
+                <a href="#" class="text-white hover:text-srs-teal transition-colors duration-200" aria-label="Instagram">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.792.01 3.249.071.427.065.714.18.923.293.283.15.56.371.86.671a3.02 3.02 0 01.671.86c.113.209.228.496.293.923.061.458.071.81.071 3.249V16.31c0 2.43-.01 2.792-.071 3.249-.065.427-.18.714-.293.923a3.02 3.02 0 01-.671.86c-.15.283-.371.56-.671.86-.209.113-.496.228-.923.293-.458.061-.81.071-3.249.071H7.685c-2.43 0-2.792-.01-3.249-.071-.427-.065-.714-.18-.923-.293a3.02 3.02 0 01-.671-.86c-.283-.15-.56-.371-.671-.86-.113-.209-.228-.496-.293-.923C2.01 19.117 2 18.765 2 16.315V7.685c0-2.43.01-2.792.071-3.249.065-.427.18-.714.293-.923a3.02 3.02 0 01.671-.86c.15-.283.371-.56.671-.86.209-.113.496-.228.923-.293C4.883 2.01 5.235 2 7.685 2h4.63ZM12 4.103c-2.463 0-2.846.01-3.262.072-.34.053-.559.12-.663.175-.12.062-.234.133-.349.248-.114.114-.186.228-.248.349-.055.104-.122.323-.175.663-.062.416-.072.799-.072 3.262v4.63c0 2.463.01 2.846.072 3.262.053.34.12.559.175.663.062.12.133.234.248.349.114.114.228.186.349.248.104.055.323.122.663.175.416.062.799.072 3.262.072h4.63c2.463 0 2.846-.01 3.262-.072.34-.053.559-.12.663-.175.12-.062.234-.133.349-.248.114-.114.186-.228.248-.349.055-.104.122-.323.175-.663.062-.416.072-.799.072-3.262V7.685c0-2.463-.01-2.846-.072-3.262-.053-.34-.12-.559-.175-.663-.062-.12-.133-.234-.248-.349-.114-.114-.186-.228-.248-.349-.055-.104-.122-.323-.175-.663-.062-.416-.072-.799-.072-3.262h-4.63Zm0 3.638a4.316 4.316 0 100 8.632 4.316 4.316 0 000-8.632ZM12 15.867a3.867 3.867 0 110-7.734 3.867 3.867 0 010 7.734ZM19.294 4.31a.952.952 0 10-.952.952.952.952 0 00.952-.952Z" clip-rule="evenodd"/></svg>
+                </a>
+                <!-- Add more social media icons as needed -->
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
