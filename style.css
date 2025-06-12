@@ -1,0 +1,42 @@
+/* Custom CSS for PT SRS Solusi Digital */
+
+/* Google Fonts are linked in HTML head, but explicitly declare here if needed */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Custom utility classes or overrides if necessary */
+
+/* Example of how you might further refine elements if Tailwind isn't enough */
+/* For instance, if you want a specific shadow for a card: */
+/* .product-card-shadow {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+} */
+
+/* Ensure smooth transitions for interactive elements */
+a, button {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Any specific spacing or alignment not easily handled by Tailwind */
+/* For example, if you wanted a specific padding for a section not covered by default utilities */
+/* .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+} */
+
+/* You can define specific responsive overrides here if needed */
+/* @media (min-width: 768px) {
+    .hero-text {
+        font-size: 4rem;
+    }
+} */
+
+/* Basic reset/normalization if desired, though Tailwind's preflight handles most */
+/* *, *::before, *::after {
+    box-sizing: border-box;
+} */
