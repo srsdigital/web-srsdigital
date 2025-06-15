@@ -6,6 +6,7 @@
     <title>SRS Digital - Smart Digital Solutions for Indonesian Solopreneurs</title>
     <link rel="icon" href="https://placehold.co/32x32/5F00FF/FFFFFF?text=SRS" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -25,7 +26,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
         /* Define custom CSS variables for your brand colors */
         :root {
@@ -198,37 +199,40 @@
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-poppins">Why Choose SRS Digital?</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-                    <img src="https://placehold.co/64x64/00BCD4/FFFFFF/png?text=Target" alt="Tailored for Solopreneurs Icon" class="mx-auto mb-4">
+                    <i data-lucide="user" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
                     <h3 class="text-xl font-semibold mb-2 font-poppins">Tailored for Solopreneurs</h3>
                     <p class="text-srs-charcoal-grey">Solutions built specifically to meet the unique needs of individual entrepreneurs and micro-businesses in Indonesia.</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-                    <img src="https://placehold.co/64x64/00BCD4/FFFFFF/png?text=UX" alt="Intuitive & User-Friendly Icon" class="mx-auto mb-4">
+                    <i data-lucide="mouse-pointer-click" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
                     <h3 class="text-xl font-semibold mb-2 font-poppins">Intuitive & User-Friendly</h3>
                     <p class="text-srs-charcoal-grey">Powerful tools designed for maximum ease of use, ensuring a smooth experience even for those less tech-savvy.</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-                    <img src="https://placehold.co/64x64/00BCD4/FFFFFF/png?text=AI" alt="Smart Automation Icon" class="mx-auto mb-4">
+                    <i data-lucide="bot" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
                     <h3 class="text-xl font-semibold mb-2 font-poppins">Smart Automation</h3>
                     <p class="text-srs-charcoal-grey">Automate tedious administrative tasks, freeing you to focus on selling and engaging with your community.</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-                    <img src="https://placehold.co/64x64/00BCD4/FFFFFF/png?text=Chart" alt="Data-Driven Growth Icon" class="mx-auto mb-4">
+                    <i data-lucide="bar-chart-3" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
                     <h3 class="text-xl font-semibold mb-2 font-poppins">Data-Driven Growth</h3>
                     <p class="text-srs-charcoal-grey">Gain valuable insights from your sales data to make informed decisions and effectively scale your business.</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-                    <img src="https://placehold.co/64x64/00BCD4/FFFFFF/png?text=Eco" alt="Committed to Sustainability Icon" class="mx-auto mb-4">
+                    <i data-lucide="recycle" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
                     <h3 class="text-xl font-semibold mb-2 font-poppins">Committed to Sustainability</h3>
                     <p class="text-srs-charcoal-grey">Supporting businesses that contribute to a circular economy by extending the life of preloved goods.</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-                    <img src="https://placehold.co/64x64/00BCD4/FFFFFF/png?text=Partner" alt="Your Trusted Partner Icon" class="mx-auto mb-4">
+                    <i data-lucide="shield-check" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
                     <h3 class="text-xl font-semibold mb-2 font-poppins">Your Trusted Partner</h3>
                     <p class="text-srs-charcoal-grey">We're dedicated to helping you achieve greater efficiency and unlock new growth opportunities.</p>
                 </div>
             </div>
         </div>
+        <script>
+            lucide.createIcons();
+        </script>
     </section>
 
     <section id="products" class="py-16 md:py-24 bg-white">
@@ -249,7 +253,7 @@
                 </div>
 
                 <div class="flex flex-col md:flex-row items-center bg-srs-light-grey p-8 rounded-2xl shadow-lg">
-                    <img src="https://placehold.co/120x120/DB00FF/FFFFFF/png?text=Klaimr" alt="Klaimr Product Image" class="w-24 h-24 md:w-32 md:h-32 rounded-xl mb-6 md:mb-0 md:mr-8 flex-shrink-0">
+                    <img src="images/klaimr.png" alt="Klaimr Product Image" class="w-24 h-24 md:w-32 md:h-32 rounded-xl mb-6 md:mb-0 md:mr-8 flex-shrink-0">
                     <div>
                         <h3 class="text-2xl font-bold mb-3 font-poppins text-srs-fuchsia">Klaimr</h3>
                         <p class="text-lg leading-relaxed mb-4">
@@ -264,9 +268,9 @@
         </div>
     </section>
 
-    <section id="contact" class="py-16 md:py-24 bg-gradient-to-r from-srs-violet to-srs-fuchsia text-white text-center rounded-t-2xl shadow-xl">
+    <section id="contact" class="py-16 md:py-24 text-white text-center rounded-t-2xl shadow-xl contact-bg">
         <div class="container mx-auto px-4 max-w-4xl">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6 font-poppins leading-tight">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 font-poppins leading-tight text-white">
                 Ready to Transform Your Resale Business?
             </h2>
             <p class="text-xl md:text-2xl mb-10">
@@ -283,7 +287,6 @@
             <p class="mb-2">&copy; 2025 PT SRS Solusi Digital. All rights reserved.</p>
             <p class="mb-4">Jakarta, Indonesia</p>
             <p class="mb-2">Email: <a href="mailto:halo@srsdigital.co.id" class="text-srs-teal hover:underline">halo@srsdigital.co.id</a></p>
-            <p>Phone: <a href="tel:+6285780800000" class="text-srs-teal hover:underline">+62 857-8080-0000</a></p>
             <div class="flex justify-center gap-4 mt-6">
                 <a href="#" class="text-white hover:text-srs-teal transition-colors duration-200" aria-label="LinkedIn">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM4 9h4v12H4zM6 3a2 2 0 110 4 2 2 0 010-4z"/></svg>

@@ -58,3 +58,28 @@ a, button {
 .bg-srs-light-grey {
     color: #333333;
 }
+
+.contact-bg {
+  position: relative;
+  background-image: url('../images/office.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.contact-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) to make it darker or lighter */
+  border-radius: 1rem; /* Corresponds to rounded-t-2xl */
+}
+
+/* Ensure the content is displayed above the overlay */
+.contact-bg > div {
+  position: relative;
+  z-index: 10;
+}
