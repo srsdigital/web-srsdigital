@@ -1,85 +1,143 @@
 /* Custom CSS for PT SRS Solusi Digital */
 
-/* Google Fonts are linked in HTML head, but explicitly declare here if needed */
-body {
-    font-family: 'Inter', sans-serif;
-    color: #333333;
-}
-
+/* Apply Poppins for headings and Inter for body text */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
+    color: #333333; /* Default heading color */
+}
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333333; /* Default body text color */
 }
 
-/* Custom utility classes or overrides if necessary */
-
-/* Example of how you might further refine elements if Tailwind isn't enough */
-/* For instance, if you want a specific shadow for a card: */
-/* .product-card-shadow {
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-} */
-
-/* Ensure smooth transitions for interactive elements */
-a, button {
-    transition: all 0.2s ease-in-out;
+/* Custom gradient button style */
+.btn-gradient {
+    background: linear-gradient(90deg, #5F00FF 0%, #DB00FF 100%);
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+.btn-gradient:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(95, 0, 255, 0.4);
 }
 
-/* Any specific spacing or alignment not easily handled by Tailwind */
-/* For example, if you wanted a specific padding for a section not covered by default utilities */
-/* .section-padding {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-} */
+/* Hero Section Styling */
+.hero-section {
+    position: relative;
+    overflow: hidden; /* Ensures video stays within bounds and rounded corners apply */
+    background-color: #DB00FF; /* Fallback color for video */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh; /* Adjusted height for better mobile view */
+    max-height: 800px;
+}
+.video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(95, 0, 255, 0.6) 0%, rgba(219, 0, 255, 0.6) 100%);
+    z-index: 2;
+}
+.hero-content {
+    position: relative;
+    z-index: 3;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
 
-/* You can define specific responsive overrides here if needed */
-/* @media (min-width: 768px) {
-    .hero-text {
-        font-size: 4rem;
-    }
-} */
+/* Sticky Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
 
-/* Basic reset/normalization if desired, though Tailwind's preflight handles most */
-/* *, *::before, *::after {
-    box-sizing: border-box;
-} */
-
-/* Ensure text is visible in light backgrounds */
-.bg-white {
+/* Testimonial Card Styling */
+.testimonial-card {
+    background-color: #F5F5F5;
+    border-left: 4px solid #5F00FF;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.testimonial-quote {
+    font-style: italic;
     color: #333333;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.7;
+}
+.testimonial-quote::before {
+    content: '“';
+    font-size: 3rem;
+    color: #DB00FF;
+    font-weight: bold;
+    line-height: 0;
+    position: relative;
+    top: 1rem;
+    left: -1rem;
+}
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
-/* Override text color for sections with dark backgrounds */
-.hero-section,
-.bg-gradient-to-r,
-.bg-srs-charcoal-grey {
-    color: #ffffff;
-}
-
-/* Ensure product cards have proper contrast */
-.bg-srs-light-grey {
-    color: #333333;
-}
-
+/* Contact Section Styling */
 .contact-bg {
-  position: relative;
-  background-image: url('../images/office.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    position: relative;
+    background-image: url('../images/office.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
-
 .contact-bg::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) to make it darker or lighter */
-  border-radius: 1rem; /* Corresponds to rounded-t-2xl */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(18, 18, 18, 0.6);
 }
-
-/* Ensure the content is displayed above the overlay */
 .contact-bg > div {
-  position: relative;
-  z-index: 10;
+    position: relative;
+    z-index: 10;
+}
+.contact-input {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: white;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+.contact-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+.contact-input:focus {
+    outline: none;
+    border-color: #FFD700;
+    background-color: rgba(255, 255, 255, 0.2);
 }
