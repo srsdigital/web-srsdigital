@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
+        // Tailwind CSS configuration
         tailwind.config = {
             theme: {
                 extend: {
@@ -42,18 +43,20 @@
     <nav class="navbar py-4">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <a href="#hero" class="flex items-center space-x-2">
-                <img src="images/logo.png" alt="SRS Digital Logo" class="h-10 w-auto">
+                <img src="images/logo.png" alt="SRS Digital Logo" class="h-10 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/150x50?text=SRS+Digital';">
             </a>
 
-            <div class="hidden md:flex space-x-8">
-                <a href="#hero" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200">Home</a>
-                <a href="#about" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200">About Us</a>
-                <a href="#products" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200">Products</a>
-                <a href="#testimonials" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200">Seller Stories</a>
-                <a href="#contact" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200">Contact</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#hero" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200" data-key="nav_home">Home</a>
+                <a href="#about" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200" data-key="nav_about">About Us</a>
+                <a href="#products" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200" data-key="nav_products">Products</a>
+                <a href="#testimonials" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200" data-key="nav_testimonials">Seller Stories</a>
+                <a href="#contact" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200" data-key="nav_contact">Contact</a>
+                <button id="lang-switcher"></button>
             </div>
 
-            <div class="md:hidden">
+            <div class="md:hidden flex items-center space-x-4">
+                 <button id="lang-switcher-mobile" class="text-sm"></button>
                 <button id="mobile-menu-button" class="text-srs-charcoal-grey focus:outline-none">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -62,11 +65,11 @@
             </div>
         </div>
         <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-srs-light-grey">
-            <a href="#hero" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey">Home</a>
-            <a href="#about" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey">About Us</a>
-            <a href="#products" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey">Products</a>
-            <a href="#testimonials" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey">Seller Stories</a>
-            <a href="#contact" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey">Contact</a>
+            <a href="#hero" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey" data-key="nav_home_mobile">Home</a>
+            <a href="#about" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey" data-key="nav_about_mobile">About Us</a>
+            <a href="#products" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey" data-key="nav_products_mobile">Products</a>
+            <a href="#testimonials" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey" data-key="nav_testimonials_mobile">Seller Stories</a>
+            <a href="#contact" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey" data-key="nav_contact_mobile">Contact</a>
         </div>
     </nav>
 
@@ -74,203 +77,347 @@
         <video playsinline autoplay muted loop preload="auto" class="video-background">
             <source src="images/hero.mp4" type="video/mp4">
         </video>
-
         <div class="video-overlay"></div>
-
         <div class="hero-content">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight font-poppins text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight font-poppins text-white" data-key="hero_title">
                 Smart Digital Solutions for Indonesian Solopreneurs
             </h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" data-key="hero_subtitle">
                 Empowering your preloved & live-selling business with intelligent tools.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://myresale.app" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg">
+                <a href="https://myresale.app" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg" data-key="hero_button1">
                     Explore MyResale
                 </a>
-                <a href="https://klaimr.app" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg">
+                <a href="https://klaimr.app" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg" data-key="hero_button2">
                     Discover Klaimr
                 </a>
             </div>
         </div>
     </header>
 
-    <section id="about" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4 max-w-4xl text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 font-poppins">About SRS Digital</h2>
-            <p class="text-lg md:text-xl leading-relaxed mb-4">
-                At SRS Digital, we are driven by the immense potential of Indonesian solopreneurs. We understand that you're not just building a business; you're fostering community and contributing to a more sustainable future by giving preloved items a second life.
-            </p>
-            <p class="text-lg md:text-xl leading-relaxed">
-                Our mission is to provide intelligent digital tools that simplify your operations, save you valuable time, and equip you with the insights needed to grow. We focus on transforming administrative burdens into strategic advantages, allowing you to focus on what you do best: selling and engaging with your audience.
-            </p>
-        </div>
-    </section>
-
-    <section id="why-choose-us" class="py-16 md:py-24 bg-srs-light-grey rounded-2xl mx-4 my-8 shadow-inner">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-poppins">Why Choose SRS Digital?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-                    <i data-lucide="user" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
-                    <h3 class="text-xl font-semibold mb-2 font-poppins">Tailored for Solopreneurs</h3>
-                    <p class="text-srs-charcoal-grey">Solutions built specifically to meet the unique needs of individual entrepreneurs and micro-businesses in Indonesia.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-                    <i data-lucide="mouse-pointer-click" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
-                    <h3 class="text-xl font-semibold mb-2 font-poppins">Intuitive & User-Friendly</h3>
-                    <p class="text-srs-charcoal-grey">Powerful tools designed for maximum ease of use, ensuring a smooth experience even for those less tech-savvy.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-                    <i data-lucide="bot" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
-                    <h3 class="text-xl font-semibold mb-2 font-poppins">Smart Automation</h3>
-                    <p class="text-srs-charcoal-grey">Automate tedious administrative tasks, freeing you to focus on selling and engaging with your community.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-                    <i data-lucide="bar-chart-3" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
-                    <h3 class="text-xl font-semibold mb-2 font-poppins">Data-Driven Growth</h3>
-                    <p class="text-srs-charcoal-grey">Gain valuable insights from your sales data to make informed decisions and effectively scale your business.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-                    <i data-lucide="recycle" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
-                    <h3 class="text-xl font-semibold mb-2 font-poppins">Committed to Sustainability</h3>
-                    <p class="text-srs-charcoal-grey">Supporting businesses that contribute to a circular economy by extending the life of preloved goods.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
-                    <i data-lucide="shield-check" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
-                    <h3 class="text-xl font-semibold mb-2 font-poppins">Your Trusted Partner</h3>
-                    <p class="text-srs-charcoal-grey">We're dedicated to helping you achieve greater efficiency and unlock new growth opportunities.</p>
-                </div>
+    <main>
+        <section id="about" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 max-w-4xl text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 font-poppins" data-key="about_title">About SRS Digital</h2>
+                <p class="text-lg md:text-xl leading-relaxed mb-4" data-key="about_p1">
+                    At SRS Digital, we are driven by the immense potential of Indonesian solopreneurs. We understand that you're not just building a business; you're fostering community and contributing to a more sustainable future by giving preloved items a second life.
+                </p>
+                <p class="text-lg md:text-xl leading-relaxed" data-key="about_p2">
+                    Our mission is to provide intelligent digital tools that simplify your operations, save you valuable time, and equip you with the insights needed to grow. We focus on transforming administrative burdens into strategic advantages, allowing you to focus on what you do best: selling and engaging with your audience.
+                </p>
             </div>
-        </div>
-        <script>
-            lucide.createIcons();
-        </script>
-    </section>
+        </section>
 
-    <section id="products" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-poppins">Our Products</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div class="flex flex-col md:flex-row items-center bg-srs-light-grey p-8 rounded-2xl shadow-lg">
-                    <img src="images/myresale.png" alt="MyResale Product Image" class="w-24 h-24 md:w-32 md:h-32 rounded-xl mb-6 md:mb-0 md:mr-8 flex-shrink-0">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-3 font-poppins text-srs-violet">MyResale</h3>
-                        <p class="text-lg leading-relaxed mb-4">
-                            The complete end-to-end toolchest for preloved resellers. Manage inventory, streamline payments, auto-reimburse consignors, and get insightful analytics to grow your business.
-                        </p>
-                        <a href="https://myresale.app" class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md hover:shadow-lg">
-                            Learn More
-                        </a>
+        <section id="why-choose-us" class="py-16 md:py-24 bg-srs-light-grey rounded-2xl mx-4 my-8 shadow-inner">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-poppins" data-key="why_title">Why Choose SRS Digital?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+                        <i data-lucide="user" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
+                        <h3 class="text-xl font-semibold mb-2 font-poppins" data-key="why_item1_title">Tailored for Solopreneurs</h3>
+                        <p class="text-srs-charcoal-grey" data-key="why_item1_p">Solutions built specifically to meet the unique needs of individual entrepreneurs and micro-businesses in Indonesia.</p>
                     </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row items-center bg-srs-light-grey p-8 rounded-2xl shadow-lg">
-                    <img src="images/klaimr.png" alt="Klaimr Product Image" class="w-24 h-24 md:w-32 md:h-32 rounded-xl mb-6 md:mb-0 md:mr-8 flex-shrink-0">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-3 font-poppins text-srs-fuchsia">Klaimr</h3>
-                        <p class="text-lg leading-relaxed mb-4">
-                            Automate claim identification and build waitlists during your TikTok Live sessions. Klaimr organizes data in real-time for easy tracking and post-live recaps saving you precious time.
-                        </p>
-                        <a href="https://klaimr.app" class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md hover:shadow-lg">
-                            Learn More
-                        </a>
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+                        <i data-lucide="mouse-pointer-click" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
+                        <h3 class="text-xl font-semibold mb-2 font-poppins" data-key="why_item2_title">Intuitive & User-Friendly</h3>
+                        <p class="text-srs-charcoal-grey" data-key="why_item2_p">Powerful tools designed for maximum ease of use, ensuring a smooth experience even for those less tech-savvy.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+                        <i data-lucide="bot" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
+                        <h3 class="text-xl font-semibold mb-2 font-poppins" data-key="why_item3_title">Smart Automation</h3>
+                        <p class="text-srs-charcoal-grey" data-key="why_item3_p">Automate tedious administrative tasks, freeing you to focus on selling and engaging with your community.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+                        <i data-lucide="bar-chart-3" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
+                        <h3 class="text-xl font-semibold mb-2 font-poppins" data-key="why_item4_title">Data-Driven Growth</h3>
+                        <p class="text-srs-charcoal-grey" data-key="why_item4_p">Gain valuable insights from your sales data to make informed decisions and effectively scale your business.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+                        <i data-lucide="recycle" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
+                        <h3 class="text-xl font-semibold mb-2 font-poppins" data-key="why_item5_title">Committed to Sustainability</h3>
+                        <p class="text-srs-charcoal-grey" data-key="why_item5_p">Supporting businesses that contribute to a circular economy by extending the life of preloved goods.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow duration-300">
+                        <i data-lucide="shield-check" class="mx-auto mb-4 w-16 h-16 text-srs-fuchsia"></i>
+                        <h3 class="text-xl font-semibold mb-2 font-poppins" data-key="why_item6_title">Your Trusted Partner</h3>
+                        <p class="text-srs-charcoal-grey" data-key="why_item6_p">We're dedicated to helping you achieve greater efficiency and unlock new growth opportunities.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">From Solopreneurs Like You</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card">
-                    <p class="testimonial-quote">"I used to spend over an hour on recaps after every live session, manually tracking everything in my phone notes. It was exhausting."</p>
-                    <div class="testimonial-author">
-                        <img src="images/thisiscimx.webp" alt="Profile picture of Adinda S." class="w-12 h-12 rounded-full">
+        <section id="products" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 font-poppins" data-key="products_title">Our Products</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="flex flex-col md:flex-row items-center bg-srs-light-grey p-8 rounded-2xl shadow-lg">
+                        <img src="images/myresale.png" alt="MyResale Product Image" class="w-24 h-24 md:w-32 md:h-32 rounded-xl mb-6 md:mb-0 md:mr-8 flex-shrink-0" onerror="this.onerror=null;this.src='https://placehold.co/128x128?text=MyResale';">
                         <div>
-                            <p class="font-semibold">Adinda S.</p>
-                            <p class="text-sm text-srs-charcoal-grey/70">@thisiscimx</p>
+                            <h3 class="text-2xl font-bold mb-3 font-poppins text-srs-violet">MyResale</h3>
+                            <p class="text-lg leading-relaxed mb-4" data-key="product1_p">
+                                The complete end-to-end toolchest for preloved resellers. Manage inventory, streamline payments, auto-reimburse consignors, and get insightful analytics to grow your business.
+                            </p>
+                            <a href="https://myresale.app" class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md hover:shadow-lg" data-key="product_learn_more">
+                                Learn More
+                            </a>
                         </div>
                     </div>
-                </div>
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card">
-                    <p class="testimonial-quote">"As a seller, you want to use tools that make things easier, especially for managing recaps and shipping."</p>
-                    <div class="testimonial-author">
-                        <img src="images/ditigadara.webp" alt="Profile picture of Nadya" class="w-12 h-12 rounded-full">
+
+                    <div class="flex flex-col md:flex-row items-center bg-srs-light-grey p-8 rounded-2xl shadow-lg">
+                        <img src="images/klaimr.png" alt="Klaimr Product Image" class="w-24 h-24 md:w-32 md:h-32 rounded-xl mb-6 md:mb-0 md:mr-8 flex-shrink-0" onerror="this.onerror=null;this.src='https://placehold.co/128x128?text=Klaimr';">
                         <div>
-                            <p class="font-semibold">Nadya</p>
-                            <p class="text-sm text-srs-charcoal-grey/70">@ditigadara</p>
+                            <h3 class="text-2xl font-bold mb-3 font-poppins text-srs-fuchsia">Klaimr</h3>
+                            <p class="text-lg leading-relaxed mb-4" data-key="product2_p">
+                                Automate claim identification and build waitlists during your TikTok Live sessions. Klaimr organizes data in real-time for easy tracking and post-live recaps saving you precious time.
+                            </p>
+                            <a href="https://klaimr.app" class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md hover:shadow-lg" data-key="product_learn_more2">
+                                Learn More
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="py-16 md:py-24 text-white text-center rounded-t-2xl shadow-xl contact-bg">        
-        <div class="container mx-auto px-4 max-w-4xl">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6 font-poppins leading-tight text-white">
-                Ready to Transform Your Resale Business?
-            </h2>
-            <p class="text-xl md:text-2xl mb-10">
-                Join Indonesian solopreneurs who are simplifying their operations and accelerating their growth with SRS
-                Digital.
-            </p>
-        
+        <section id="testimonials" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-key="testimonials_title">From Solopreneurs Like You</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote" data-key="testimonial1_quote">"I used to spend over an hour on recaps after every live session, manually tracking everything in my phone notes. It was exhausting."</p>
+                        <div class="testimonial-author">
+                            <img src="images/thisiscimx.webp" alt="Profile picture of Adinda S." class="w-12 h-12 rounded-full" onerror="this.onerror=null;this.src='https://placehold.co/48x48?text=AS';">
+                            <div>
+                                <p class="font-semibold">Adinda S.</p>
+                                <p class="text-sm text-srs-charcoal-grey/70">@thisiscimx</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote" data-key="testimonial2_quote">"As a seller, you want to use tools that make things easier, especially for managing recaps and shipping."</p>
+                        <div class="testimonial-author">
+                            <img src="images/ditigadara.webp" alt="Profile picture of Nadya" class="w-12 h-12 rounded-full" onerror="this.onerror=null;this.src='https://placehold.co/48x48?text=N';">
+                            <div>
+                                <p class="font-semibold">Nadya</p>
+                                <p class="text-sm text-srs-charcoal-grey/70">@ditigadara</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24 text-white text-center rounded-t-2xl shadow-xl contact-bg">        
+            <div class="container mx-auto px-4 max-w-4xl">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 font-poppins leading-tight text-white" data-key="contact_title">
+                    Ready to Transform Your Resale Business?
+                </h2>
+                <p class="text-xl md:text-2xl mb-10" data-key="contact_p">
+                    Join Indonesian solopreneurs who are simplifying their operations and accelerating their growth with SRS Digital.
+                </p>
                 <formshare-launch-button href="https://formshare.ai/s/hp0279sqNl" type="modal">
-                    <!-- Your Custom Button Element -->
-                    <button class="bg-srs-gold text-srs-charcoal-grey px-10 py-4 rounded-full text-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">Contact Us Today!</button>
+                    <button class="bg-srs-gold text-srs-charcoal-grey px-10 py-4 rounded-full text-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" data-key="contact_button">Contact Us Today!</button>
                 </formshare-launch-button>
-        
                 <script src="https://formshare.ai/embed/v1.js"></script>
-        </div>
-    </section>
+            </div>
+        </section>
+    </main>
 
     <footer class="bg-srs-charcoal-grey text-white py-12 md:py-16">
         <div class="container mx-auto px-4 text-center text-sm md:text-base">
-            <p class="mb-2">&copy; 2025 PT SRS Solusi Digital. All rights reserved.</p>
-            <p class="mb-4">Jakarta, Indonesia</p>
+            <p class="mb-2" data-key="footer_copyright">&copy; 2025 PT SRS Solusi Digital. All rights reserved.</p>
+            <p class="mb-4" data-key="footer_location">Jakarta, Indonesia</p>
             <p class="mb-2">Email: <a href="mailto:halo@srsdigital.co.id" class="text-srs-teal hover:underline">halo@srsdigital.co.id</a></p>
             <div class="flex justify-center gap-4 mt-6">
                 <a href="#" class="text-white hover:text-srs-teal transition-colors duration-200" aria-label="LinkedIn">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM4 9h4v12H4zM6 3a2 2 0 110 4 2 2 0 010-4z"/></svg>
                 </a>
                 <a href="#" class="text-white hover:text-srs-teal transition-colors duration-200" aria-label="Instagram">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.792.01 3.249.071.427.065.714.18.923.293.283.15.56.371.86.671a3.02 3.02 0 01.671.86c.113.209.228.496.293.923.061.458.071.81.071 3.249V16.31c0 2.43-.01 2.792-.071 3.249-.065.427-.18.714-.293.923a3.02 3.02 0 01-.671.86c-.15.283-.371.56-.671.86-.209.113-.496.228-.923.293-.458.061-.81.071-3.249.071H7.685c-2.43 0-2.792-.01-3.249-.071-.427-.065-.714-.18-.923-.293a3.02 3.02 0 01-.671-.86c-.283-.15-.56-.371-.671-.86-.113-.209-.228-.496-.293-.923C2.01 19.117 2 18.765 2 16.315V7.685c0-2.43.01-2.792.071-3.249.065-.427.18-.714.293-.923a3.02 3.02 0 01.671-.86c.15-.283.371-.56.671-.86.209-.113.496-.228.923-.293C4.883 2.01 5.235 2 7.685 2h4.63ZM12 4.103c-2.463 0-2.846.01-3.262.072-.34.053-.559.12-.663.175-.12.062-.234.133-.349.248-.114.114-.186.228-.248.349-.055.104-.122.323-.175.663-.062.416-.072.799-.072 3.262v4.63c0 2.463.01 2.846.072 3.262.053.34.12.559.175.663.062.12.133.234.248.349.114.114.228.186.349.248.104.055.323.122.663.175.416.062.799.072 3.262.072h4.63c2.463 0 2.846-.01 3.262-.072.34-.053.559-.12.663-.175.12-.062.234-.133.349-.248.114.114.186.228.248.349-.055.104-.122.323-.175.663-.062-.416-.072-.799-.072-3.262V7.685c0-2.463-.01-2.846-.072-3.262-.053-.34-.12-.559-.175-.663-.062-.12-.133-.234-.248-.349-.114-.114-.186-.228-.248-.349-.055-.104-.122-.323-.175-.663-.062-.416-.072-.799-.072-3.262h-4.63Zm0 3.638a4.316 4.316 0 100 8.632 4.316 4.316 0 000-8.632ZM12 15.867a3.867 3.867 0 110-7.734 3.867 3.867 0 010 7.734ZM19.294 4.31a.952.952 0 10-.952.952.952.952 0 00.952-.952Z" clip-rule="evenodd"/></svg>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.792.01 3.249.071.427.065.714.18.923.293.283.15.56.371.86.671a3.02 3.02 0 01.671.86c.113.209.228.496.293.923.061.458.071.81.071 3.249V16.31c0 2.43-.01 2.792-.071 3.249-.065.427-.18.714-.293.923a3.02 3.02 0 01-.671.86c-.15.283-.371.56-.671.86-.209.113-.496.228-.923.293-.458.061-.81.071-3.249.071H7.685c-2.43 0-2.792-.01-3.249-.071-.427-.065-.714-.18-.923-.293a3.02 3.02 0 01-.671-.86c-.283-.15-.56-.371-.671-.86-.113-.209-.228-.496-.293-.923C2.01 19.117 2 18.765 2 16.315V7.685c0-2.43.01-2.792.071-3.249.065-.427.18-.714.293-.923a3.02 3.02 0 01.671-.86c.15-.283.371.56.671-.86.209-.113.496.228.923-.293C4.883 2.01 5.235 2 7.685 2h4.63ZM12 4.103c-2.463 0-2.846.01-3.262.072-.34.053-.559.12-.663.175-.12.062-.234.133-.349.248-.114.114-.186.228-.248.349-.055.104-.122.323-.175.663-.062.416-.072.799-.072 3.262v4.63c0 2.463.01 2.846.072 3.262.053.34.12.559.175.663.062.12.133.234.248.349.114.114.228.186.349.248.104.055.323.122.663.175.416.062.799.072 3.262.072h4.63c2.463 0 2.846-.01 3.262-.072.34-.053.559-.12.663-.175.12-.062.234-.133.349-.248.114.114.186.228.248.349-.055.104-.122.323-.175.663-.062.416-.072-.799-.072-3.262V7.685c0-2.463-.01-2.846-.072-3.262-.053-.34-.12-.559-.175-.663-.062-.12-.133-.234-.248-.349-.114-.114-.186-.228-.248-.349-.055-.104-.122.323-.175-.663-.062-.416-.072-.799-.072-3.262h-4.63Zm0 3.638a4.316 4.316 0 100 8.632 4.316 4.316 0 000-8.632ZM12 15.867a3.867 3.867 0 110-7.734 3.867 3.867 0 010 7.734ZM19.294 4.31a.952.952 0 10-.952.952.952.952 0 00.952-.952Z" clip-rule="evenodd"/></svg>
                 </a>
-                </div>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        // Lucide Icons initialization
+        lucide.createIcons();
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // --- LANGUAGE SWITCHER LOGIC ---
 
-                // Close mobile menu after clicking a link
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
+        const translations = {
+            en: {
+                // Page Title
+                page_title: "SRS Digital - Smart Digital Solutions for Indonesian Solopreneurs",
+                // Navigation
+                nav_home: "Home",
+                nav_about: "About Us",
+                nav_products: "Products",
+                nav_testimonials: "Seller Stories",
+                nav_contact: "Contact",
+                lang_switcher: "Bahasa Indonesia",
+                // Mobile Navigation
+                nav_home_mobile: "Home",
+                nav_about_mobile: "About Us",
+                nav_products_mobile: "Products",
+                nav_testimonials_mobile: "Seller Stories",
+                nav_contact_mobile: "Contact",
+                // Hero Section
+                hero_title: "Smart Digital Solutions for Indonesian Solopreneurs",
+                hero_subtitle: "Empowering your preloved & live-selling business with intelligent tools.",
+                hero_button1: "Explore MyResale",
+                hero_button2: "Discover Klaimr",
+                // About Section
+                about_title: "About SRS Digital",
+                about_p1: "At SRS Digital, we are driven by the immense potential of Indonesian solopreneurs. We understand that you're not just building a business; you're fostering community and contributing to a more sustainable future by giving preloved items a second life.",
+                about_p2: "Our mission is to provide intelligent digital tools that simplify your operations, save you valuable time, and equip you with the insights needed to grow. We focus on transforming administrative burdens into strategic advantages, allowing you to focus on what you do best: selling and engaging with your audience.",
+                // Why Choose Us Section
+                why_title: "Why Choose SRS Digital?",
+                why_item1_title: "Tailored for Solopreneurs",
+                why_item1_p: "Solutions built specifically to meet the unique needs of individual entrepreneurs and micro-businesses in Indonesia.",
+                why_item2_title: "Intuitive & User-Friendly",
+                why_item2_p: "Powerful tools designed for maximum ease of use, ensuring a smooth experience even for those less tech-savvy.",
+                why_item3_title: "Smart Automation",
+                why_item3_p: "Automate tedious administrative tasks, freeing you to focus on selling and engaging with your community.",
+                why_item4_title: "Data-Driven Growth",
+                why_item4_p: "Gain valuable insights from your sales data to make informed decisions and effectively scale your business.",
+                why_item5_title: "Committed to Sustainability",
+                why_item5_p: "Supporting businesses that contribute to a circular economy by extending the life of preloved goods.",
+                why_item6_title: "Your Trusted Partner",
+                why_item6_p: "We're dedicated to helping you achieve greater efficiency and unlock new growth opportunities.",
+                // Products Section
+                products_title: "Our Products",
+                product1_p: "The complete end-to-end toolchest for preloved resellers. Manage inventory, streamline payments, auto-reimburse consignors, and get insightful analytics to grow your business.",
+                product2_p: "Automate claim identification and build waitlists during your TikTok Live sessions. Klaimr organizes data in real-time for easy tracking and post-live recaps saving you precious time.",
+                product_learn_more: "Learn More",
+                product_learn_more2: "Learn More",
+                // Testimonials Section
+                testimonials_title: "From Solopreneurs Like You",
+                testimonial1_quote: `"I used to spend over an hour on recaps after every live session, manually tracking everything in my phone notes. It was exhausting."`,
+                testimonial2_quote: `"As a seller, you want to use tools that make things easier, especially for managing recaps and shipping."`,
+                // Contact Section
+                contact_title: "Ready to Transform Your Resale Business?",
+                contact_p: "Join Indonesian solopreneurs who are simplifying their operations and accelerating their growth with SRS Digital.",
+                contact_button: "Contact Us Today!",
+                // Footer
+                footer_copyright: "© 2025 PT SRS Solusi Digital. All rights reserved.",
+                footer_location: "Jakarta, Indonesia",
+            },
+            id: {
+                // Page Title
+                page_title: "SRS Digital - Solusi Digital Cerdas untuk Solopreneur Indonesia",
+                // Navigation
+                nav_home: "Beranda",
+                nav_about: "Tentang Kami",
+                nav_products: "Produk",
+                nav_testimonials: "Kisah Penjual",
+                nav_contact: "Kontak",
+                lang_switcher: "English",
+                // Mobile Navigation
+                nav_home_mobile: "Beranda",
+                nav_about_mobile: "Tentang Kami",
+                nav_products_mobile: "Produk",
+                nav_testimonials_mobile: "Kisah Penjual",
+                nav_contact_mobile: "Kontak",
+                // Hero Section
+                hero_title: "Solusi Digital Cerdas untuk Solopreneur Indonesia",
+                hero_subtitle: "Memberdayakan bisnis preloved & live-selling Anda dengan perangkat cerdas.",
+                hero_button1: "Jelajahi MyResale",
+                hero_button2: "Temukan Klaimr",
+                // About Section
+                about_title: "Tentang SRS Digital",
+                about_p1: "Di SRS Digital, kami terdorong oleh potensi besar para solopreneur di Indonesia. Kami paham Anda bukan hanya membangun bisnis; Anda juga membina komunitas dan berkontribusi pada masa depan yang lebih berkelanjutan dengan memberi barang preloved kehidupan kedua.",
+                about_p2: "Misi kami adalah menyediakan perangkat digital cerdas yang menyederhanakan operasional Anda, menghemat waktu berharga, dan membekali Anda dengan wawasan yang dibutuhkan untuk berkembang. Kami fokus mengubah beban administratif menjadi keuntungan strategis, memungkinkan Anda fokus pada hal terbaik yang Anda lakukan: menjual dan berinteraksi dengan audiens Anda.",
+                // Why Choose Us Section
+                why_title: "Kenapa Memilih SRS Digital?",
+                why_item1_title: "Dibuat untuk Solopreneur",
+                why_item1_p: "Solusi yang dibuat khusus untuk memenuhi kebutuhan unik pengusaha perorangan dan usaha mikro di Indonesia.",
+                why_item2_title: "Intuitif & Mudah Digunakan",
+                why_item2_p: "Perangkat canggih yang dirancang agar sangat mudah digunakan, memastikan pengalaman yang lancar bahkan bagi yang kurang melek teknologi.",
+                why_item3_title: "Otomatisasi Cerdas",
+                why_item3_p: "Otomatiskan tugas-tugas administratif yang membosankan, membebaskan Anda untuk fokus berjualan dan berinteraksi dengan komunitas.",
+                why_item4_title: "Pertumbuhan Berbasis Data",
+                why_item4_p: "Dapatkan wawasan berharga dari data penjualan Anda untuk membuat keputusan yang tepat dan mengembangkan bisnis secara efektif.",
+                why_item5_title: "Berkomitmen pada Keberlanjutan",
+                why_item5_p: "Mendukung bisnis yang berkontribusi pada ekonomi sirkular dengan memperpanjang umur barang preloved.",
+                why_item6_title: "Mitra Terpercaya Anda",
+                why_item6_p: "Kami berdedikasi untuk membantu Anda mencapai efisiensi yang lebih besar dan membuka peluang pertumbuhan baru.",
+                // Products Section
+                products_title: "Produk Kami",
+                product1_p: "Perangkat lengkap untuk penjual preloved. Kelola inventaris, permudah pembayaran, bayar konsinyor secara otomatis, dan dapatkan analitik mendalam untuk mengembangkan bisnis Anda.",
+                product2_p: "Otomatiskan identifikasi klaim dan buat daftar tunggu selama sesi TikTok Live Anda. Klaimr mengatur data secara real-time untuk pelacakan mudah dan rekap pasca-live, menghemat waktu berharga Anda.",
+                product_learn_more: "Pelajari Lebih Lanjut",
+                product_learn_more2: "Pelajari Lebih Lanjut",
+                // Testimonials Section
+                testimonials_title: "Dari Solopreneur Seperti Anda",
+                testimonial1_quote: `"Dulu saya butuh waktu lebih dari sejam untuk rekap setelah setiap sesi live, melacak semuanya secara manual di catatan HP. Melelahkan sekali."`,
+                testimonial2_quote: `"Sebagai penjual, kita pasti mau pakai alat yang bikin semua jadi lebih gampang, terutama buat ngurusin rekap dan pengiriman."`,
+                // Contact Section
+                contact_title: "Siap Mengubah Bisnis Preloved Anda?",
+                contact_p: "Bergabunglah dengan para solopreneur Indonesia yang menyederhanakan operasional dan mempercepat pertumbuhan mereka bersama SRS Digital.",
+                contact_button: "Hubungi Kami Sekarang!",
+                // Footer
+                footer_copyright: "© 2025 PT SRS Solusi Digital. Hak cipta dilindungi.",
+                footer_location: "Jakarta, Indonesia",
+            }
+        };
+
+        let currentLang = 'en';
+
+        const setLanguage = (lang) => {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.title = translations[lang].page_title;
+
+            document.querySelectorAll('[data-key]').forEach(elem => {
+                const key = elem.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    elem.textContent = translations[lang][key];
                 }
             });
-        });
+            
+            // Update switcher button text
+            const newLangText = translations[lang].lang_switcher;
+            document.getElementById('lang-switcher').textContent = newLangText;
+            document.getElementById('lang-switcher-mobile').textContent = newLangText;
+        };
 
-        // Toggle mobile menu
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
+        const toggleLanguage = () => {
+            const newLang = currentLang === 'en' ? 'id' : 'en';
+            setLanguage(newLang);
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Toggle mobile menu
+            document.getElementById('mobile-menu-button').addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+
+            // Language switcher event listeners
+            document.getElementById('lang-switcher').addEventListener('click', toggleLanguage);
+            document.getElementById('lang-switcher-mobile').addEventListener('click', toggleLanguage);
+
+            // Detect browser language and set initial language
+            const userLang = navigator.language || navigator.userLanguage;
+            if (userLang.startsWith('id')) {
+                setLanguage('id');
+            } else {
+                setLanguage('en');
+            }
         });
     </script>
-
 </body>
 </html>
