@@ -108,16 +108,20 @@
                 Empowering your preloved & live-selling business with intelligent tools.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://myresale.app"
-                    class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg"
-                    data-key="hero_button1">
-                    Explore MyResale
-                </a>
-                <a href="https://klaimr.app"
-                    class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg"
-                    data-key="hero_button2">
-                    Discover Klaimr
-                </a>
+                <!-- MyResale Button with Coming Soon Badge -->
+                <div class="relative inline-block">
+                    <a href="#" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md disabled-link" data-key="hero_button1">
+                        Explore MyResale
+                    </a>
+                    <span class="coming-soon-badge" data-key="coming_soon">Coming Soon</span>
+                </div>
+                <!-- Klaimr Button with Coming Soon Badge -->
+                <div class="relative inline-block">
+                    <a href="#" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md disabled-link" data-key="hero_button2">
+                        Discover Klaimr
+                    </a>
+                    <span class="coming-soon-badge" data-key="coming_soon">Coming Soon</span>
+                </div>
             </div>
         </div>
     </header>
@@ -213,11 +217,13 @@
                                 The complete end-to-end toolchest for preloved resellers. Manage inventory, streamline
                                 payments, auto-reimburse consignors, and get insightful analytics to grow your business.
                             </p>
-                            <a href="https://myresale.app"
-                                class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md hover:shadow-lg"
-                                data-key="product_learn_more">
-                                Learn More
-                            </a>
+                            <!-- MyResale Product Button with Coming Soon Badge -->
+                            <div class="relative inline-block">
+                                <a href="#" class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md disabled-link" data-key="product_learn_more">
+                                    Learn More
+                                </a>
+                                <span class="coming-soon-badge" data-key="coming_soon">Coming Soon</span>
+                            </div>
                         </div>
                     </div>
 
@@ -232,11 +238,13 @@
                                 Klaimr organizes data in real-time for easy tracking and post-live recaps saving you
                                 precious time.
                             </p>
-                            <a href="https://klaimr.app"
-                                class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md hover:shadow-lg"
-                                data-key="product_learn_more2">
-                                Learn More
-                            </a>
+                            <!-- Klaimr Product Button with Coming Soon Badge -->
+                            <div class="relative inline-block">
+                                <a href="#" class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md disabled-link" data-key="product_learn_more2">
+                                    Learn More
+                                </a>
+                                <span class="coming-soon-badge" data-key="coming_soon">Coming Soon</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -377,6 +385,8 @@
                 // Footer
                 footer_copyright: "© 2025 PT SRS Solusi Digital. All rights reserved.",
                 footer_location: "Jakarta, Indonesia",
+                // Coming Soon Badge
+                coming_soon: "Coming Soon",
             },
             id: {
                 // Page Title
@@ -434,6 +444,8 @@
                 // Footer
                 footer_copyright: "© 2025 PT SRS Solusi Digital. Hak cipta dilindungi.",
                 footer_location: "Jakarta, Indonesia",
+                // Coming Soon Badge
+                coming_soon: "Segera Hadir",
             }
         };
 
