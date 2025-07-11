@@ -67,11 +67,27 @@
                 <a href="#contact"
                     class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200"
                     data-key="nav_contact">Contact</a>
-                <button id="lang-switcher"></button>
+
+                <!-- NEW Language Toggle (Desktop) -->
+                <div id="lang-switcher" class="language-toggle-container">
+                    <i data-lucide="languages" class="lang-icon"></i>
+                    <div class="toggle-switch">
+                        <div class="toggle-slider"></div>
+                        <span class="lang-option" data-lang="en">EN</span>
+                        <span class="lang-option" data-lang="id">ID</span>
+                    </div>
+                </div>
             </div>
 
             <div class="md:hidden flex items-center space-x-4">
-                <button id="lang-switcher-mobile" class="text-sm"></button>
+                <!-- NEW Language Toggle (Mobile) -->
+                <div id="lang-switcher-mobile" class="language-toggle-container mobile">
+                    <div class="toggle-switch">
+                        <div class="toggle-slider"></div>
+                        <span class="lang-option" data-lang="en">EN</span>
+                        <span class="lang-option" data-lang="id">ID</span>
+                    </div>
+                </div>
                 <button id="mobile-menu-button" class="text-srs-charcoal-grey focus:outline-none">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
@@ -110,14 +126,18 @@
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <!-- MyResale Button with Coming Soon Badge -->
                 <div class="relative inline-block">
-                    <a href="#" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md disabled-link" data-key="hero_button1">
+                    <a href="#"
+                        class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md disabled-link"
+                        data-key="hero_button1">
                         Explore MyResale
                     </a>
                     <span class="coming-soon-badge" data-key="coming_soon">Coming Soon</span>
                 </div>
                 <!-- Klaimr Button with Coming Soon Badge -->
                 <div class="relative inline-block">
-                    <a href="#" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md disabled-link" data-key="hero_button2">
+                    <a href="#"
+                        class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md disabled-link"
+                        data-key="hero_button2">
                         Discover Klaimr
                     </a>
                     <span class="coming-soon-badge" data-key="coming_soon">Coming Soon</span>
@@ -219,7 +239,9 @@
                             </p>
                             <!-- MyResale Product Button with Coming Soon Badge -->
                             <div class="relative inline-block">
-                                <a href="#" class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md disabled-link" data-key="product_learn_more">
+                                <a href="#"
+                                    class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md disabled-link"
+                                    data-key="product_learn_more">
                                     Learn More
                                 </a>
                                 <span class="coming-soon-badge" data-key="coming_soon">Coming Soon</span>
@@ -240,7 +262,9 @@
                             </p>
                             <!-- Klaimr Product Button with Coming Soon Badge -->
                             <div class="relative inline-block">
-                                <a href="#" class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md disabled-link" data-key="product_learn_more2">
+                                <a href="#"
+                                    class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md disabled-link"
+                                    data-key="product_learn_more2">
                                     Learn More
                                 </a>
                                 <span class="coming-soon-badge" data-key="coming_soon">Coming Soon</span>
@@ -312,7 +336,8 @@
             <p class="mb-2" data-key="footer_copyright">&copy; 2025 PT SRS Solusi Digital. All rights reserved.</p>
             <p class="mb-4" data-key="footer_location">Jakarta, Indonesia</p>
             <div class="flex justify-center gap-4 mt-6">
-                <a href="https://www.linkedin.com/company/srs-solusi-digital/" class="text-white hover:text-srs-teal transition-colors duration-200" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/srs-solusi-digital/"
+                    class="text-white hover:text-srs-teal transition-colors duration-200" aria-label="LinkedIn">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
                             d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM4 9h4v12H4zM6 3a2 2 0 110 4 2 2 0 010-4z" />
@@ -451,6 +476,31 @@
 
         let currentLang = 'en';
 
+        // Helper function to update the UI of a single toggle switch
+        const updateSwitchUI = (switcherContainer, lang) => {
+            if (!switcherContainer) return;
+
+            const switcher = switcherContainer.querySelector('.toggle-switch');
+            const slider = switcher.querySelector('.toggle-slider');
+            const enOption = switcher.querySelector('[data-lang="en"]');
+            const idOption = switcher.querySelector('[data-lang="id"]');
+
+            // Reset active classes
+            enOption.classList.remove('active');
+            idOption.classList.remove('active');
+
+            if (lang === 'id') {
+                // The 'ID' option is the second one, so we move the slider to cover it.
+                // '100%' works because the slider is 50% of the container's width.
+                slider.style.transform = 'translateX(100%)';
+                idOption.classList.add('active');
+            } else {
+                // 'EN' is the first option, so no translation is needed.
+                slider.style.transform = 'translateX(0%)';
+                enOption.classList.add('active');
+            }
+        };
+
         const setLanguage = (lang) => {
             currentLang = lang;
             document.documentElement.lang = lang;
@@ -463,16 +513,9 @@
                 }
             });
 
-            // Update switcher button text using innerHTML for flags
-            const langSwitcher = document.getElementById('lang-switcher');
-            const langSwitcherMobile = document.getElementById('lang-switcher-mobile');
-
-            if (langSwitcher) {
-                langSwitcher.innerHTML = translations[lang].lang_switcher;
-            }
-            if (langSwitcherMobile) {
-                langSwitcherMobile.innerHTML = translations[lang].lang_switcher;
-            }
+            // Update the UI for both desktop and mobile toggles
+            updateSwitchUI(document.getElementById('lang-switcher'), lang);
+            updateSwitchUI(document.getElementById('lang-switcher-mobile'), lang);
         };
 
         const toggleLanguage = () => {
@@ -509,6 +552,9 @@
             } else {
                 setLanguage('en');
             }
+
+            // Re-initialize Lucide icons because we added a new one for the toggle
+            lucide.createIcons();
         });
     </script>
 </body>
