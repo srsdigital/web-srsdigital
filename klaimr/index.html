@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klaimr - Lacak Otomatis Pemenang Live TikTok Anda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#">
+                <img src="../images/klaimr.webp" alt="Klaimr Logo" class="h-8 w-auto" onerror="this.onerror=null; this.src='https://placehold.co/100x32/e2e8f0/4a5568?text=Klaimr';">
+            </a>
+            <a href="https://klaimr.srsdigital.co.id/" class="hidden md:inline-block bg-indigo-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-indigo-700 cta-button">Mulai
+                Gratis</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="gradient-bg py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
+                    Jualan lebih tenang,
+                </h2>
+                <h3 class="text-4xl md:text-6xl font-extrabold text-indigo-600 leading-tight mb-6">
+                    karena ada Klaimr yang bantuin
+                </h3>
+                <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-600 mb-10">
+                    Dari komentar masuk sampai rekap penjualan, Klaimr bantuin semua. Kamu cukup fokus jualan, Klaimr
+                    yang urus sisanya.
+                </p>
+                <a href="https://klaimr.srsdigital.co.id/" class="bg-indigo-600 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-indigo-700 cta-button inline-block">
+                    Mulai Gratis Sekarang
+                </a>
+
+                <div class="mt-16 max-w-4xl mx-auto">
+                    <div class="bg-white rounded-2xl shadow-2xl p-4">
+                        <div class="relative">
+                            <video class="w-full h-full object-cover rounded-lg" autoplay muted loop playsinline>
+                                <source src="../images/live-id.webm" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <button class="video-mute-toggle absolute bottom-4 left-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition">
+                                <svg class="unmute-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
+                                </svg>
+                                <svg class="mute-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Jualan Live di TikTok Itu Sulit.</h2>
+                    <p class="text-3xl md:text-4xl font-bold text-indigo-600">Klaimr Membuatnya Jadi Mudah.</p>
+                </div>
+
+                <div id="problem-solution-tabs" class="max-w-4xl mx-auto tabs-container">
+                    <!-- UPDATED: Problem/Solution Tabs with a modern "pill" style -->
+                    <div class="flex justify-center p-1.5 bg-gray-100 rounded-xl mb-8 max-w-2xl mx-auto">
+                        <button data-tab="tab1" class="tab-button active flex-1 text-center font-semibold py-2.5 px-4 rounded-lg text-sm sm:text-base">🤯 Manual Kacau</button>
+                        <button data-tab="tab2" class="tab-button flex-1 text-center font-semibold py-2.5 px-4 rounded-lg text-sm sm:text-base">😥 Klaim Terlewat</button>
+                        <button data-tab="tab3" class="tab-button flex-1 text-center font-semibold py-2.5 px-4 rounded-lg text-sm sm:text-base">😫 Stres Pasca-Live</button>
+                    </div>
+
+                    <div>
+                        <div id="tab1" class="tab-content active p-6">
+                            <h3 class="text-2xl font-bold text-center mb-4">Pusing bolak-balik lihat komen, catat di
+                                buku, dan rekap di spreadsheet?</h3>
+                            <p class="text-lg text-gray-600 text-center mb-8">Tinggalkan cara lama. Solusinya:</p>
+                            <div class="bg-indigo-50 p-6 rounded-xl">
+                                <h4 class="text-xl font-bold text-indigo-800">✅ Deteksi Klaim Live</h4>
+                                <p class="text-indigo-700">Daftar pemenang & daftar tunggu dibuat otomatis secara
+                                    real-time dari komentar live.</p>
+                            </div>
+                        </div>
+                        <div id="tab2" class="tab-content p-6">
+                            <h3 class="text-2xl font-bold text-center mb-4">Jangan pernah kehilangan jejak siapa yang
+                                klaim barang apa—dan kapan.</h3>
+                            <p class="text-lg text-gray-600 text-center mb-8">Ambil alih kendali. Solusinya:</p>
+                            <div class="bg-indigo-50 p-6 rounded-xl">
+                                <h4 class="text-xl font-bold text-indigo-800">🛠️ Kontrol Manual</h4>
+                                <p class="text-indigo-700">Perlu intervensi? Tambah atau hapus pemenang dan daftar
+                                    tunggu dengan mudah saat live.</p>
+                            </div>
+                        </div>
+                        <div id="tab3" class="tab-content p-6">
+                            <h3 class="text-2xl font-bold text-center mb-4">Rekapan siap begitu Anda selesai siaran.
+                            </h3>
+                            <p class="text-lg text-gray-600 text-center mb-8">Langsung urus pesanan tanpa pusing.
+                                Solusinya:</p>
+                            <div class="space-y-4">
+                                <div class="bg-indigo-50 p-6 rounded-xl">
+                                    <h4 class="text-xl font-bold text-indigo-800">📦 Rekap Pasca-Live</h4>
+                                    <p class="text-indigo-700">Dapatkan ringkasan lengkap per barang atau per pembeli
+                                        untuk mempermudah follow-up.</p>
+                                </div>
+                                <div class="bg-indigo-50 p-6 rounded-xl">
+                                    <h4 class="text-xl font-bold text-indigo-800">📤 Ekspor Mudah</h4>
+                                    <p class="text-indigo-700">Salin data ke WhatsApp atau unduh dalam format
+                                        Spreadsheet dengan sekali klik.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Cara Kerja Klaimr 🚀</h2>
+                </div>
+                <div id="how-it-works-tabs" class="max-w-5xl mx-auto tabs-container">
+                    <div class="flex flex-wrap justify-center gap-4 mb-[-1px]">
+                         <!-- UPDATED: Added 'relative' class and wrapped text in a span for z-index stacking -->
+                        <button data-tab="step1" class="tab-button active relative transition-all duration-300 px-6 py-3 border border-gray-300 bg-white rounded-t-xl font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <span class="relative z-10">Masukkan Kode Produk</span>
+                            <div class="loading-bar"></div>
+                        </button>
+                        <button data-tab="step2" class="tab-button relative transition-all duration-300 px-6 py-3 border border-gray-300 bg-gray-100 rounded-t-xl font-medium text-gray-700 hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <span class="relative z-10">Mulai Sesi Live</span>
+                            <div class="loading-bar"></div>
+                        </button>
+                        <button data-tab="step3" class="tab-button relative transition-all duration-300 px-6 py-3 border border-gray-300 bg-gray-100 rounded-t-xl font-medium text-gray-700 hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <span class="relative z-10">Lihat Rekap Sesi</span>
+                            <div class="loading-bar"></div>
+                        </button>
+                    </div>
+                    <div class="bg-white p-6 md:p-8 rounded-b-2xl rounded-tr-2xl shadow-xl border border-t-0 border-gray-300">
+                        <div id="step1" class="tab-content active">
+                            <div class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6">
+                                <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <source src="../images/product-code-id.webm" type="video/webm">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <button class="video-mute-toggle absolute bottom-4 left-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition">
+                                    <svg class="unmute-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
+                                    </svg>
+                                    <svg class="mute-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Masukkan Kode Produk</h3>
+                                <p class="text-gray-600 max-w-2xl mx-auto">
+                                    Buat daftar produk lengkap dengan kode uniknya (misal:
+                                    <strong>kaoscoklat10</strong>) agar Klaimr bisa mendeteksi komentar klaim secara
+                                    otomatis.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="step2" class="tab-content hidden">
+                            <div class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6">
+                                <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <source src="../images/live-id.webm" type="video/webm">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <button class="video-mute-toggle absolute bottom-4 left-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition">
+                                    <svg class="unmute-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
+                                    </svg>
+                                    <svg class="mute-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Mulai Sesi Live</h3>
+                                <p class="text-gray-600 max-w-2xl mx-auto">
+                                    Klaimr mulai memantau komentar di TikTok Live kamu dan mencatat klaim dari pembeli
+                                    secara <strong>real-time</strong>. Kamu tinggal fokus jualan!
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="step3" class="tab-content hidden">
+                            <div class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6">
+                                <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <source src="../images/recap-id.webm" type="video/webm">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <button class="video-mute-toggle absolute bottom-4 left-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition">
+                                    <svg class="unmute-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
+                                    </svg>
+                                    <svg class="mute-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Lihat Rekap Sesi</h3>
+                                <p class="text-gray-600 max-w-2xl mx-auto">
+                                    Begitu sesi Live selesai, Klaimr langsung tampilkan rekap lengkap: siapa yang
+                                    menang, siapa yang masuk daftar tunggu. Bisa langsung disalin ke WhatsApp
+                                    atau ekspor ke spreadsheet.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Kata Para Seller</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200">
+                        <p class="text-gray-700 text-lg italic mb-6">“Saya tidak pernah lagi ketinggalan klaim. Klaimr
+                            menghemat waktu saya berjam-jam.”</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gray-300 rounded-full mr-4 flex items-center justify-center text-gray-500">
+                                <p>N</p>
+                            </div>
+                            <div>
+                                <p class="font-bold">Nadya</p>
+                                <p class="text-sm text-gray-500">@thriftqueen.id</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200">
+                        <p class="text-gray-700 text-lg italic mb-6">“Ini yang saya butuhkan! Gampang banget pakainya.”
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-gray-300 rounded-full mr-4 flex items-center justify-center text-gray-500">
+                                <p>D</p>
+                            </div>
+                            <div>
+                                <p class="font-bold">Deni</p>
+                                <p class="text-sm text-gray-500">@jualbajumurah</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6"><br><span class="text-indigo-600">Jualan Lebih Santai, Hasil Lebih Pasti</span></h2>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-start"><span class="text-green-500 mr-3 mt-1 font-bold">✓</span> Gak perlu lagi mantengin komentar satu-satu. Waktu kamu bisa dipakai buat hal lain.</li>
+                            <li class="flex items-start"><span class="text-green-500 mr-3 mt-1 font-bold">✓</span>Gak kena PHP pembeli—urutan klaim langsung tercatat otomatis.</li>
+                            <li class="flex items-start"><span class="text-green-500 mr-3 mt-1 font-bold">✓</span> Habis live, hasil jualan langsung rapi & siap dibagikan ke WhatsApp atau spreadsheet.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-200 rounded-2xl aspect-square flex items-center justify-center">
+                        <p class="text-gray-500 font-medium">[Placeholder untuk Grafik/Visual]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gradient-bg">
+            <div class="container mx-auto px-6 py-20 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Siap menyederhanakan jualan live Anda?
+                </h2>
+                <a href="https://klaimr.srsdigital.co.id/" class="bg-indigo-600 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-indigo-700 cta-button inline-block">
+                    Mulai Gunakan Klaimr Gratis
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center justify-center md:justify-start space-x-4">
+                        <img src="../images/klaimr.webp" alt="Klaimr Logo" class="h-7 w-auto" onerror="this.onerror=null; this.src='https://placehold.co/90x28/1a202c/4a5568?text=Klaimr';">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-gray-400 text-sm">didukung oleh</span>
+                            <a href="https://srsdigital.co.id/" target="_blank" rel="noopener noreferrer">
+                                <img src="../images/Logo_SRS_wobg.webp" alt="PT SRS Solusi Digital Logo" class="h-6 w-auto" onerror="this.onerror=null; this.src='https://placehold.co/80x24/1a202c/4a5568?text=SRS';">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-gray-300">
+                    <a href="https://klaimr.srsdigital.co.id/" class="hover:text-white">Login</a>
+                    <a href="https://srsdigital.co.id/#contact" class="hover:text-white">Kontak</a>
+                </div>
+            </div>
+            <div class="mt-10 border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 Klaimr. Semua Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Setup for Universal Mute/Unmute Buttons ---
+            const muteButtons = document.querySelectorAll('.video-mute-toggle');
+            muteButtons.forEach(button => {
+                const container = button.closest('.relative');
+                if (!container) return;
+
+                const video = container.querySelector('video');
+                const unmuteIcon = button.querySelector('.unmute-icon');
+                const muteIcon = button.querySelector('.mute-icon');
+
+                if (!video || !unmuteIcon || !muteIcon) return;
+
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevents the click from bubbling up
+                    video.muted = !video.muted;
+                    if (video.muted) {
+                        unmuteIcon.classList.remove('hidden');
+                        muteIcon.classList.add('hidden');
+                    } else {
+                        unmuteIcon.classList.add('hidden');
+                        muteIcon.classList.remove('hidden');
+                    }
+                });
+            });
+
+
+            // --- Setup for standard "Problem/Solution" Tabs ---
+            const psTabsContainer = document.getElementById('problem-solution-tabs');
+            if (psTabsContainer) {
+                const psButtons = psTabsContainer.querySelectorAll('.tab-button');
+                const psContents = psTabsContainer.querySelectorAll('.tab-content');
+
+                psButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // Deactivate all buttons and content in this group first
+                        psButtons.forEach(btn => btn.classList.remove('active'));
+                        psContents.forEach(content => {
+                            content.classList.remove('active');
+                            // Use a class to handle fade out animation if desired
+                        });
+
+
+                        // Activate the clicked button and its corresponding content
+                        button.classList.add('active');
+                        const contentId = button.getAttribute('data-tab');
+                        document.getElementById(contentId).classList.add('active');
+                    });
+                });
+            }
+
+            // --- Setup for "How It Works" Auto-Cycling Tabs ---
+            const hiwTabsContainer = document.getElementById('how-it-works-tabs');
+            if (hiwTabsContainer) {
+                const hiwButtons = Array.from(hiwTabsContainer.querySelectorAll('.tab-button'));
+                const DURATION_PER_TAB = 6000; // 6 seconds for non-video tabs
+                let currentIndex = 0;
+                let autoCycleTimer = null; // Stores the timer ID
+
+                const activateTab = (index, isManualClick = false) => {
+                    // If a user clicks a tab, stop the automatic cycling for future transitions
+                    if (isManualClick && autoCycleTimer) {
+                        clearTimeout(autoCycleTimer);
+                        autoCycleTimer = null; // This disables the auto-cycle
+                    }
+
+                    currentIndex = index;
+
+                    // --- Update UI ---
+                    // Deactivate all buttons and reset their loading bars
+                    hiwButtons.forEach((btn) => {
+                        btn.classList.remove('active', 'bg-white', 'text-gray-900');
+                        btn.classList.add('bg-gray-100', 'text-gray-700');
+
+                        const loadingBar = btn.querySelector('.loading-bar');
+                        if (loadingBar) {
+                            loadingBar.classList.remove('running');
+                            loadingBar.style.animation = 'none';
+                            loadingBar.offsetHeight; // Force a browser reflow to reset animation
+                        }
+                    });
+
+                    // Hide all content panels and pause their videos
+                    hiwTabsContainer.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                        content.classList.add('hidden');
+                        const video = content.querySelector('video');
+                        if (video) {
+                            video.pause();
+                        }
+                    });
+
+                    // --- Activate new tab ---
+                    const button = hiwButtons[index];
+                    const content = document.getElementById(button.getAttribute('data-tab'));
+
+                    button.classList.add('active', 'bg-white', 'text-gray-900');
+                    button.classList.remove('bg-gray-100', 'text-gray-700');
+                    content.classList.add('active');
+                    content.classList.remove('hidden');
+
+                    // --- Handle Media and Animation ---
+                    const activeVideo = content.querySelector('video');
+                    let duration = DURATION_PER_TAB;
+
+                    // If the active tab has a video, use its duration and play it
+                    if (activeVideo) {
+                        // Use video duration if available and valid, otherwise use default
+                        if (activeVideo.duration && isFinite(activeVideo.duration)) {
+                            duration = activeVideo.duration * 1000;
+                        }
+                        activeVideo.currentTime = 0;
+                        // Play the video and catch any potential errors
+                        activeVideo.play().catch(e => console.error("Video play failed:", e));
+                    }
+
+                    // Start the loading bar animation for the current tab.
+                    // This now runs on manual clicks as well.
+                    const loadingBar = button.querySelector('.loading-bar');
+                    if (loadingBar) {
+                        // Use 'forwards' to ensure the bar stays filled after animation
+                        loadingBar.style.animation = `fill-up ${duration / 1000}s linear forwards`;
+                        loadingBar.classList.add('running');
+                    }
+
+                    // If auto-cycling is still active, set up the timer for the next tab
+                    if (autoCycleTimer !== null) {
+                        autoCycleTimer = setTimeout(() => {
+                            activateTab((currentIndex + 1) % hiwButtons.length);
+                        }, duration);
+                    }
+                };
+
+
+                // Add click listeners to each button
+                hiwButtons.forEach((button, index) => {
+                    button.addEventListener('click', () => {
+                        activateTab(index, true); // Pass 'true' to indicate a manual click
+                    });
+                });
+
+                // Function to start the whole process
+                const startAutoCycle = () => {
+                    if (autoCycleTimer === null) { // Prevents multiple timers
+                        autoCycleTimer = setTimeout(() => {
+                            activateTab(0);
+                        }, 100); // A tiny delay to ensure everything is rendered
+                    }
+                };
+
+                // Wait for the first video to be ready before starting the cycle
+                const firstVideo = hiwTabsContainer.querySelector('video');
+                if (firstVideo) {
+                    // Check if video is already loaded
+                    if (firstVideo.readyState >= 3) {
+                        startAutoCycle();
+                    } else {
+                        firstVideo.addEventListener('canplay', startAutoCycle, {
+                            once: true
+                        });
+                    }
+                } else {
+                    // If no video, start immediately
+                    startAutoCycle();
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

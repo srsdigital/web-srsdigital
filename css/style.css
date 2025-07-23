@@ -1,4 +1,4 @@
-/* Custom CSS for PT SRS Solusi Digital */
+/* --- Custom CSS for PT SRS Solusi Digital --- */
 h1,
 h2,
 h3,
@@ -133,7 +133,7 @@ body {
     z-index: 10;
 }
 
-/* NEW: Language Toggle Switcher Styles */
+/* --- NEW: Language Toggle Switcher Styles --- */
 .language-toggle-container {
     display: flex;
     align-items: center;
@@ -200,7 +200,7 @@ body {
     /* srs-violet */
 }
 
-/* Styles for the disabled button */
+/* --- Styles for the disabled button --- */
 .disabled-link {
     opacity: 0.65;
     cursor: not-allowed;
@@ -214,7 +214,7 @@ body {
     box-shadow: none;
 }
 
-/* Styles for the "Coming Soon" badge */
+/* --- Styles for the "Coming Soon" badge --- */
 .coming-soon-badge {
     position: absolute;
     top: -10px;
@@ -236,4 +236,108 @@ body {
     pointer-events: none;
     /* The badge itself should not be interactive */
     z-index: 10;
+}
+
+
+/* --- Reusable Component Styles from Klaimr page --- */
+.gradient-bg {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.cta-button {
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* --- General Tab Styles --- */
+.tab-content {
+    display: none;
+    /* Hide inactive tabs by default */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+    /* Show the active tab */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- UPDATED: Styles for "Problem/Solution" Tabs --- */
+#problem-solution-tabs .tab-button {
+    color: #374151; /* gray-700 */
+    transition: all 0.3s ease;
+}
+
+#problem-solution-tabs .tab-button.active {
+    color: #4338ca; /* indigo-700 */
+    background-color: #ffffff; /* white */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+
+/* --- Styles for "How It Works" Tabs --- */
+#how-it-works-tabs .tab-button {
+    position: relative;
+    /* Required for positioning the loading bar inside */
+    overflow: hidden;
+    /* Keeps the loading bar contained */
+}
+
+#how-it-works-tabs .tab-button.active {
+    background-color: white;
+    color: #111827;
+    /* gray-900 */
+    border-bottom-color: white !important;
+    /* Hides bottom border to merge with content */
+    z-index: 10;
+}
+
+#how-it-works-tabs .tab-button:not(.active) {
+    background-color: #f3f4f6;
+    /* gray-100 */
+    color: #374151;
+    /* gray-700 */
+}
+
+/* --- UPDATED: Loading Bar for "How It Works" Tabs --- */
+#how-it-works-tabs .tab-button .loading-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%; /* Fill the full height */
+    width: 0; /* Starts with no width */
+    background-color: #e0e7ff; /* indigo-200 */
+    z-index: 5; /* Sit below the text */
+    border-radius: 0.65rem; /* Match parent's rounded-t-xl */
+}
+
+/* The running animation for the loading bar */
+#how-it-works-tabs .tab-button.active .loading-bar.running {
+    animation-timing-function: linear;
+    animation-name: fill-up;
+}
+
+@keyframes fill-up {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
 }
