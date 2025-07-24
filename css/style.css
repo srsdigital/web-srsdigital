@@ -133,111 +133,76 @@ body {
     z-index: 10;
 }
 
-/* --- NEW: Language Toggle Switcher Styles --- */
+/* --- Language Switcher --- */
 .language-toggle-container {
     display: flex;
     align-items: center;
-    background-color: #5F00FF;
-    /* Darker violet for the container */
-    border-radius: 9999px;
-    padding: 4px;
     cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    gap: 8px;
 }
 
 .language-toggle-container .lang-icon {
-    color: white;
-    margin-right: 8px;
-    margin-left: 4px;
-    width: 20px;
-    height: 20px;
-}
-
-.language-toggle-container.mobile {
-    padding: 2px;
-    /* Slightly smaller padding for mobile */
-}
-
-.language-toggle-container.mobile .lang-icon {
-    display: none;
-    /* Hide icon on mobile version */
+    color: #333333;
 }
 
 .toggle-switch {
+    width: 60px;
+    height: 30px;
+    background-color: #e5e7eb;
+    border-radius: 15px;
     position: relative;
     display: flex;
     align-items: center;
-    background-color: transparent;
-    border-radius: 9999px;
-}
-
-.toggle-switch .lang-option {
-    padding: 4px 12px;
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    color: white;
-    z-index: 1;
-    transition: color 0.3s ease-in-out;
-    user-select: none;
-    /* Prevent text selection */
+    padding: 3px;
+    box-sizing: border-box;
 }
 
 .toggle-slider {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 50%;
+    top: 3px;
+    left: 3px;
+    width: calc(50% - 3px);
+    height: calc(100% - 6px);
     background-color: white;
-    border-radius: 9999px;
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    z-index: 0;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.toggle-switch .lang-option.active {
+.lang-option {
+    width: 50%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 1;
+    color: #6b7280;
+    transition: color 0.3s ease;
+}
+
+.lang-option.active {
     color: #5F00FF;
-    /* srs-violet */
 }
 
-/* --- Styles for the disabled button --- */
+/* --- Coming Soon Badge --- */
 .disabled-link {
-    opacity: 0.65;
     cursor: not-allowed;
+    opacity: 0.7;
     pointer-events: none;
-    /* Crucial for disabling clicks */
 }
 
-/* Remove hover effects from the disabled button */
-.disabled-link:hover {
-    transform: none;
-    box-shadow: none;
-}
-
-/* --- Styles for the "Coming Soon" badge --- */
 .coming-soon-badge {
     position: absolute;
     top: -10px;
-    right: -15px;
+    right: -20px;
     background-color: #FFD700;
-    /* srs-gold */
     color: #333333;
-    /* srs-charcoal-grey */
-    padding: 4px 10px;
+    padding: 2px 8px;
     border-radius: 12px;
-    font-size: 11px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    transform: rotate(12deg);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    white-space: nowrap;
-    /* Prevents text from wrapping */
-    pointer-events: none;
-    /* The badge itself should not be interactive */
-    z-index: 10;
+    font-size: 10px;
+    font-weight: bold;
+    transform: rotate(15deg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 
 /* --- Reusable Component Styles from Klaimr page --- */
 .gradient-bg {
@@ -256,13 +221,11 @@ body {
 /* --- General Tab Styles --- */
 .tab-content {
     display: none;
-    /* Hide inactive tabs by default */
     animation: fadeIn 0.5s ease-in-out;
 }
 
 .tab-content.active {
     display: block;
-    /* Show the active tab */
 }
 
 @keyframes fadeIn {
@@ -277,56 +240,173 @@ body {
     }
 }
 
-/* --- UPDATED: Styles for "Problem/Solution" Tabs --- */
-#problem-solution-tabs .tab-button {
-    color: #374151; /* gray-700 */
-    transition: all 0.3s ease;
+/* --- Problem/Solution Carousel Styles --- */
+#problem-solution-carousel {
+    height: 500px; /* Adjust height as needed */
 }
 
-#problem-solution-tabs .tab-button.active {
-    color: #4338ca; /* indigo-700 */
-    background-color: #ffffff; /* white */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+.carousel-viewport {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    perspective: 1500px; /* Creates the 3D space */
+    overflow: hidden;
+}
+
+.carousel-track {
+    position: relative; /* Changed from absolute */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+.carousel-card {
+    position: absolute; /* Absolute positioning within the track */
+    width: 350px; /* Card width */
+    height: auto;
+    flex-shrink: 0;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    cursor: pointer;
+    opacity: 0; /* Hide by default, JS will make them visible */
+    transform: scale(0.7); /* Start scaled down */
+}
+
+/* Card Content Styling */
+.carousel-card .card-content {
+    background-color: #FFFFFF;
+    border-radius: 1.5rem; /* 24px */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #e5e7eb; /* Subtle border */
+}
+
+.carousel-card:not(.is-active) .card-content:hover {
+    transform: translateY(-5px);
+}
+
+/* Positioning and styling based on state */
+.carousel-card.is-active {
+    transform: translateZ(0) rotateY(0) scale(1);
+    opacity: 1;
+    z-index: 10;
+    cursor: default;
+}
+
+.carousel-card.is-prev {
+    transform: translateX(-55%) translateZ(-200px) rotateY(45deg) scale(0.85);
+    opacity: 0.6;
+    z-index: 5;
+}
+
+.carousel-card.is-next {
+    transform: translateX(55%) translateZ(-200px) rotateY(-45deg) scale(0.85);
+    opacity: 0.6;
+    z-index: 5;
+}
+
+/* Navigation Buttons */
+.carousel-button {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #374151; /* gray-700 */
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+    border: 1px solid rgba(0,0,0,0.05);
+    backdrop-filter: blur(4px);
+}
+
+.carousel-button:hover {
+    background-color: white;
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    color: #111827; /* gray-900 */
+}
+
+/* Progress Bar */
+.progress-bar-container {
+    width: 90%;
+    height: 4px;
+    background-color: #e5e7eb; /* gray-200 */
+    border-radius: 2px;
+    margin: 16px auto 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-card.is-active .progress-bar-container {
+    opacity: 1;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #4f46e5; /* indigo-600 */
+    border-radius: 2px;
+}
+
+@keyframes fill-progress {
+    from { width: 0%; }
+    to { width: 100%; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .carousel-card { width: 300px; }
+    .carousel-card.is-prev { transform: translateX(-45%) translateZ(-150px) rotateY(50deg) scale(0.8); }
+    .carousel-card.is-next { transform: translateX(45%) translateZ(-150px) rotateY(-50deg) scale(0.8); }
+    .carousel-button { width: 40px; height: 40px; }
+}
+
+@media (max-width: 640px) {
+    #problem-solution-carousel { height: 450px; }
+    .carousel-card { width: 280px; }
+    .carousel-card.is-prev { transform: translateX(-35%) translateZ(-100px) rotateY(60deg) scale(0.75); }
+    .carousel-card.is-next { transform: translateX(35%) translateZ(-100px) rotateY(-60deg) scale(0.75); }
+    .carousel-button { display: none; } /* Hide buttons on smallest screens, rely on card click/tap */
 }
 
 
 /* --- Styles for "How It Works" Tabs --- */
 #how-it-works-tabs .tab-button {
     position: relative;
-    /* Required for positioning the loading bar inside */
     overflow: hidden;
-    /* Keeps the loading bar contained */
 }
 
 #how-it-works-tabs .tab-button.active {
     background-color: white;
     color: #111827;
-    /* gray-900 */
     border-bottom-color: white !important;
-    /* Hides bottom border to merge with content */
     z-index: 10;
 }
 
 #how-it-works-tabs .tab-button:not(.active) {
     background-color: #f3f4f6;
-    /* gray-100 */
     color: #374151;
-    /* gray-700 */
 }
 
-/* --- UPDATED: Loading Bar for "How It Works" Tabs --- */
 #how-it-works-tabs .tab-button .loading-bar {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%; /* Fill the full height */
-    width: 0; /* Starts with no width */
-    background-color: #e0e7ff; /* indigo-200 */
-    z-index: 5; /* Sit below the text */
-    border-radius: 0.65rem; /* Match parent's rounded-t-xl */
+    height: 100%;
+    width: 0;
+    background-color: #e0e7ff;
+    z-index: 5;
+    border-radius: 0.65rem;
 }
 
-/* The running animation for the loading bar */
 #how-it-works-tabs .tab-button.active .loading-bar.running {
     animation-timing-function: linear;
     animation-name: fill-up;
