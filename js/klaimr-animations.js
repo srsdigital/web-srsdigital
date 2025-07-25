@@ -1,29 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Setup for Universal Mute/Unmute Buttons ---
-    const muteButtons = document.querySelectorAll('.video-mute-toggle');
-    muteButtons.forEach(button => {
-        const container = button.closest('.relative');
-        if (!container) return;
+    // --- Comprehensive Video Handling ---
+    const allVideos = document.querySelectorAll('video');
 
+    // Intersection Observer to pause videos when they are off-screen
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if (!entry.isIntersecting) {
+                video.pause();
+            }
+        });
+    }, { threshold: 0.25 }); // 25% of video must be visible
+
+    allVideos.forEach(video => {
+        videoObserver.observe(video);
+    });
+
+    // Setup custom controls for each video
+    document.querySelectorAll('.video-container').forEach(container => {
         const video = container.querySelector('video');
-        const unmuteIcon = button.querySelector('.unmute-icon');
-        const muteIcon = button.querySelector('.mute-icon');
+        const playPauseBtn = container.querySelector('.video-play-pause');
+        const muteBtn = container.querySelector('.video-mute-toggle');
 
-        if (!video || !unmuteIcon || !muteIcon) return;
+        if (!video || !playPauseBtn || !muteBtn) return;
 
-        // Set initial state based on video's muted property
-        if (video.muted) {
-            unmuteIcon.classList.remove('hidden');
-            muteIcon.classList.add('hidden');
-        } else {
-            unmuteIcon.classList.add('hidden');
-            muteIcon.classList.remove('hidden');
-        }
+        const playIcon = playPauseBtn.querySelector('.play-icon');
+        const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+        const unmuteIcon = muteBtn.querySelector('.unmute-icon');
+        const muteIcon = muteBtn.querySelector('.mute-icon');
 
-        button.addEventListener('click', (e) => {
-            e.stopPropagation();
-            video.muted = !video.muted;
+        // Function to update play/pause button UI
+        const updatePlayPauseIcon = () => {
+            if (video.paused) {
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+            } else {
+                playIcon.classList.add('hidden');
+                pauseIcon.classList.remove('hidden');
+            }
+        };
+
+        // Function to update mute/unmute button UI
+        const updateMuteIcon = () => {
             if (video.muted) {
                 unmuteIcon.classList.remove('hidden');
                 muteIcon.classList.add('hidden');
@@ -31,8 +50,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 unmuteIcon.classList.add('hidden');
                 muteIcon.classList.remove('hidden');
             }
+        };
+
+        // Event Listeners for buttons
+        playPauseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
         });
+
+        muteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            video.muted = !video.muted;
+        });
+
+        // Sync UI with video state changes
+        video.addEventListener('play', updatePlayPauseIcon);
+        video.addEventListener('pause', updatePlayPauseIcon);
+        video.addEventListener('volumechange', updateMuteIcon);
+
+        // Set initial state
+        updatePlayPauseIcon();
+        updateMuteIcon();
     });
+
 
     // --- Card Carousel Logic ---
     const carouselContainer = document.getElementById('problem-solution-carousel');
@@ -120,43 +164,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- "How It Works" Auto-Cycling Tabs ---
+    // --- REVISED: "How It Works" Tabs on User Interaction ---
     const hiwTabsContainer = document.getElementById('how-it-works-tabs');
     if (hiwTabsContainer) {
         const hiwButtons = Array.from(hiwTabsContainer.querySelectorAll('.tab-button'));
-        const DURATION_PER_TAB = 6000;
         let currentIndex = 0;
         let autoCycleTimer = null;
 
-        const activateTab = (index, isManualClick = false) => {
-            if (isManualClick && autoCycleTimer) {
-                clearTimeout(autoCycleTimer);
-                autoCycleTimer = null;
+        // This function now just handles the visual switching of tabs
+        const activateTab = (index) => {
+            // Stop any running timer and pause video from the previous tab
+            if (autoCycleTimer) clearTimeout(autoCycleTimer);
+            const previousActiveContent = hiwTabsContainer.querySelector('.tab-content.active');
+            if (previousActiveContent) {
+                const prevVideo = previousActiveContent.querySelector('video');
+                if (prevVideo) {
+                    prevVideo.pause();
+                }
             }
 
             currentIndex = index;
 
+            // Reset all buttons and loading bars
             hiwButtons.forEach((btn) => {
                 btn.classList.remove('active', 'bg-white', 'text-gray-900');
                 btn.classList.add('bg-gray-100', 'text-gray-700');
-
                 const loadingBar = btn.querySelector('.loading-bar');
                 if (loadingBar) {
-                    loadingBar.classList.remove('running');
                     loadingBar.style.animation = 'none';
-                    loadingBar.offsetHeight;
+                    loadingBar.style.width = '0%';
                 }
             });
 
+            // Hide all content panels
             hiwTabsContainer.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
                 content.classList.add('hidden');
-                const video = content.querySelector('video');
-                if (video) {
-                    video.pause();
-                }
             });
 
+            // Activate the new tab button and content panel
             const button = hiwButtons[index];
             const content = document.getElementById(button.getAttribute('data-tab'));
 
@@ -164,56 +210,64 @@ document.addEventListener('DOMContentLoaded', () => {
             button.classList.remove('bg-gray-100', 'text-gray-700');
             content.classList.add('active');
             content.classList.remove('hidden');
-
-            const activeVideo = content.querySelector('video');
-            let duration = DURATION_PER_TAB;
-
-            if (activeVideo) {
-                if (activeVideo.duration && isFinite(activeVideo.duration)) {
-                    duration = activeVideo.duration * 1000;
-                }
-                activeVideo.currentTime = 0;
-                activeVideo.play().catch(e => console.error("Video play failed:", e));
-            }
-
-            const loadingBar = button.querySelector('.loading-bar');
-            if (loadingBar) {
-                loadingBar.style.animation = `fill-up ${duration / 1000}s linear forwards`;
-                loadingBar.classList.add('running');
-            }
             
-            if (autoCycleTimer !== null) {
-                autoCycleTimer = setTimeout(() => {
-                    activateTab((currentIndex + 1) % hiwButtons.length);
-                }, duration);
+            const video = content.querySelector('video');
+            if (video) {
+                video.currentTime = 0; // Reset video for new viewing
             }
         };
-        
+
+        // Add click listeners to tab buttons for manual navigation
         hiwButtons.forEach((button, index) => {
             button.addEventListener('click', () => {
-                activateTab(index, true);
+                activateTab(index);
             });
         });
 
-        const startAutoCycle = () => {
-            if (autoCycleTimer === null) { 
-                autoCycleTimer = setTimeout(() => {
-                    activateTab(0);
-                }, 100); 
-            }
-        };
+        // Add listeners to videos to control the progress bar and auto-cycling
+        hiwTabsContainer.querySelectorAll('.tab-content video').forEach(video => {
+            // When user clicks play, start the progress bar and the cycle timer
+            video.addEventListener('play', () => {
+                const contentId = video.closest('.tab-content').id;
+                const button = hiwTabsContainer.querySelector(`.tab-button[data-tab="${contentId}"]`);
+                
+                if (button && button.classList.contains('active')) {
+                    const loadingBar = button.querySelector('.loading-bar');
+                    const duration = video.duration;
 
-        const firstVideo = hiwTabsContainer.querySelector('video');
-        if (firstVideo) {
-            if (firstVideo.readyState >= 3) {
-                startAutoCycle();
-            } else {
-                firstVideo.addEventListener('canplay', startAutoCycle, {
-                    once: true
-                });
-            }
-        } else {
-            startAutoCycle();
-        }
+                    if (loadingBar && isFinite(duration)) {
+                        loadingBar.style.animation = `fill-up ${duration}s linear forwards`;
+                    }
+
+                    if (autoCycleTimer) clearTimeout(autoCycleTimer);
+                    if (isFinite(duration)) {
+                        autoCycleTimer = setTimeout(() => {
+                            activateTab((currentIndex + 1) % hiwButtons.length);
+                        }, duration * 1000);
+                    }
+                }
+            });
+
+            // When user pauses, clear the timer and reset the bar
+            video.addEventListener('pause', () => {
+                const contentId = video.closest('.tab-content').id;
+                const button = hiwTabsContainer.querySelector(`.tab-button[data-tab="${contentId}"]`);
+                if (button) {
+                    const loadingBar = button.querySelector('.loading-bar');
+                    if(loadingBar) {
+                        // Resetting the bar on pause gives clear feedback
+                        loadingBar.style.animation = 'none';
+                        loadingBar.style.width = '0%';
+                    }
+                }
+                if (autoCycleTimer) {
+                    clearTimeout(autoCycleTimer);
+                    autoCycleTimer = null;
+                }
+            });
+        });
+
+        // Set the initial state without starting any timers
+        activateTab(0);
     }
 });

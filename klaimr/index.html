@@ -55,19 +55,24 @@
 
                 <div class="mt-16 max-w-4xl mx-auto">
                     <div class="bg-white rounded-2xl shadow-2xl p-4">
-                        <div class="relative">
-                            <video class="w-full h-full object-cover rounded-lg" autoplay muted loop playsinline loading="lazy">
+                        <div class="relative video-container">
+                            <video class="w-full h-full object-cover rounded-lg" autoplay muted loop playsinline loading="lazy" preload="metadata">
+                                <!-- MP4 source for best compatibility -->
+                                <source src="../videos/klaimr-landing-id.mp4" type="video/mp4">
                                 <source src="../videos/klaimr-landing-id.webm" type="video/webm">
                                 Your browser does not support the video tag.
                             </video>
-                            <button class="video-mute-toggle absolute bottom-4 left-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition">
-                                <svg class="unmute-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
-                                </svg>
-                                <svg class="mute-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
-                                </svg>
-                            </button>
+                            <!-- Custom Video Controls -->
+                            <div class="video-controls">
+                                <button class="video-play-pause">
+                                    <svg class="play-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" /></svg>
+                                    <svg class="pause-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-6-13.5v13.5" /></svg>
+                                </button>
+                                <button class="video-mute-toggle">
+                                    <svg class="unmute-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" /></svg>
+                                    <svg class="mute-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" /></svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -160,19 +165,22 @@
                     </div>
                     <div class="bg-white p-6 md:p-8 rounded-b-2xl rounded-tr-2xl shadow-xl border border-t-0 border-gray-300">
                         <div id="step1" class="tab-content active">
-                            <div class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6">
-                                <video class="w-full h-full object-cover" autoplay loop muted playsinline loading="lazy">
+                            <div class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6 video-container">
+                                <video class="w-full h-full object-cover" muted playsinline loading="lazy" preload="metadata">
+                                    <source src="../videos/product-code-id.mp4" type="video/mp4">
                                     <source src="../videos/product-code-id.webm" type="video/webm">
                                     Your browser does not support the video tag.
                                 </video>
-                                <button class="video-mute-toggle absolute bottom-4 left-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition">
-                                    <svg class="unmute-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
-                                    </svg>
-                                    <svg class="mute-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
-                                    </svg>
-                                </button>
+                                <div class="video-controls">
+                                    <button class="video-play-pause">
+                                        <svg class="play-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" /></svg>
+                                        <svg class="pause-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-6-13.5v13.5" /></svg>
+                                    </button>
+                                    <button class="video-mute-toggle">
+                                        <svg class="unmute-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" /></svg>
+                                        <svg class="mute-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" /></svg>
+                                    </button>
+                                </div>
                             </div>
                             <div class="text-center">
                                 <h3 class="text-xl font-semibold text-gray-800 mb-2" data-key="tab1_h3">Masukkan Kode Produk</h3>
@@ -185,19 +193,22 @@
                         </div>
 
                         <div id="step2" class="tab-content hidden">
-                            <div class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6">
-                                <video class="w-full h-full object-cover" autoplay loop muted playsinline loading="lazy">
+                            <div class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6 video-container">
+                                <video class="w-full h-full object-cover" muted playsinline loading="lazy" preload="metadata">
+                                    <source src="../videos/live-id.mp4" type="video/mp4">
                                     <source src="../videos/live-id.webm" type="video/webm">
                                     Your browser does not support the video tag.
                                 </video>
-                                <button class="video-mute-toggle absolute bottom-4 left-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition">
-                                    <svg class="unmute-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
-                                    </svg>
-                                    <svg class="mute-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
-                                    </svg>
-                                </button>
+                                <div class="video-controls">
+                                    <button class="video-play-pause">
+                                        <svg class="play-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" /></svg>
+                                        <svg class="pause-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-6-13.5v13.5" /></svg>
+                                    </button>
+                                    <button class="video-mute-toggle">
+                                        <svg class="unmute-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" /></svg>
+                                        <svg class="mute-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" /></svg>
+                                    </button>
+                                </div>
                             </div>
                             <div class="text-center">
                                 <h3 class="text-xl font-semibold text-gray-800 mb-2" data-key="tab2_h3">Mulai Sesi Live</h3>
@@ -209,19 +220,22 @@
                         </div>
 
                         <div id="step3" class="tab-content hidden">
-                            <div class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6">
-                                <video class="w-full h-full object-cover" autoplay loop muted playsinline loading="lazy">
+                            <div class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6 video-container">
+                                <video class="w-full h-full object-cover" muted playsinline loading="lazy" preload="metadata">
+                                    <source src="../videos/recap-id.mp4" type="video/mp4">
                                     <source src="../videos/recap-id.webm" type="video/webm">
                                     Your browser does not support the video tag.
                                 </video>
-                                <button class="video-mute-toggle absolute bottom-4 left-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/75 transition">
-                                    <svg class="unmute-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
-                                    </svg>
-                                    <svg class="mute-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
-                                    </svg>
-                                </button>
+                                <div class="video-controls">
+                                    <button class="video-play-pause">
+                                        <svg class="play-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" /></svg>
+                                        <svg class="pause-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-6-13.5v13.5" /></svg>
+                                    </button>
+                                    <button class="video-mute-toggle">
+                                        <svg class="unmute-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" /></svg>
+                                        <svg class="mute-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" /></svg>
+                                    </button>
+                                </div>
                             </div>
                             <div class="text-center">
                                 <h3 class="text-xl font-semibold text-gray-800 mb-2" data-key="tab3_h3">Lihat Rekap Sesi</h3>
@@ -286,7 +300,6 @@
                     </div>
                     <div class="bg-gray-200 rounded-2xl aspect-square flex items-center justify-center">
                         <img src="../images/klaimr-recap-value.webp" alt="Klaimr Value" onerror="this.onerror=null; this.src='https://placehold.co/90x28/1a202c/4a5568?text=Klaimr';">
-                        <!-- <p class="text-gray-500 font-medium" data-key="placeholder_graph">[Placeholder untuk Grafik/Visual]</p> -->
                     </div>
                 </div>
             </div>

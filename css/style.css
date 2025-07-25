@@ -421,3 +421,38 @@ body {
         width: 100%;
     }
 }
+
+.video-container .video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem; /* 16px */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-bottom-left-radius: 0.5rem; /* Match video's rounded corners */
+    border-bottom-right-radius: 0.5rem;
+}
+
+.video-container:hover .video-controls {
+    opacity: 1;
+}
+
+.video-controls button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 0.5rem; /* 8px */
+    border-radius: 9999px; /* full */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.video-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.75);
+}
