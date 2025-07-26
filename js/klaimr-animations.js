@@ -164,110 +164,125 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- REVISED: "How It Works" Tabs on User Interaction ---
+    // --- REVISED: "How It Works" Tabs with Autoplay Sequence ---
     const hiwTabsContainer = document.getElementById('how-it-works-tabs');
     if (hiwTabsContainer) {
         const hiwButtons = Array.from(hiwTabsContainer.querySelectorAll('.tab-button'));
+        const tabContents = Array.from(hiwTabsContainer.querySelectorAll('.tab-content'));
         let currentIndex = 0;
-        let autoCycleTimer = null;
 
-        // This function now just handles the visual switching of tabs
-        const activateTab = (index) => {
-            // Stop any running timer and pause video from the previous tab
-            if (autoCycleTimer) clearTimeout(autoCycleTimer);
-            const previousActiveContent = hiwTabsContainer.querySelector('.tab-content.active');
-            if (previousActiveContent) {
-                const prevVideo = previousActiveContent.querySelector('video');
-                if (prevVideo) {
+        // Function to switch tabs. Can be told to autoplay the video in the new tab.
+        const activateTab = (index, playVideo = false) => {
+            // Pause the video in the tab we are leaving
+            const previousContent = tabContents[currentIndex];
+            if (previousContent) {
+                const prevVideo = previousContent.querySelector('video');
+                if (prevVideo && !prevVideo.paused) {
                     prevVideo.pause();
                 }
             }
 
             currentIndex = index;
 
-            // Reset all buttons and loading bars
-            hiwButtons.forEach((btn) => {
-                btn.classList.remove('active', 'bg-white', 'text-gray-900');
-                btn.classList.add('bg-gray-100', 'text-gray-700');
-                const loadingBar = btn.querySelector('.loading-bar');
-                if (loadingBar) {
-                    loadingBar.style.animation = 'none';
-                    loadingBar.style.width = '0%';
-                }
+            // Update button styles
+            hiwButtons.forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+                btn.classList.toggle('bg-white', i === index);
+                btn.classList.toggle('text-gray-900', i === index);
+                btn.classList.toggle('bg-gray-100', i !== index);
+                btn.classList.toggle('text-gray-700', i !== index);
             });
 
-            // Hide all content panels
-            hiwTabsContainer.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-                content.classList.add('hidden');
+            // Update content visibility
+            tabContents.forEach((content, i) => {
+                content.classList.toggle('active', i === index);
+                content.classList.toggle('hidden', i !== index);
             });
-
-            // Activate the new tab button and content panel
-            const button = hiwButtons[index];
-            const content = document.getElementById(button.getAttribute('data-tab'));
-
-            button.classList.add('active', 'bg-white', 'text-gray-900');
-            button.classList.remove('bg-gray-100', 'text-gray-700');
-            content.classList.add('active');
-            content.classList.remove('hidden');
             
-            const video = content.querySelector('video');
-            if (video) {
-                video.currentTime = 0; // Reset video for new viewing
+            const newContent = tabContents[index];
+            if (newContent) {
+                const video = newContent.querySelector('video');
+                if (video) {
+                    video.currentTime = 0; // Always restart video
+                    if (playVideo) {
+                        // Use a promise to handle potential autoplay errors
+                        const playPromise = video.play();
+                        if (playPromise !== undefined) {
+                            playPromise.catch(error => {
+                                // Autoplay was prevented by the browser.
+                                console.error("Autoplay was prevented:", error);
+                            });
+                        }
+                    }
+                }
             }
         };
 
-        // Add click listeners to tab buttons for manual navigation
+        // Add event listeners to all tab components
+        tabContents.forEach((content, index) => {
+            const videoContainer = content.querySelector('.video-container');
+            const video = content.querySelector('video');
+            const button = hiwButtons[index];
+            const loadingBar = button ? button.querySelector('.loading-bar') : null;
+
+            if (!video || !videoContainer || !button || !loadingBar) return;
+
+            // REQUIREMENT 1: Click/tap video container to play/pause
+            videoContainer.addEventListener('click', (e) => {
+                // Don't interfere with custom controls, which have their own listeners
+                if (e.target.closest('.video-controls')) {
+                    return;
+                }
+                
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+
+            // REQUIREMENT 2: Auto-advance to next video on 'ended'
+            video.addEventListener('ended', () => {
+                const nextIndex = index + 1;
+                // Only advance if there is a next tab
+                if (nextIndex < hiwButtons.length) {
+                    activateTab(nextIndex, true); // Activate and play next
+                }
+            });
+
+            // --- Progress Bar Synchronization (maintains original behavior) ---
+            video.addEventListener('play', () => {
+                if (video.duration && isFinite(video.duration)) {
+                    loadingBar.style.animation = 'none'; // Reset any existing animation
+                    void loadingBar.offsetWidth; // Force browser reflow to restart animation
+                    loadingBar.style.animation = `fill-up ${video.duration}s linear forwards`;
+                    loadingBar.classList.add('running');
+                }
+            });
+
+            // Reset the bar on pause, as per the original file's logic
+            video.addEventListener('pause', () => {
+                loadingBar.style.animation = 'none';
+                loadingBar.classList.remove('running');
+                loadingBar.style.width = '0%';
+            });
+            
+            // Also reset the bar when the video finishes
+            video.addEventListener('ended', () => {
+                 loadingBar.style.animation = 'none';
+                 loadingBar.classList.remove('running');
+                 loadingBar.style.width = '0%';
+            });
+        });
+        
+        // Set up manual tab navigation via the buttons
         hiwButtons.forEach((button, index) => {
             button.addEventListener('click', () => {
-                activateTab(index);
+                activateTab(index, false); // Don't autoplay when user clicks a tab button
             });
         });
 
-        // Add listeners to videos to control the progress bar and auto-cycling
-        hiwTabsContainer.querySelectorAll('.tab-content video').forEach(video => {
-            // When user clicks play, start the progress bar and the cycle timer
-            video.addEventListener('play', () => {
-                const contentId = video.closest('.tab-content').id;
-                const button = hiwTabsContainer.querySelector(`.tab-button[data-tab="${contentId}"]`);
-                
-                if (button && button.classList.contains('active')) {
-                    const loadingBar = button.querySelector('.loading-bar');
-                    const duration = video.duration;
-
-                    if (loadingBar && isFinite(duration)) {
-                        loadingBar.style.animation = `fill-up ${duration}s linear forwards`;
-                    }
-
-                    if (autoCycleTimer) clearTimeout(autoCycleTimer);
-                    if (isFinite(duration)) {
-                        autoCycleTimer = setTimeout(() => {
-                            activateTab((currentIndex + 1) % hiwButtons.length);
-                        }, duration * 1000);
-                    }
-                }
-            });
-
-            // When user pauses, clear the timer and reset the bar
-            video.addEventListener('pause', () => {
-                const contentId = video.closest('.tab-content').id;
-                const button = hiwTabsContainer.querySelector(`.tab-button[data-tab="${contentId}"]`);
-                if (button) {
-                    const loadingBar = button.querySelector('.loading-bar');
-                    if(loadingBar) {
-                        // Resetting the bar on pause gives clear feedback
-                        loadingBar.style.animation = 'none';
-                        loadingBar.style.width = '0%';
-                    }
-                }
-                if (autoCycleTimer) {
-                    clearTimeout(autoCycleTimer);
-                    autoCycleTimer = null;
-                }
-            });
-        });
-
-        // Set the initial state without starting any timers
+        // Initialize the first tab on page load
         activateTab(0);
     }
 });
