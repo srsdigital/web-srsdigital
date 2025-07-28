@@ -88,6 +88,9 @@
         "powered_by": "powered by",
         "footer_login": "Login",
         "footer_contact": "Contact",
-        "footer_copyright": "© 2025 Klaimr. All Rights Reserved."
+        "footer_copyright": "© 2025 Klaimr. All Rights Reserved.",
+        "chat_widget_text": "Ask<br><span class='text-2xl'>Adinda</span>",
+        "chat_option_ig": "DM on Instagram",
+        "chat_option_tg": "Text on Telegram"
     }
 }

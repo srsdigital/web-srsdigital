@@ -88,6 +88,9 @@
         "powered_by": "didukung oleh",
         "footer_login": "Login",
         "footer_contact": "Kontak",
-        "footer_copyright": "© 2025 Klaimr. Semua Hak Cipta Dilindungi."
+        "footer_copyright": "© 2025 Klaimr. Semua Hak Cipta Dilindungi.",
+        "chat_widget_text": "Tanya<br><span class='text-2xl'>Adinda</span>",
+        "chat_option_ig": "DM di Instagram",
+        "chat_option_tg": "Text di Telegram"
     }
 }
