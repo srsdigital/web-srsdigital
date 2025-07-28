@@ -24,8 +24,9 @@
             <div class="flex items-center space-x-6">
                 <a href="https://klaimr.srsdigital.co.id/"
                     class="hidden md:inline-block bg-indigo-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-indigo-700 cta-button"
-                    data-key="header_cta">Mulai
-                    Gratis</a>
+                    data-key="header_cta" 
+                    onclick="gtag('event', 'cta_click', { 'cta_location': 'header', 'cta_text': 'Mulai Gratis', 'cta_url': 'https://klaimr.srsdigital.co.id/' });">
+                    Mulai Gratis</a>
                 <!-- Language Toggle -->
                 <div id="lang-switcher" class="language-toggle-container">
                     <i data-lucide="languages" class="lang-icon"></i>
@@ -54,7 +55,8 @@
                 </p>
                 <a href="https://klaimr.srsdigital.co.id/"
                     class="bg-indigo-600 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-indigo-700 cta-button inline-block"
-                    data-key="hero_cta">
+                    data-key="hero_cta"
+                    onclick="gtag('event', 'cta_click', { 'cta_location': 'hero', 'cta_text': 'Mulai Gratis Sekarang', 'cta_url': 'https://klaimr.srsdigital.co.id/' });">
                     Mulai Gratis Sekarang
                 </a>
 
@@ -62,8 +64,8 @@
                     <div class="bg-white rounded-2xl shadow-2xl p-4">
                         <div class="relative video-container">
                             <video class="w-full h-full object-cover rounded-lg" autoplay muted loop playsinline
-                                loading="lazy" preload="metadata">
-                                <!-- MP4 source for best compatibility -->
+                                loading="lazy" preload="metadata" 
+                                onplay="gtag('event', 'video_play', { 'video_name': 'hero_video' });">
                                 <source src="../videos/klaimr-landing-id.mp4" type="video/mp4">
                                 <source src="../videos/klaimr-landing-id.webm" type="video/webm">
                                 Your browser does not support the video tag.
@@ -114,7 +116,8 @@
                 <div id="problem-solution-carousel"
                     class="relative w-full max-w-6xl mx-auto min-h-[550px] flex items-center justify-center">
                     <!-- Previous Button -->
-                    <button id="carousel-button-prev" class="carousel-button absolute left-0 sm:left-4 md:left-8 z-20">
+                    <button id="carousel-button-prev" class="carousel-button absolute left-0 sm:left-4 md:left-8 z-20"
+                        onclick="gtag('event', 'carousel_interaction', { 'direction': 'previous' });">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -181,7 +184,8 @@
                     </div>
                     <!-- Next Button -->
                     <button id="carousel-button-next"
-                        class="carousel-button absolute right-0 sm:right-4 md:right-8 z-20">
+                        class="carousel-button absolute right-0 sm:right-4 md:right-8 z-20"
+                        onclick="gtag('event', 'carousel_interaction', { 'direction': 'next' });">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -201,17 +205,20 @@
                 <div id="how-it-works-tabs" class="max-w-5xl mx-auto tabs-container">
                     <div class="flex flex-wrap justify-center gap-4 mb-[-1px]">
                         <button data-tab="step1"
-                            class="tab-button active relative transition-all duration-300 px-6 py-3 border border-gray-300 bg-white rounded-t-xl font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            class="tab-button active relative transition-all duration-300 px-6 py-3 border border-gray-300 bg-white rounded-t-xl font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                             onclick="gtag('event', 'tab_click', { 'tab_name': 'Masukkan Kode Produk' });">
                             <span class="relative z-10" data-key="tab1_button">Masukkan Kode Produk</span>
                             <div class="loading-bar"></div>
                         </button>
                         <button data-tab="step2"
-                            class="tab-button relative transition-all duration-300 px-6 py-3 border border-gray-300 bg-gray-100 rounded-t-xl font-medium text-gray-700 hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            class="tab-button relative transition-all duration-300 px-6 py-3 border border-gray-300 bg-gray-100 rounded-t-xl font-medium text-gray-700 hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                             onclick="gtag('event', 'tab_click', { 'tab_name': 'Mulai Sesi Live' });">
                             <span class="relative z-10" data-key="tab2_button">Mulai Sesi Live</span>
                             <div class="loading-bar"></div>
                         </button>
                         <button data-tab="step3"
-                            class="tab-button relative transition-all duration-300 px-6 py-3 border border-gray-300 bg-gray-100 rounded-t-xl font-medium text-gray-700 hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            class="tab-button relative transition-all duration-300 px-6 py-3 border border-gray-300 bg-gray-100 rounded-t-xl font-medium text-gray-700 hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                             onclick="gtag('event', 'tab_click', { 'tab_name': 'Lihat Rekap Sesi' });">
                             <span class="relative z-10" data-key="tab3_button">Lihat Rekap Sesi</span>
                             <div class="loading-bar"></div>
                         </button>
@@ -222,7 +229,8 @@
                             <div
                                 class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
                                 <video class="w-full h-full object-cover" muted playsinline loading="lazy"
-                                    preload="metadata" poster="../images/product-code-id.webp">
+                                    preload="metadata" poster="../images/product-code-id.webp"
+                                    onplay="gtag('event', 'video_play', { 'video_name': 'how_it_works_product_code' });">
                                     <source src="../videos/product-code-id.mp4" type="video/mp4">
                                     <source src="../videos/product-code-id.webm" type="video/webm">
                                     Your browser does not support the video tag.
@@ -269,7 +277,8 @@
                             <div
                                 class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
                                 <video class="w-full h-full object-cover" muted playsinline loading="lazy"
-                                    preload="metadata" poster="../images/live-id.webp">
+                                    preload="metadata" poster="../images/live-id.webp"
+                                    onplay="gtag('event', 'video_play', { 'video_name': 'how_it_works_live_session' });">
                                     <source src="../videos/live-id.mp4" type="video/mp4">
                                     <source src="../videos/live-id.webm" type="video/webm">
                                     Your browser does not support the video tag.
@@ -315,7 +324,8 @@
                             <div
                                 class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
                                 <video class="w-full h-full object-cover" muted playsinline loading="lazy"
-                                    preload="metadata" poster="../images/recap-id.webp">
+                                    preload="metadata" poster="../images/recap-id.webp"
+                                    onplay="gtag('event', 'video_play', { 'video_name': 'how_it_works_recap' });">
                                     <source src="../videos/recap-id.mp4" type="video/mp4">
                                     <source src="../videos/recap-id.webm" type="video/webm">
                                     Your browser does not support the video tag.
@@ -436,7 +446,8 @@
                 </h2>
                 <a href="https://klaimr.srsdigital.co.id/"
                     class="bg-indigo-600 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-indigo-700 cta-button inline-block"
-                    data-key="final_cta_button">
+                    data-key="final_cta_button"
+                    onclick="gtag('event', 'cta_click', { 'cta_location': 'final_cta', 'cta_text': 'Mulai Gunakan Klaimr Gratis', 'cta_url': 'https://klaimr.srsdigital.co.id/' });">
                     Mulai Gunakan Klaimr Gratis
                 </a>
             </div>
@@ -462,9 +473,11 @@
                 </div>
                 <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-gray-300">
                     <a href="https://klaimr.srsdigital.co.id/" class="hover:text-white"
-                        data-key="footer_login">Login</a>
+                        data-key="footer_login"
+                        onclick="gtag('event', 'cta_click', { 'cta_location': 'footer', 'cta_text': 'Login', 'cta_url': 'https://klaimr.srsdigital.co.id/' });">Login</a>
                     <a href="https://srsdigital.co.id/#contact" class="hover:text-white"
-                        data-key="footer_contact">Kontak</a>
+                        data-key="footer_contact"
+                        onclick="gtag('event', 'contact_click', { 'contact_method': 'footer_contact_link' });">Kontak</a>
                 </div>
             </div>
             <div class="mt-10 border-t border-gray-800 pt-8 text-center text-gray-500">
@@ -476,7 +489,8 @@
     <!-- Chat Widget -->
     <div id="chat-widget" class="chat-widget-container">
         <div id="chat-widget-options" class="chat-widget-options">
-            <a href="https://www.instagram.com/klaimr.id/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/klaimr.id/" target="_blank" rel="noopener noreferrer"
+                onclick="gtag('event', 'contact_click', { 'contact_method': 'instagram' });">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="lucide lucide-instagram">
@@ -486,7 +500,8 @@
                 </svg>
                 <span data-key="chat_option_ig">DM di Instagram</span>
             </a>
-            <a href="https://t.me/klaimrsupport" target="_blank" rel="noopener noreferrer">
+            <a href="https://t.me/klaimrsupport" target="_blank" rel="noopener noreferrer"
+                onclick="gtag('event', 'contact_click', { 'contact_method': 'telegram' });">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="lucide lucide-send">
@@ -496,7 +511,7 @@
                 <span data-key="chat_option_tg">Text di Telegram</span>
             </a>
         </div>
-        <div id="chat-widget-button" class="chat-widget-button">
+        <div id="chat-widget-button" class="chat-widget-button" onclick="gtag('event', 'chat_widget_open');">
             <span class="font-semibold text-lg mr-2 text-center" data-key="chat_widget_text">Tanya\nAdinda</span>
             <img src="../images/tanya-adinda.webp" alt="Adinda" class="w-14 h-14 sm:w-18 sm:h-18 lg:w-22 lg:h-22"
                 onerror="this.style.display='none'">

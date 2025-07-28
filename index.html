@@ -34,20 +34,20 @@
     <!-- Navigation Bar -->
     <nav class="navbar py-4">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="#hero" class="flex items-center space-x-2">
+            <a href="#hero" class="flex items-center space-x-2" onclick="gtag('event', 'nav_click', { 'nav_location': 'header', 'nav_text': 'Logo' });">
                 <img src="images/Logo_SRS_wobg.webp" alt="SRS Digital Logo" class="h-10 w-auto"
                     onerror="this.onerror=null;this.src='https://placehold.co/150x50?text=SRS+Digital';">
             </a>
 
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#hero" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200" data-key="nav_home">Home</a>
-                <a href="#about" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200" data-key="nav_about">About Us</a>
-                <a href="#products" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200" data-key="nav_products">Products</a>
-                <a href="#testimonials" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200" data-key="nav_testimonials">Seller Stories</a>
-                <a href="#contact" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200" data-key="nav_contact">Contact</a>
+                <a href="#hero" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200" data-key="nav_home" onclick="gtag('event', 'nav_click', { 'nav_location': 'header', 'nav_text': 'Home' });">Home</a>
+                <a href="#about" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200" data-key="nav_about" onclick="gtag('event', 'nav_click', { 'nav_location': 'header', 'nav_text': 'About Us' });">About Us</a>
+                <a href="#products" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200" data-key="nav_products" onclick="gtag('event', 'nav_click', { 'nav_location': 'header', 'nav_text': 'Products' });">Products</a>
+                <a href="#testimonials" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200" data-key="nav_testimonials" onclick="gtag('event', 'nav_click', { 'nav_location': 'header', 'nav_text': 'Seller Stories' });">Seller Stories</a>
+                <a href="#contact" class="text-srs-charcoal-grey hover:text-srs-violet font-semibold transition-colors duration-200" data-key="nav_contact" onclick="gtag('event', 'nav_click', { 'nav_location': 'header', 'nav_text': 'Contact' });">Contact</a>
 
                 <!-- Language Toggle (Desktop) -->
-                <div id="lang-switcher" class="language-toggle-container">
+                <div id="lang-switcher" class="language-toggle-container" onclick="gtag('event', 'language_switcher_click', { 'location': 'header' });">
                     <i data-lucide="languages" class="lang-icon"></i>
                     <div class="toggle-switch">
                         <div class="toggle-slider"></div>
@@ -59,14 +59,14 @@
 
             <div class="md:hidden flex items-center space-x-4">
                 <!-- Language Toggle (Mobile) -->
-                <div id="lang-switcher-mobile" class="language-toggle-container mobile">
+                <div id="lang-switcher-mobile" class="language-toggle-container mobile" onclick="gtag('event', 'language_switcher_click', { 'location': 'mobile_header' });">
                     <div class="toggle-switch">
                         <div class="toggle-slider"></div>
                         <span class="lang-option" data-lang="en">EN</span>
                         <span class="lang-option" data-lang="id">ID</span>
                     </div>
                 </div>
-                <button id="mobile-menu-button" class="text-srs-charcoal-grey focus:outline-none">
+                <button id="mobile-menu-button" class="text-srs-charcoal-grey focus:outline-none" onclick="gtag('event', 'mobile_menu_toggle');">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                     </svg>
@@ -74,17 +74,17 @@
             </div>
         </div>
         <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-srs-light-grey">
-            <a href="#hero" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey" data-key="nav_home_mobile">Home</a>
-            <a href="#about" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey" data-key="nav_about_mobile">About Us</a>
-            <a href="#products" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey" data-key="nav_products_mobile">Products</a>
-            <a href="#testimonials" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey" data-key="nav_testimonials_mobile">Seller Stories</a>
-            <a href="#contact" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey" data-key="nav_contact_mobile">Contact</a>
+            <a href="#hero" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey" data-key="nav_home_mobile" onclick="gtag('event', 'nav_click', { 'nav_location': 'mobile_menu', 'nav_text': 'Home' });">Home</a>
+            <a href="#about" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey" data-key="nav_about_mobile" onclick="gtag('event', 'nav_click', { 'nav_location': 'mobile_menu', 'nav_text': 'About Us' });">About Us</a>
+            <a href="#products" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey" data-key="nav_products_mobile" onclick="gtag('event', 'nav_click', { 'nav_location': 'mobile_menu', 'nav_text': 'Products' });">Products</a>
+            <a href="#testimonials" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey" data-key="nav_testimonials_mobile" onclick="gtag('event', 'nav_click', { 'nav_location': 'mobile_menu', 'nav_text': 'Seller Stories' });">Seller Stories</a>
+            <a href="#contact" class="block py-3 px-4 text-srs-charcoal-grey hover:bg-srs-light-grey" data-key="nav_contact_mobile" onclick="gtag('event', 'nav_click', { 'nav_location': 'mobile_menu', 'nav_text': 'Contact' });">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <header id="hero" class="hero-section rounded-b-2xl shadow-xl">
-        <video playsinline autoplay muted loop preload="auto" class="video-background">
+        <video playsinline autoplay muted loop preload="auto" class="video-background" onplay="gtag('event', 'video_play', { 'video_name': 'hero_background' });">
             <source src="videos/hero.webm" type="video/webm">
         </video>
         <div class="video-overlay"></div>
@@ -97,13 +97,13 @@
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <div class="relative inline-block">
-                    <a href="#" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md disabled-link" data-key="hero_button1">
+                    <a href="#" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md disabled-link" data-key="hero_button1" onclick="gtag('event', 'cta_click', { 'cta_location': 'hero', 'cta_text': 'Explore MyResale', 'cta_url': '#', 'status': 'disabled' });">
                         Explore MyResale
                     </a>
                     <span class="coming-soon-badge" data-key="coming_soon">Coming Soon</span>
                 </div>
                 <div class="relative inline-block">
-                    <a href="/klaimr/" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md" data-key="hero_button2">
+                    <a href="/klaimr/" class="btn-gradient px-8 py-3 rounded-full text-lg font-semibold shadow-md" data-key="hero_button2" onclick="gtag('event', 'cta_click', { 'cta_location': 'hero', 'cta_text': 'Discover Klaimr', 'cta_url': '/klaimr/' });">
                         Discover Klaimr
                     </a>
                 </div>
@@ -180,7 +180,7 @@
                                 The complete end-to-end toolchest for preloved resellers. Manage inventory, streamline payments, auto-reimburse consignors, and get insightful analytics to grow your business.
                             </p>
                             <div class="relative inline-block">
-                                <a href="#" class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md disabled-link" data-key="product_learn_more">
+                                <a href="#" class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md disabled-link" data-key="product_learn_more" onclick="gtag('event', 'product_click', { 'product_name': 'MyResale', 'cta_url': '#', 'status': 'disabled' });">
                                     Learn More
                                 </a>
                                 <span class="coming-soon-badge" data-key="coming_soon">Coming Soon</span>
@@ -198,7 +198,7 @@
                                 precious time.
                             </p>
                             <div class="relative inline-block">
-                                <a href="/klaimr/" class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md" data-key="product_learn_more2">
+                                <a href="/klaimr/" class="btn-gradient px-6 py-2 rounded-full text-md font-semibold shadow-md" data-key="product_learn_more2" onclick="gtag('event', 'product_click', { 'product_name': 'Klaimr', 'cta_url': '/klaimr/' });">
                                     Learn More
                                 </a>
                             </div>
@@ -244,7 +244,7 @@
                 <p class="text-xl md:text-2xl mb-10" data-key="contact_p">
                     Join Indonesian solopreneurs who are simplifying their operations and accelerating their growth with SRS Digital.
                 </p>
-                <a href="mailto:halo@srsdigital.co.id" class="bg-srs-gold text-srs-charcoal-grey px-10 py-4 rounded-full text-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 inline-block text-center" data-key="contact_button">Contact Us Today!</a>
+                <a href="mailto:halo@srsdigital.co.id" class="bg-srs-gold text-srs-charcoal-grey px-10 py-4 rounded-full text-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 inline-block text-center" data-key="contact_button" onclick="gtag('event', 'contact_click', { 'contact_method': 'email_button' });">Contact Us Today!</a>
             </div>
         </section>
     </main>
@@ -255,7 +255,7 @@
             <p class="mb-2" data-key="footer_copyright">&copy; 2025 PT SRS Solusi Digital. All rights reserved.</p>
             <p class="mb-4" data-key="footer_location">Jakarta, Indonesia</p>
             <div class="flex justify-center gap-4 mt-6">
-                <a href="https://www.linkedin.com/company/srs-solusi-digital/" class="text-white hover:text-srs-teal transition-colors duration-200" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/srs-solusi-digital/" class="text-white hover:text-srs-teal transition-colors duration-200" aria-label="LinkedIn" onclick="gtag('event', 'social_click', { 'social_platform': 'LinkedIn' });">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM4 9h4v12H4zM6 3a2 2 0 110 4 2 2 0 010-4z" />
                     </svg>
