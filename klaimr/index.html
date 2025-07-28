@@ -11,7 +11,96 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- ===== START: Google Analytics (GA4) Snippet ===== -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DV9955ZNR8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-DV9955ZNR8');
+    </script>
+    <!-- ===== END: Google Analytics (GA4) Snippet ===== -->
+
+    <!-- ===== START: Amplitude Analytics Snippet ===== -->
+    <script type="text/javascript">
+        (function (e, t) {
+            var n = e.amplitude || { _q: [], _iq: {} }; var r = t.createElement("script"); r.type = "text/javascript";
+            r.integrity = "sha384-vYYnQ3LPdp/RkK9dIjECrClDgMh8d3iYPC3CVgYvdLDRbbxUjLVLCqrJikSQy8LD"; r.crossOrigin = "anonymous";
+            r.async = true; r.src = "https://cdn.amplitude.com/libs/analytics-browser-2.7.3-min.js.gz";
+            r.onload = function () { if (!e.amplitude.runQueuedFunctions) { console.log("[Amplitude] Error: could not load SDK") } };
+            var i = t.getElementsByTagName("script")[0]; i.parentNode.insertBefore(r, i);
+            function s(e, t) { e.prototype[t] = function () { this._q.push({ name: t, args: Array.prototype.slice.call(arguments, 0) }); return this } }
+            var o = function () { this._q = []; return this }; var a = ["add", "append", "clearAll", "prepend", "set", "setOnce", "unset", "preInsert", "postInsert", "remove"];
+            for (var c = 0; c < a.length; c++) { s(o, a[c]) } n.Identify = o; var u = function () { this._q = []; return this };
+            var l = ["setProductId", "setQuantity", "setPrice", "setRevenue", "setRevenueType", "setEventProperties"];
+            for (var p = 0; p < l.length; p++) { s(u, p) } n.Revenue = u;
+            var d = ["init", "track", "logEvent", "identify", "getUserId", "getDeviceId", "setUserId", "setOptOut", "setGroup", "setTransport", "reset", "sendEvents", "setSessionId", "getSessionId"];
+            function f(e) { function t(t) { e[t] = function () { e._q.push({ name: t, args: Array.prototype.slice.call(arguments, 0) }) } } for (var n = 0; n < d.length; n++) { t(d[n]) } } f(n);
+            n.getInstance = function (e) { e = (!e || e.length === 0 ? "$default_instance" : e).toLowerCase(); if (!Object.prototype.hasOwnProperty.call(n._iq, e)) { n._iq[e] = { _q: [] }; f(n._iq[e]) } return n._iq[e] };
+            e.amplitude = n;
+        })(window, document);
+
+        // Initialize Amplitude with your API key and tracking options
+        amplitude.init("8354ba1e8b24be0df41c5ea4c0e48504", undefined, {
+            defaultTracking: {
+                pageViews: true,
+                sessions: true,
+                formInteractions: true,
+                fileDownloads: true,
+            },
+            attribution: {
+                includeReferrer: true,
+                includeUtm: true,
+            }
+        });
+    </script>
+    <!-- ===== END: Amplitude Analytics Snippet ===== -->
+
+    <!-- ===== START: Dual Analytics Wrapper Function ===== -->
+    <script>
+        /**
+         * Tracks an event in both Google Analytics 4 and Amplitude.
+         * @param {string} eventName - The base name for the event (e.g., 'CTA Clicked').
+         * @param {object} properties - An object of properties for the event.
+         * @param {string} [redirectUrl] - Optional URL to redirect to after a short delay.
+         */
+        function trackEvent(eventName, properties = {}, redirectUrl = null) {
+            // --- Google Analytics 4 Tracking ---
+            // GA4 prefers snake_case for event names.
+            const gaEventName = eventName.replace(/\s+/g, '_').toLowerCase();
+            const gaProperties = { ...properties };
+            // Map properties for GA4 if needed (e.g., location -> cta_location)
+            if (gaProperties.location) {
+                gaProperties.cta_location = gaProperties.location;
+                delete gaProperties.location; // Clean up original property
+            }
+            if (typeof gtag === 'function') {
+                gtag('event', gaEventName, gaProperties);
+                console.log(`GA4 Event: ${gaEventName}`, gaProperties);
+            } else {
+                console.warn('gtag function not found.');
+            }
+
+            // --- Amplitude Tracking ---
+            // Amplitude often uses Title Case for event names.
+            if (typeof amplitude === 'object') {
+                amplitude.track(eventName, properties);
+                console.log(`Amplitude Event: ${eventName}`, properties);
+            } else {
+                console.warn('amplitude object not found.');
+            }
+
+            // --- Handle Redirection ---
+            if (redirectUrl) {
+                setTimeout(() => {
+                    window.location.href = redirectUrl;
+                }, 200); // 200ms delay to allow tracking pixels to fire
+            }
+        }
+    </script>
+    <!-- ===== END: Dual Analytics Wrapper Function ===== -->
 </head>
+
 
 <body class="bg-gray-50 text-gray-800" data-page="klaimr">
 
@@ -25,7 +114,7 @@
                 <a href="https://klaimr.srsdigital.co.id/"
                     class="hidden md:inline-block bg-indigo-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-indigo-700 cta-button"
                     data-key="header_cta" 
-                    onclick="gtag('event', 'cta_click', { 'cta_location': 'header', 'cta_text': 'Mulai Gratis', 'cta_url': 'https://klaimr.srsdigital.co.id/' });">
+                    onclick="trackEvent('CTA Clicked', { location: 'header', cta_text: 'Mulai Gratis' }, this.href); return false;">
                     Mulai Gratis</a>
                 <!-- Language Toggle -->
                 <div id="lang-switcher" class="language-toggle-container">
@@ -56,7 +145,7 @@
                 <a href="https://klaimr.srsdigital.co.id/"
                     class="bg-indigo-600 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-indigo-700 cta-button inline-block"
                     data-key="hero_cta"
-                    onclick="gtag('event', 'cta_click', { 'cta_location': 'hero', 'cta_text': 'Mulai Gratis Sekarang', 'cta_url': 'https://klaimr.srsdigital.co.id/' });">
+                    onclick="trackEvent('CTA Clicked', { location: 'hero', cta_text: 'Mulai Gratis Sekarang' }, this.href); return false;">
                     Mulai Gratis Sekarang
                 </a>
 
@@ -65,7 +154,7 @@
                         <div class="relative video-container">
                             <video class="w-full h-full object-cover rounded-lg" autoplay muted loop playsinline
                                 loading="lazy" preload="metadata" 
-                                onplay="gtag('event', 'video_play', { 'video_name': 'hero_video' });">
+                                onplay="trackEvent('Video Play', { video_name: 'hero_video' });">
                                 <source src="../videos/klaimr-landing-id.mp4" type="video/mp4">
                                 <source src="../videos/klaimr-landing-id.webm" type="video/webm">
                                 Your browser does not support the video tag.
@@ -117,7 +206,7 @@
                     class="relative w-full max-w-6xl mx-auto min-h-[550px] flex items-center justify-center">
                     <!-- Previous Button -->
                     <button id="carousel-button-prev" class="carousel-button absolute left-0 sm:left-4 md:left-8 z-20"
-                        onclick="gtag('event', 'carousel_interaction', { 'direction': 'previous' });">
+                        onclick="trackEvent('Carousel Interaction', { direction: 'previous' });">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -185,7 +274,7 @@
                     <!-- Next Button -->
                     <button id="carousel-button-next"
                         class="carousel-button absolute right-0 sm:right-4 md:right-8 z-20"
-                        onclick="gtag('event', 'carousel_interaction', { 'direction': 'next' });">
+                        onclick="trackEvent('Carousel Interaction', { direction: 'next' });">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -206,19 +295,19 @@
                     <div class="flex flex-wrap justify-center gap-4 mb-[-1px]">
                         <button data-tab="step1"
                             class="tab-button active relative transition-all duration-300 px-6 py-3 border border-gray-300 bg-white rounded-t-xl font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                             onclick="gtag('event', 'tab_click', { 'tab_name': 'Masukkan Kode Produk' });">
+                            onclick="trackEvent('Tab Clicked', { tab_name: 'Masukkan Kode Produk' });">
                             <span class="relative z-10" data-key="tab1_button">Masukkan Kode Produk</span>
                             <div class="loading-bar"></div>
                         </button>
                         <button data-tab="step2"
                             class="tab-button relative transition-all duration-300 px-6 py-3 border border-gray-300 bg-gray-100 rounded-t-xl font-medium text-gray-700 hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                             onclick="gtag('event', 'tab_click', { 'tab_name': 'Mulai Sesi Live' });">
+                            onclick="trackEvent('Tab Clicked', { tab_name: 'Mulai Sesi Live' });">
                             <span class="relative z-10" data-key="tab2_button">Mulai Sesi Live</span>
                             <div class="loading-bar"></div>
                         </button>
                         <button data-tab="step3"
                             class="tab-button relative transition-all duration-300 px-6 py-3 border border-gray-300 bg-gray-100 rounded-t-xl font-medium text-gray-700 hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                             onclick="gtag('event', 'tab_click', { 'tab_name': 'Lihat Rekap Sesi' });">
+                            onclick="trackEvent('Tab Clicked', { tab_name: 'Lihat Rekap Sesi' });">
                             <span class="relative z-10" data-key="tab3_button">Lihat Rekap Sesi</span>
                             <div class="loading-bar"></div>
                         </button>
@@ -230,7 +319,7 @@
                                 class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
                                 <video class="w-full h-full object-cover" muted playsinline loading="lazy"
                                     preload="metadata" poster="../images/product-code-id.webp"
-                                    onplay="gtag('event', 'video_play', { 'video_name': 'how_it_works_product_code' });">
+                                    onplay="trackEvent('Video Play', { video_name: 'how_it_works_product_code' });">
                                     <source src="../videos/product-code-id.mp4" type="video/mp4">
                                     <source src="../videos/product-code-id.webm" type="video/webm">
                                     Your browser does not support the video tag.
@@ -278,7 +367,7 @@
                                 class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
                                 <video class="w-full h-full object-cover" muted playsinline loading="lazy"
                                     preload="metadata" poster="../images/live-id.webp"
-                                    onplay="gtag('event', 'video_play', { 'video_name': 'how_it_works_live_session' });">
+                                    onplay="trackEvent('Video Play', { video_name: 'how_it_works_live_session' });">
                                     <source src="../videos/live-id.mp4" type="video/mp4">
                                     <source src="../videos/live-id.webm" type="video/webm">
                                     Your browser does not support the video tag.
@@ -325,7 +414,7 @@
                                 class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
                                 <video class="w-full h-full object-cover" muted playsinline loading="lazy"
                                     preload="metadata" poster="../images/recap-id.webp"
-                                    onplay="gtag('event', 'video_play', { 'video_name': 'how_it_works_recap' });">
+                                    onplay="trackEvent('Video Play', { video_name: 'how_it_works_recap' });">
                                     <source src="../videos/recap-id.mp4" type="video/mp4">
                                     <source src="../videos/recap-id.webm" type="video/webm">
                                     Your browser does not support the video tag.
@@ -447,7 +536,7 @@
                 <a href="https://klaimr.srsdigital.co.id/"
                     class="bg-indigo-600 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-indigo-700 cta-button inline-block"
                     data-key="final_cta_button"
-                    onclick="gtag('event', 'cta_click', { 'cta_location': 'final_cta', 'cta_text': 'Mulai Gunakan Klaimr Gratis', 'cta_url': 'https://klaimr.srsdigital.co.id/' });">
+                    onclick="trackEvent('CTA Clicked', { location: 'final_cta', cta_text: 'Mulai Gunakan Klaimr Gratis' }, this.href); return false;">
                     Mulai Gunakan Klaimr Gratis
                 </a>
             </div>
@@ -474,10 +563,10 @@
                 <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-gray-300">
                     <a href="https://klaimr.srsdigital.co.id/" class="hover:text-white"
                         data-key="footer_login"
-                        onclick="gtag('event', 'cta_click', { 'cta_location': 'footer', 'cta_text': 'Login', 'cta_url': 'https://klaimr.srsdigital.co.id/' });">Login</a>
+                        onclick="trackEvent('CTA Clicked', { location: 'footer', cta_text: 'Login' }, this.href); return false;">Login</a>
                     <a href="https://srsdigital.co.id/#contact" class="hover:text-white"
                         data-key="footer_contact"
-                        onclick="gtag('event', 'contact_click', { 'contact_method': 'footer_contact_link' });">Kontak</a>
+                        onclick="trackEvent('Contact Clicked', { contact_method: 'footer_contact_link' }, this.href); return false;">Kontak</a>
                 </div>
             </div>
             <div class="mt-10 border-t border-gray-800 pt-8 text-center text-gray-500">
@@ -490,7 +579,7 @@
     <div id="chat-widget" class="chat-widget-container">
         <div id="chat-widget-options" class="chat-widget-options">
             <a href="https://www.instagram.com/klaimr.id/" target="_blank" rel="noopener noreferrer"
-                onclick="gtag('event', 'contact_click', { 'contact_method': 'instagram' });">
+                onclick="trackEvent('Contact Clicked', { contact_method: 'instagram' });">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="lucide lucide-instagram">
@@ -501,7 +590,7 @@
                 <span data-key="chat_option_ig">DM di Instagram</span>
             </a>
             <a href="https://t.me/klaimrsupport" target="_blank" rel="noopener noreferrer"
-                onclick="gtag('event', 'contact_click', { 'contact_method': 'telegram' });">
+                onclick="trackEvent('Contact Clicked', { contact_method: 'telegram' });">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                     class="lucide lucide-send">
@@ -511,11 +600,10 @@
                 <span data-key="chat_option_tg">Text di Telegram</span>
             </a>
         </div>
-        <div id="chat-widget-button" class="chat-widget-button" onclick="gtag('event', 'chat_widget_open');">
+        <div id="chat-widget-button" class="chat-widget-button" onclick="trackEvent('Chat Widget Opened');">
             <span class="font-semibold text-lg mr-2 text-center" data-key="chat_widget_text">Tanya\nAdinda</span>
             <img src="../images/tanya-adinda.webp" alt="Adinda" class="w-14 h-14 sm:w-18 sm:h-18 lg:w-22 lg:h-22"
                 onerror="this.style.display='none'">
-            </svg>
         </div>
     </div>
 

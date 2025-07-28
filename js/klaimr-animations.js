@@ -146,6 +146,39 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        // --- START: Swipe functionality for mobile ---
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeThreshold = 50; // Minimum distance for a swipe to be registered
+
+        carouselContainer.addEventListener('touchstart', (e) => {
+            stopAutoSlide(); // Stop sliding when user interacts
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carouselContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            let swiped = false;
+            // Check if the swipe distance is significant
+            if (Math.abs(touchEndX - touchStartX) > swipeThreshold) {
+                if (touchEndX < touchStartX) {
+                    // Swiped left, go to next card
+                    if (nextButton) nextButton.click();
+                } else {
+                    // Swiped right, go to previous card
+                    if (prevButton) prevButton.click();
+                }
+                swiped = true;
+            }
+            
+            // If the user just tapped or didn't swipe far enough, we need to restart the autoslide.
+            // The click handlers already restart it if a swipe happened, so we only call it here if no swipe occurred.
+            if (!swiped) {
+                startAutoSlide();
+            }
+        }, { passive: true });
+        // --- END: Swipe functionality for mobile ---
+
         cards.forEach((card, index) => {
             card.addEventListener('click', () => {
                 if (index !== currentIndex) {
