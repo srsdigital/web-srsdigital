@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
             chatWidget.classList.remove('open');
         }
     });
-});
 
-// Initialize Lucide Icons after the DOM is loaded
-lucide.createIcons();
+    lucide.createIcons();
+});

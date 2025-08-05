@@ -94,22 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
             cards.forEach((card, index) => {
                 card.classList.remove('is-active', 'is-prev', 'is-next');
 
-                const progress = card.querySelector('.progress-bar');
-                if (progress) {
-                    progress.style.animation = 'none';
-                    progress.style.width = '0%';
-                }
-
                 const prevIndex = (currentIndex - 1 + cardCount) % cardCount;
                 const nextIndex = (currentIndex + 1) % cardCount;
 
                 if (index === currentIndex) {
                     card.classList.add('is-active');
-                    if (progress) {
-                        setTimeout(() => {
-                            progress.style.animation = `fill-progress ${SLIDE_DURATION / 1000}s linear forwards`;
-                        }, 50);
-                    }
                 } else if (index === prevIndex) {
                     card.classList.add('is-prev');
                 } else if (index === nextIndex) {

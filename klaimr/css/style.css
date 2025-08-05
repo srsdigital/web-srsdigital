@@ -1,0 +1,517 @@
+/*
+ * Klaimr Brand Stylesheet
+ * Version: 1.2
+ * Last Updated: 2025-08-05
+ * Description: This stylesheet applies the official Klaimr brand guidelines
+ * for colors, typography, and all interactive components.
+ *
+ */
+
+/* ==========================================================================
+   1. CSS Variables (Custom Properties)
+   ========================================================================== */
+
+:root {
+  /* Primary Colors */
+  --klaimr-brown: #6C4F3D;
+  --latte-cream: #F7E7D6;
+  --warm-yellow: #FCD88D;
+
+  /* Secondary Colors */
+  --soft-coffee: #D6B08C;
+  --clay-pink: #EEC1B1;
+
+  /* Utility Colors */
+  --white: #FFFFFF;
+  --black: #1a1a1a;
+  --gray-light: #f3f4f6;
+  --gray-medium: #d1d5db;
+  --gray-dark: #4b5563;
+  --success-green: #22c55e;
+
+  /* --- FIXED: Added Font Family Variables --- */
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'Figtree', sans-serif;
+}
+
+
+/* ==========================================================================
+   2. Base & Typography Styles
+   ========================================================================== */
+
+body {
+  background-color: var(--latte-cream);
+  color: var(--klaimr-brown);
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 800; /* Extra-bold for headings */
+  color: var(--klaimr-brown);
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1rem;
+  max-width: 65ch; /* Improves readability */
+}
+
+a {
+  color: inherit;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--soft-coffee);
+}
+
+strong, b {
+    font-weight: 700;
+}
+
+
+/* ==========================================================================
+   3. Reusable Components & Classes
+   ========================================================================== */
+
+/* Call-to-Action Buttons */
+.cta-button {
+  display: inline-block;
+  background-color: var(--klaimr-brown);
+  color: var(--white);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+  background-color: var(--soft-coffee);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.cta-button-large {
+    font-size: 1.125rem; /* 18px */
+    padding: 1rem 2rem;
+}
+
+/* Gradient Background */
+.gradient-bg {
+    background: linear-gradient(180deg, #FDF5EC 0%, var(--latte-cream) 100%);
+}
+
+/* Section-specific background */
+section:not(.gradient-bg) {
+    background-color: var(--white);
+}
+section.py-20 {
+    background-color: var(--latte-cream);
+}
+
+
+/* Hero Section Accent Color */
+.hero-accent {
+    color: var(--klaimr-brown);
+}
+
+/* Feature Checkmarks */
+.feature-checkmark {
+    color: var(--success-green);
+}
+
+/* General Tab Styles */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   4. Page Sections
+   ========================================================================== */
+
+/* Header */
+header {
+    background-color: rgba(247, 231, 214, 0.8); /* Latte Cream with transparency */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(108, 79, 61, 0.1);
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 1.25rem;
+    border: 1px solid var(--gray-medium);
+}
+
+.testimonial-card .testimonial-avatar {
+    background-color: var(--clay-pink);
+    color: var(--klaimr-brown);
+    font-family: var(--font-primary);
+    font-weight: 700;
+}
+
+.testimonial-card p:last-of-type {
+    color: var(--gray-dark);
+}
+
+/* How It Works Tabs */
+.tab-button {
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--gray-medium);
+    background-color: var(--gray-light);
+    border-radius: 0.75rem 0.75rem 0 0;
+    font-family: var(--font-primary);
+    font-weight: 500;
+    color: var(--gray-dark);
+    cursor: pointer;
+}
+
+.tab-button.active {
+    background-color: var(--white);
+    color: var(--klaimr-brown);
+    border-bottom-color: var(--white);
+    z-index: 2;
+}
+
+.tab-content-container {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 0 1.25rem 1.25rem 1.25rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border: 1px solid var(--gray-medium);
+    border-top: none;
+    position: relative;
+    z-index: 1;
+}
+
+/* Footer */
+footer {
+    background-color: var(--klaimr-brown);
+    color: var(--latte-cream);
+}
+
+.footer-links a:hover {
+    color: var(--warm-yellow);
+}
+
+.footer-copyright {
+    color: var(--soft-coffee);
+    border-top-color: rgba(247, 231, 214, 0.2);
+}
+
+/* ==========================================================================
+   5. Interactive Components
+   ========================================================================== */
+
+/* --- Language Switcher --- */
+.language-toggle-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 8px;
+}
+
+.language-toggle-container .lang-icon {
+    color: var(--klaimr-brown);
+}
+
+.toggle-switch {
+    width: 60px;
+    height: 30px;
+    background-color: var(--soft-coffee);
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: calc(50% - 3px);
+    height: calc(100% - 6px);
+    background-color: white;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.lang-option {
+    width: 50%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 1;
+    color: var(--latte-cream);
+    transition: color 0.3s ease;
+}
+
+.lang-option.active {
+    color: var(--klaimr-brown);
+}
+
+/* --- Video Controls --- */
+.video-container .video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end; /* Aligns controls to the right */
+    gap: 0.75rem;
+    align-items: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.video-container:hover .video-controls {
+    opacity: 1;
+}
+
+.video-controls button {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.video-controls button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Chat Widget --- */
+.chat-widget-container {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
+}
+
+.chat-widget-button {
+    background-color: var(--white);
+    color: var(--klaimr-brown);
+    border-radius: 9999px;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid var(--gray-medium);
+}
+
+.chat-widget-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.chat-widget-options {
+    position: absolute;
+    bottom: calc(100% + 1rem);
+    right: 0;
+    width: 250px;
+    background-color: var(--white);
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 0.5rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+    visibility: hidden;
+}
+
+.chat-widget-container.open .chat-widget-options {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.chat-widget-options a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: var(--klaimr-brown);
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+    font-family: var(--font-secondary);
+}
+
+.chat-widget-options a:hover {
+    background-color: var(--latte-cream);
+}
+
+.chat-widget-options a svg {
+    margin-right: 0.75rem;
+}
+/* ==========================================================================
+   6. Animations & Carousel
+   ========================================================================== */
+
+/* --- Problem/Solution Carousel --- */
+#problem-solution-carousel {
+    height: 500px;
+    /* Adjust height as needed */
+}
+.carousel-viewport {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    perspective: 1500px;
+    overflow: hidden;
+}
+
+.carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+.carousel-card {
+    position: absolute;
+    width: 350px;
+    height: auto;
+    flex-shrink: 0;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.7);
+}
+
+.carousel-card .card-content {
+    background-color: var(--white);
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--gray-medium);
+    padding-bottom: 1rem; /* Added padding to compensate for progress bar removal */
+}
+
+.carousel-card:not(.is-active) .card-content:hover {
+    transform: translateY(-5px);
+}
+
+.carousel-card.is-active {
+    transform: translateZ(0) rotateY(0) scale(1);
+    opacity: 1;
+    z-index: 10;
+    cursor: default;
+}
+
+.carousel-card.is-prev {
+    transform: translateX(-55%) translateZ(-200px) rotateY(45deg) scale(0.85);
+    opacity: 0.6;
+    z-index: 5;
+}
+
+.carousel-card.is-next {
+    transform: translateX(55%) translateZ(-200px) rotateY(-45deg) scale(0.85);
+    opacity: 0.6;
+    z-index: 5;
+}
+
+.carousel-button {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: var(--klaimr-brown);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(4px);
+}
+
+.carousel-button:hover {
+    background-color: white;
+    transform: scale(1.05);
+}
+
+/* Tab Loading Bar */
+.loading-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: var(--latte-cream);
+    z-index: 1;
+    border-radius: 0.65rem;
+    transition: width 0.3s;
+}
+
+.tab-button.active .loading-bar.running {
+    animation-timing-function: linear;
+    animation-name: fill-up;
+}
+
+@keyframes fill-up {
+    from { width: 0%; }
+    to { width: 100%; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .carousel-card { width: 300px; }
+    .carousel-card.is-prev { transform: translateX(-45%) translateZ(-150px) rotateY(50deg) scale(0.8); }
+    .carousel-card.is-next { transform: translateX(45%) translateZ(-150px) rotateY(-50deg) scale(0.8); }
+    .carousel-button { width: 40px; height: 40px; }
+}
+
+@media (max-width: 640px) {
+    #problem-solution-carousel { min-height: 450px; }
+    .carousel-card { width: 280px; }
+    .carousel-card.is-prev { transform: translateX(-35%) translateZ(-100px) rotateY(60deg) scale(0.75); }
+    .carousel-card.is-next { transform: translateX(35%) translateZ(-100px) rotateY(-60deg) scale(0.75); }
+    .carousel-button { display: none; }
+}

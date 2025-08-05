@@ -5,16 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-key="page_title">Klaimr - Lacak Otomatis Pemenang Live TikTok Anda</title>
+    <!-- Tailwind CSS for layout purposes -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts: Inter and Figtree -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Figtree:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io//apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
+    
     <!-- ===== START: Google Analytics (GA4) Snippet ===== -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DV9955ZNR8"></script>
     <script>
@@ -44,7 +53,6 @@
             e.amplitude = n;
         })(window, document);
 
-        // Initialize Amplitude with your API key and tracking options
         amplitude.init("8354ba1e8b24be0df41c5ea4c0e48504", undefined, {
             defaultTracking: {
                 pageViews: true,
@@ -62,21 +70,12 @@
 
     <!-- ===== START: Dual Analytics Wrapper Function ===== -->
     <script>
-        /**
-         * Tracks an event in both Google Analytics 4 and Amplitude.
-         * @param {string} eventName - The base name for the event (e.g., 'CTA Clicked').
-         * @param {object} properties - An object of properties for the event.
-         * @param {string} [redirectUrl] - Optional URL to redirect to after a short delay.
-         */
         function trackEvent(eventName, properties = {}, redirectUrl = null) {
-            // --- Google Analytics 4 Tracking ---
-            // GA4 prefers snake_case for event names.
             const gaEventName = eventName.replace(/\s+/g, '_').toLowerCase();
             const gaProperties = { ...properties };
-            // Map properties for GA4 if needed (e.g., location -> cta_location)
             if (gaProperties.location) {
                 gaProperties.cta_location = gaProperties.location;
-                delete gaProperties.location; // Clean up original property
+                delete gaProperties.location;
             }
             if (typeof gtag === 'function') {
                 gtag('event', gaEventName, gaProperties);
@@ -85,8 +84,6 @@
                 console.warn('gtag function not found.');
             }
 
-            // --- Amplitude Tracking ---
-            // Amplitude often uses Title Case for event names.
             if (typeof amplitude === 'object') {
                 amplitude.track(eventName, properties);
                 console.log(`Amplitude Event: ${eventName}`, properties);
@@ -94,11 +91,10 @@
                 console.warn('amplitude object not found.');
             }
 
-            // --- Handle Redirection ---
             if (redirectUrl) {
                 setTimeout(() => {
                     window.location.href = redirectUrl;
-                }, 200); // 200ms delay to allow tracking pixels to fire
+                }, 200); 
             }
         }
     </script>
@@ -106,17 +102,17 @@
 </head>
 
 
-<body class="bg-gray-50 text-gray-800" data-page="klaimr">
+<body data-page="klaimr">
 
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <header class="sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="../index.html">
-                <img src="../images/klaimr.webp" alt="Klaimr Logo" class="h-8 w-auto"
+                <img src="../images/klaimr-brown.png" alt="Klaimr Logo" class="h-8 w-auto"
                     onerror="this.onerror=null; this.src='https://placehold.co/100x32/e2e8f0/4a5568?text=Klaimr';">
             </a>
             <div class="flex items-center space-x-6">
                 <a href="https://klaimr.srsdigital.co.id/"
-                    class="hidden md:inline-block bg-indigo-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-indigo-700 cta-button"
+                    class="hidden md:inline-block cta-button"
                     data-key="header_cta" 
                     onclick="trackEvent('CTA Clicked', { location: 'header', cta_text: 'Mulai Gratis' }, this.href); return false;">
                     Mulai Gratis</a>
@@ -136,18 +132,18 @@
     <main>
         <section class="gradient-bg py-20 md:py-32">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4" data-key="hero_h2">
+                <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4" data-key="hero_h2">
                     Jualan lebih tenang,
                 </h2>
-                <h3 class="text-4xl md:text-6xl font-extrabold text-indigo-600 leading-tight mb-6" data-key="hero_h3">
+                <h3 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 hero-accent" data-key="hero_h3">
                     karena ada Klaimr yang bantuin
                 </h3>
-                <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-600 mb-10" data-key="hero_p">
+                <p class="max-w-3xl mx-auto text-lg md:text-xl mb-10" data-key="hero_p">
                     Dari komentar masuk sampai rekap penjualan, Klaimr bantuin semua. Kamu cukup fokus jualan, Klaimr
                     yang urus sisanya.
                 </p>
                 <a href="https://klaimr.srsdigital.co.id/"
-                    class="bg-indigo-600 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-indigo-700 cta-button inline-block"
+                    class="cta-button cta-button-large inline-block"
                     data-key="hero_cta"
                     onclick="trackEvent('CTA Clicked', { location: 'hero', cta_text: 'Mulai Gratis Sekarang' }, this.href); return false;">
                     Mulai Gratis Sekarang
@@ -163,7 +159,6 @@
                                 <source src="../videos/klaimr-landing-id.webm" type="video/webm">
                                 Your browser does not support the video tag.
                             </video>
-                            <!-- Custom Video Controls -->
                             <div class="video-controls">
                                 <button class="video-play-pause">
                                     <svg class="play-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -199,16 +194,14 @@
         <section class="py-20 bg-white overflow-hidden">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900" data-key="problem_h2">Jualan Live di TikTok
+                    <h2 class="text-3xl md:text-4xl font-bold" data-key="problem_h2">Jualan Live di TikTok
                         Itu Sulit.</h2>
-                    <p class="text-3xl md:text-4xl font-bold text-indigo-600" data-key="solution_p">Klaimr Membuatnya
+                    <p class="text-3xl md:text-4xl font-bold hero-accent" data-key="solution_p">Klaimr Membuatnya
                         Jadi Mudah.</p>
                 </div>
 
-                <!-- START: Card Carousel Section -->
                 <div id="problem-solution-carousel"
                     class="relative w-full max-w-6xl mx-auto min-h-[550px] flex items-center justify-center">
-                    <!-- Previous Button -->
                     <button id="carousel-button-prev" class="carousel-button absolute left-0 sm:left-4 md:left-8 z-20"
                         onclick="trackEvent('Carousel Interaction', { direction: 'previous' });">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
@@ -219,25 +212,20 @@
 
                     <div class="carousel-viewport w-full h-full">
                         <div class="carousel-track h-full">
-                            <!-- Card 1 -->
-                            <div class="carousel-card" data-index="0">
+                             <div class="carousel-card" data-index="0">
                                 <div class="card-content">
                                     <img src="../images/klaimr-probsol-1.webp"
                                         alt="Ilustrasi mencatat manual dengan pusing" width="319" height="319"
                                         class="w-full h-auto rounded-lg object-cover"
                                         onerror="this.onerror=null; this.src='https://placehold.co/319x319/e2e8f0/4a5568?text=Gambar+1';">
                                     <div class="text-center p-4">
-                                        <h3 class="font-bold text-xl text-gray-800" data-key="carousel1_h3">Capek Jualan
+                                        <h3 class="font-bold text-xl" data-key="carousel1_h3">Capek Jualan
                                             Live Sambil Nyatet Manual?</h3>
-                                        <p class="text-gray-600 mt-1" data-key="carousel1_p">Komentar Bertubi-tubi,
+                                        <p class="mt-1" data-key="carousel1_p">Komentar Bertubi-tubi,
                                             Nyatet Manual Bikin Pusing</p>
-                                    </div>
-                                    <div class="progress-bar-container">
-                                        <div class="progress-bar"></div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Card 2 -->
                             <div class="carousel-card" data-index="1">
                                 <div class="card-content">
                                     <img src="../images/klaimr-probsol-2.webp"
@@ -245,17 +233,13 @@
                                         class="w-full h-auto rounded-lg object-cover"
                                         onerror="this.onerror=null; this.src='https://placehold.co/319x319/e2e8f0/4a5568?text=Gambar+2';">
                                     <div class="text-center p-4">
-                                        <h3 class="font-bold text-xl text-gray-800" data-key="carousel2_h3">Otomatis
+                                        <h3 class="font-bold text-xl" data-key="carousel2_h3">Otomatis
                                             Catat</h3>
-                                        <p class="text-gray-600 mt-1" data-key="carousel2_p">Klaimr otomatis catat klaim
+                                        <p class="mt-1" data-key="carousel2_p">Klaimr otomatis catat klaim
                                             dari komentar saat kamu Live</p>
-                                    </div>
-                                    <div class="progress-bar-container">
-                                        <div class="progress-bar"></div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Card 3 -->
                             <div class="carousel-card" data-index="2">
                                 <div class="card-content">
                                     <img src="../images/klaimr-probsol-3.webp"
@@ -263,19 +247,15 @@
                                         class="w-full h-auto rounded-lg object-cover"
                                         onerror="this.onerror=null; this.src='https://placehold.co/319x319/e2e8f0/4a5568?text=Gambar+3';">
                                     <div class="text-center p-4">
-                                        <h3 class="font-bold text-xl text-gray-800" data-key="carousel3_h3">Setelah
+                                        <h3 class="font-bold text-xl" data-key="carousel3_h3">Setelah
                                             Live, Daftar Klaim Langsung Siap 📋</h3>
-                                        <p class="text-gray-600 mt-1" data-key="carousel3_p">Rekap Sesi langsung siap -
+                                        <p class="mt-1" data-key="carousel3_p">Rekap Sesi langsung siap -
                                             tinggal salin ke WhatsApp atau ekspor ke spreadsheet</p>
-                                    </div>
-                                    <div class="progress-bar-container">
-                                        <div class="progress-bar"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Next Button -->
                     <button id="carousel-button-next"
                         class="carousel-button absolute right-0 sm:right-4 md:right-8 z-20"
                         onclick="trackEvent('Carousel Interaction', { direction: 'next' });">
@@ -285,39 +265,39 @@
                         </svg>
                     </button>
                 </div>
-                <!-- END: Card Carousel Section -->
             </div>
         </section>
 
-        <section class="py-20 bg-gray-50">
+        <section class="py-20">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900" data-key="how_it_works_h2">Cara Kerja
+                    <h2 class="text-3xl md:text-4xl font-bold" data-key="how_it_works_h2">Cara Kerja
                         Klaimr 🚀</h2>
                 </div>
                 <div id="how-it-works-tabs" class="max-w-5xl mx-auto tabs-container">
                     <div class="flex flex-wrap justify-center gap-4 mb-[-1px]">
                         <button data-tab="step1"
-                            class="tab-button active relative transition-all duration-300 px-6 py-3 border border-gray-300 bg-white rounded-t-xl font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            class="tab-button active"
                             onclick="trackEvent('Tab Clicked', { tab_name: 'Masukkan Kode Produk' });">
                             <span class="relative z-10" data-key="tab1_button">Masukkan Kode Produk</span>
                             <div class="loading-bar"></div>
                         </button>
                         <button data-tab="step2"
-                            class="tab-button relative transition-all duration-300 px-6 py-3 border border-gray-300 bg-gray-100 rounded-t-xl font-medium text-gray-700 hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            class="tab-button"
                             onclick="trackEvent('Tab Clicked', { tab_name: 'Mulai Sesi Live' });">
                             <span class="relative z-10" data-key="tab2_button">Mulai Sesi Live</span>
                             <div class="loading-bar"></div>
                         </button>
                         <button data-tab="step3"
-                            class="tab-button relative transition-all duration-300 px-6 py-3 border border-gray-300 bg-gray-100 rounded-t-xl font-medium text-gray-700 hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            class="tab-button"
                             onclick="trackEvent('Tab Clicked', { tab_name: 'Lihat Rekap Sesi' });">
                             <span class="relative z-10" data-key="tab3_button">Lihat Rekap Sesi</span>
                             <div class="loading-bar"></div>
                         </button>
                     </div>
                     <div
-                        class="bg-white p-6 md:p-8 rounded-b-2xl rounded-tr-2xl shadow-xl border border-t-0 border-gray-300">
+                        class="tab-content-container">
+                        <!-- Tab content remains the same -->
                         <div id="step1" class="tab-content active">
                             <div
                                 class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
@@ -356,9 +336,9 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <h3 class="text-xl font-semibold text-gray-800 mb-2" data-key="tab1_h3">Masukkan Kode
+                                <h3 class="text-xl font-semibold mb-2" data-key="tab1_h3">Masukkan Kode
                                     Produk</h3>
-                                <p class="text-gray-600 max-w-2xl mx-auto" data-key="tab1_p">
+                                <p class="max-w-2xl mx-auto" data-key="tab1_p">
                                     Buat daftar produk lengkap dengan kode uniknya (misal:
                                     <strong>kaoscoklat10</strong>) agar Klaimr bisa mendeteksi komentar klaim secara
                                     otomatis.
@@ -404,9 +384,9 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <h3 class="text-xl font-semibold text-gray-800 mb-2" data-key="tab2_h3">Mulai Sesi Live
+                                <h3 class="text-xl font-semibold mb-2" data-key="tab2_h3">Mulai Sesi Live
                                 </h3>
-                                <p class="text-gray-600 max-w-2xl mx-auto" data-key="tab2_p">
+                                <p class="max-w-2xl mx-auto" data-key="tab2_p">
                                     Klaimr mulai memantau komentar di TikTok Live kamu dan mencatat klaim dari pembeli
                                     secara <strong>real-time</strong>. Kamu tinggal fokus jualan!
                                 </p>
@@ -451,9 +431,9 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <h3 class="text-xl font-semibold text-gray-800 mb-2" data-key="tab3_h3">Lihat Rekap Sesi
+                                <h3 class="text-xl font-semibold mb-2" data-key="tab3_h3">Lihat Rekap Sesi
                                 </h3>
-                                <p class="text-gray-600 max-w-2xl mx-auto" data-key="tab3_p">
+                                <p class="max-w-2xl mx-auto" data-key="tab3_p">
                                     Begitu sesi Live selesai, Klaimr langsung tampilkan rekap lengkap: siapa yang
                                     menang, siapa yang masuk daftar tunggu. Bisa langsung disalin ke WhatsApp
                                     atau ekspor ke spreadsheet.
@@ -468,37 +448,37 @@
         <section class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900" data-key="testimonials_h2">Kata Para Seller
+                    <h2 class="text-3xl md:text-4xl font-bold" data-key="testimonials_h2">Kata Para Seller
                     </h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200">
-                        <p class="text-gray-700 text-lg italic mb-6" data-key="testimonial1_p">“Saya tidak pernah lagi
+                    <div class="testimonial-card">
+                        <p class="text-lg italic mb-6" data-key="testimonial1_p">“Saya tidak pernah lagi
                             ketinggalan klaim. Klaimr
                             menghemat waktu saya berjam-jam.”</p>
                         <div class="flex items-center">
                             <div
-                                class="w-12 h-12 bg-gray-300 rounded-full mr-4 flex items-center justify-center text-gray-500">
+                                class="w-12 h-12 rounded-full mr-4 flex items-center justify-center testimonial-avatar">
                                 <p>N</p>
                             </div>
                             <div>
                                 <p class="font-bold" data-key="testimonial1_name">Nadya</p>
-                                <p class="text-sm text-gray-500" data-key="testimonial1_handle">@thriftqueen.id</p>
+                                <p class="text-sm" data-key="testimonial1_handle">@thriftqueen.id</p>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200">
-                        <p class="text-gray-700 text-lg italic mb-6" data-key="testimonial2_p">“Ini yang saya butuhkan!
+                    <div class="testimonial-card">
+                        <p class="text-lg italic mb-6" data-key="testimonial2_p">“Ini yang saya butuhkan!
                             Gampang banget pakainya.”
                         </p>
                         <div class="flex items-center">
                             <div
-                                class="w-12 h-12 bg-gray-300 rounded-full mr-4 flex items-center justify-center text-gray-500">
+                                class="w-12 h-12 rounded-full mr-4 flex items-center justify-center testimonial-avatar">
                                 <p>D</p>
                             </div>
                             <div>
                                 <p class="font-bold" data-key="testimonial2_name">Deni</p>
-                                <p class="text-sm text-gray-500" data-key="testimonial2_handle">@jualbajumurah</p>
+                                <p class="text-sm" data-key="testimonial2_handle">@jualbajumurah</p>
                             </div>
                         </div>
                     </div>
@@ -506,21 +486,21 @@
             </div>
         </section>
 
-        <section class="py-20 bg-gray-50">
+        <section class="py-20">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-key="features_h2"><br><span
-                                class="text-indigo-600">Jualan Lebih Santai, Hasil Lebih Pasti</span></h2>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6" data-key="features_h2"><br><span
+                                class="hero-accent">Jualan Lebih Santai, Hasil Lebih Pasti</span></h2>
                         <ul class="space-y-4 text-lg">
                             <li class="flex items-start" data-key="feature1"><span
-                                    class="text-green-500 mr-3 mt-1 font-bold">✓</span> Gak perlu lagi mantengin
+                                    class="feature-checkmark mr-3 mt-1 font-bold">✓</span> Gak perlu lagi mantengin
                                 komentar satu-satu. Waktu kamu bisa dipakai buat hal lain.</li>
                             <li class="flex items-start" data-key="feature2"><span
-                                    class="text-green-500 mr-3 mt-1 font-bold">✓</span>Gak kena PHP pembeli—urutan klaim
+                                    class="feature-checkmark mr-3 mt-1 font-bold">✓</span>Gak kena PHP pembeli—urutan klaim
                                 langsung tercatat otomatis.</li>
                             <li class="flex items-start" data-key="feature3"><span
-                                    class="text-green-500 mr-3 mt-1 font-bold">✓</span> Habis live, hasil jualan
+                                    class="feature-checkmark mr-3 mt-1 font-bold">✓</span> Habis live, hasil jualan
                                 langsung rapi & siap dibagikan ke WhatsApp atau spreadsheet.</li>
                         </ul>
                     </div>
@@ -534,11 +514,11 @@
 
         <section class="gradient-bg">
             <div class="container mx-auto px-6 py-20 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-key="final_cta_h2">Siap
+                <h2 class="text-3xl md:text-4xl font-bold mb-6" data-key="final_cta_h2">Siap
                     menyederhanakan jualan live Anda?
                 </h2>
                 <a href="https://klaimr.srsdigital.co.id/"
-                    class="bg-indigo-600 text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-indigo-700 cta-button inline-block"
+                    class="cta-button cta-button-large inline-block"
                     data-key="final_cta_button"
                     onclick="trackEvent('CTA Clicked', { location: 'final_cta', cta_text: 'Mulai Gunakan Klaimr Gratis' }, this.href); return false;">
                     Mulai Gunakan Klaimr Gratis
@@ -547,33 +527,33 @@
         </section>
     </main>
 
-    <footer class="bg-gray-900 text-white">
+    <footer>
         <div class="container mx-auto px-6 py-12">
             <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
                 <div class="mb-6 md:mb-0">
                     <div class="flex items-center justify-center md:justify-start space-x-4">
-                        <img src="../images/klaimr.webp" alt="Klaimr Logo" class="h-7 w-auto"
+                        <img src="../images/klaimr-brown.png" alt="Klaimr Logo" class="h-7 w-auto"
                             onerror="this.onerror=null; this.src='https://placehold.co/90x28/1a202c/4a5568?text=Klaimr';">
                         <div class="flex items-center space-x-2">
-                            <span class="text-gray-400 text-sm" data-key="powered_by">didukung oleh</span>
+                            <span class="text-sm" data-key="powered_by">didukung oleh</span>
                             <a href="https://srsdigital.co.id/" target="_blank" rel="noopener noreferrer">
-                                <img src="../images/Logo_SRS_wobg.webp" alt="PT SRS Solusi Digital Logo"
+                                <img src="../images/logo-srs-soft.png" alt="PT SRS Solusi Digital Logo"
                                     class="h-6 w-auto"
                                     onerror="this.onerror=null; this.src='https://placehold.co/80x24/1a202c/4a5568?text=SRS';">
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-gray-300">
-                    <a href="https://klaimr.srsdigital.co.id/" class="hover:text-white"
+                <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 footer-links">
+                    <a href="https://klaimr.srsdigital.co.id/"
                         data-key="footer_login"
                         onclick="trackEvent('CTA Clicked', { location: 'footer', cta_text: 'Login' }, this.href); return false;">Login</a>
-                    <a href="https://srsdigital.co.id/#contact" class="hover:text-white"
+                    <a href="https://srsdigital.co.id/#contact"
                         data-key="footer_contact"
                         onclick="trackEvent('Contact Clicked', { contact_method: 'footer_contact_link' }, this.href); return false;">Kontak</a>
                 </div>
             </div>
-            <div class="mt-10 border-t border-gray-800 pt-8 text-center text-gray-500">
+            <div class="mt-10 border-t pt-8 text-center footer-copyright">
                 <p data-key="footer_copyright">&copy; 2025 Klaimr. Semua Hak Cipta Dilindungi.</p>
             </div>
         </div>
@@ -611,6 +591,7 @@
         </div>
     </div>
 
+    <script src="../js/main.js"></script>
     <script src="../js/klaimr-animations.js"></script>
     <script src="../js/lang-switcher.js"></script>
     <script src="../js/chat-widget.js"></script>
