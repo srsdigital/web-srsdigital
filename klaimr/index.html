@@ -107,12 +107,11 @@
     <header class="sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html">
-                <img src="../images/klaimr-brown.png" alt="Klaimr Logo" class="h-8 w-auto"
+                <img id="header-logo" src="../images/klaimr-logo-dark.png" alt="Klaimr Logo" class="h-8 w-auto"
                     onerror="this.onerror=null; this.src='https://placehold.co/100x32/e2e8f0/4a5568?text=Klaimr';">
             </a>
             <div class="flex items-center space-x-6">
-                <!-- === ADDED PRICING LINK HERE === -->
-                <a href="pricing.html" class="hidden md:inline-block text-base font-medium text-klaimr-brown hover:text-soft-coffee transition-colors" data-key="header_pricing">Harga</a>
+                <a href="pricing.html" class="hidden md:inline-block text-base font-medium transition-colors" data-key="header_pricing">Harga</a>
                 <a href="https://klaimr.srsdigital.co.id/"
                     class="hidden md:inline-block cta-button"
                     data-key="header_cta" 
@@ -140,7 +139,7 @@
                 <h3 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 hero-accent" data-key="hero_h3">
                     karena ada Klaimr yang bantuin
                 </h3>
-                <p class="max-w-3xl mx-auto text-lg md:text-xl mb-10" data-key="hero_p">
+                <p class="max-w-3xl mx-auto text-lg md:text-xl text-light-secondary mb-10" data-key="hero_p">
                     Dari komentar masuk sampai rekap penjualan, Klaimr bantuin semua. Kamu cukup fokus jualan, Klaimr
                     yang urus sisanya.
                 </p>
@@ -152,7 +151,7 @@
                 </a>
 
                 <div class="mt-16 max-w-4xl mx-auto">
-                    <div class="bg-white rounded-2xl shadow-2xl p-4">
+                    <div class="bg-neutral-0 rounded-2xl shadow-2xl p-4">
                         <div class="relative video-container">
                             <video class="w-full h-full object-cover rounded-lg" autoplay muted loop playsinline
                                 loading="lazy" preload="metadata" 
@@ -193,7 +192,7 @@
             </div>
         </section>
 
-        <section class="py-20 bg-white overflow-hidden">
+        <section class="py-20 bg-neutral-0 overflow-hidden">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold" data-key="problem_h2">Jualan Live di TikTok
@@ -223,7 +222,7 @@
                                     <div class="text-center p-4">
                                         <h3 class="font-bold text-xl" data-key="carousel1_h3">Capek Jualan
                                             Live Sambil Nyatet Manual?</h3>
-                                        <p class="mt-1" data-key="carousel1_p">Komentar Bertubi-tubi,
+                                        <p class="mt-1 text-light-secondary" data-key="carousel1_p">Komentar Bertubi-tubi,
                                             Nyatet Manual Bikin Pusing</p>
                                     </div>
                                 </div>
@@ -237,7 +236,7 @@
                                     <div class="text-center p-4">
                                         <h3 class="font-bold text-xl" data-key="carousel2_h3">Otomatis
                                             Catat</h3>
-                                        <p class="mt-1" data-key="carousel2_p">Klaimr otomatis catat klaim
+                                        <p class="mt-1 text-light-secondary" data-key="carousel2_p">Klaimr otomatis catat klaim
                                             dari komentar saat kamu Live</p>
                                     </div>
                                 </div>
@@ -251,7 +250,7 @@
                                     <div class="text-center p-4">
                                         <h3 class="font-bold text-xl" data-key="carousel3_h3">Setelah
                                             Live, Daftar Klaim Langsung Siap 📋</h3>
-                                        <p class="mt-1" data-key="carousel3_p">Rekap Sesi langsung siap -
+                                        <p class="mt-1 text-light-secondary" data-key="carousel3_p">Rekap Sesi langsung siap -
                                             tinggal salin ke WhatsApp atau ekspor ke spreadsheet</p>
                                     </div>
                                 </div>
@@ -302,7 +301,7 @@
                         <!-- Tab content remains the same -->
                         <div id="step1" class="tab-content active">
                             <div
-                                class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
+                                class="relative aspect-video bg-neutral-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
                                 <video class="w-full h-full object-cover" muted playsinline loading="lazy"
                                     preload="metadata" poster="../images/product-code-id.webp"
                                     onplay="trackEvent('Video Play', { video_name: 'how_it_works_product_code' });">
@@ -340,7 +339,7 @@
                             <div class="text-center">
                                 <h3 class="text-xl font-semibold mb-2" data-key="tab1_h3">Masukkan Kode
                                     Produk</h3>
-                                <p class="max-w-2xl mx-auto" data-key="tab1_p">
+                                <p class="max-w-2xl mx-auto text-light-secondary" data-key="tab1_p">
                                     Buat daftar produk lengkap dengan kode uniknya (misal:
                                     <strong>kaoscoklat10</strong>) agar Klaimr bisa mendeteksi komentar klaim secara
                                     otomatis.
@@ -350,7 +349,7 @@
 
                         <div id="step2" class="tab-content hidden">
                             <div
-                                class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
+                                class="relative aspect-video bg-neutral-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
                                 <video class="w-full h-full object-cover" muted playsinline loading="lazy"
                                     preload="metadata" poster="../images/live-id.webp"
                                     onplay="trackEvent('Video Play', { video_name: 'how_it_works_live_session' });">
@@ -388,7 +387,7 @@
                             <div class="text-center">
                                 <h3 class="text-xl font-semibold mb-2" data-key="tab2_h3">Mulai Sesi Live
                                 </h3>
-                                <p class="max-w-2xl mx-auto" data-key="tab2_p">
+                                <p class="max-w-2xl mx-auto text-light-secondary" data-key="tab2_p">
                                     Klaimr mulai memantau komentar di TikTok Live kamu dan mencatat klaim dari pembeli
                                     secara <strong>real-time</strong>. Kamu tinggal fokus jualan!
                                 </p>
@@ -397,7 +396,7 @@
 
                         <div id="step3" class="tab-content hidden">
                             <div
-                                class="relative aspect-video bg-gray-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
+                                class="relative aspect-video bg-neutral-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
                                 <video class="w-full h-full object-cover" muted playsinline loading="lazy"
                                     preload="metadata" poster="../images/recap-id.webp"
                                     onplay="trackEvent('Video Play', { video_name: 'how_it_works_recap' });">
@@ -435,7 +434,7 @@
                             <div class="text-center">
                                 <h3 class="text-xl font-semibold mb-2" data-key="tab3_h3">Lihat Rekap Sesi
                                 </h3>
-                                <p class="max-w-2xl mx-auto" data-key="tab3_p">
+                                <p class="max-w-2xl mx-auto text-light-secondary" data-key="tab3_p">
                                     Begitu sesi Live selesai, Klaimr langsung tampilkan rekap lengkap: siapa yang
                                     menang, siapa yang masuk daftar tunggu. Bisa langsung disalin ke WhatsApp
                                     atau ekspor ke spreadsheet.
@@ -447,7 +446,7 @@
             </div>
         </section>
 
-        <section class="py-20 bg-white">
+        <section class="py-20 bg-neutral-0">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold" data-key="testimonials_h2">Kata Para Seller
@@ -465,7 +464,7 @@
                             </div>
                             <div>
                                 <p class="font-bold" data-key="testimonial1_name">Nadya</p>
-                                <p class="text-sm" data-key="testimonial1_handle">@thriftqueen.id</p>
+                                <p class="text-sm text-light-secondary" data-key="testimonial1_handle">@thriftqueen.id</p>
                             </div>
                         </div>
                     </div>
@@ -480,7 +479,7 @@
                             </div>
                             <div>
                                 <p class="font-bold" data-key="testimonial2_name">Deni</p>
-                                <p class="text-sm" data-key="testimonial2_handle">@jualbajumurah</p>
+                                <p class="text-sm text-light-secondary" data-key="testimonial2_handle">@jualbajumurah</p>
                             </div>
                         </div>
                     </div>
@@ -494,7 +493,7 @@
                     <div>
                         <h2 class="text-3xl md:text-4xl font-bold mb-6" data-key="features_h2"><br><span
                                 class="hero-accent">Jualan Lebih Santai, Hasil Lebih Pasti</span></h2>
-                        <ul class="space-y-4 text-lg">
+                        <ul class="space-y-4 text-lg text-light-secondary">
                             <li class="flex items-start" data-key="feature1"><span
                                     class="feature-checkmark mr-3 mt-1 font-bold">✓</span> Gak perlu lagi mantengin
                                 komentar satu-satu. Waktu kamu bisa dipakai buat hal lain.</li>
@@ -506,7 +505,7 @@
                                 langsung rapi & siap dibagikan ke WhatsApp atau spreadsheet.</li>
                         </ul>
                     </div>
-                    <div class="bg-gray-200 rounded-2xl aspect-square flex items-center justify-center">
+                    <div class="bg-neutral-200 rounded-2xl aspect-square flex items-center justify-center">
                         <img src="../images/klaimr-recap-value.webp" alt="Klaimr Value"
                             onerror="this.onerror=null; this.src='https://placehold.co/90x28/1a202c/4a5568?text=Klaimr';">
                     </div>
@@ -534,12 +533,12 @@
             <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
                 <div class="mb-6 md:mb-0">
                     <div class="flex items-center justify-center md:justify-start space-x-4">
-                        <img src="../images/klaimr-brown.png" alt="Klaimr Logo" class="h-7 w-auto"
+                        <img id="footer-logo" src="../images/klaimr-logo-light.png" alt="Klaimr Logo" class="h-7 w-auto"
                             onerror="this.onerror=null; this.src='https://placehold.co/90x28/1a202c/4a5568?text=Klaimr';">
                         <div class="flex items-center space-x-2">
                             <span class="text-sm" data-key="powered_by">didukung oleh</span>
                             <a href="https://srsdigital.co.id/" target="_blank" rel="noopener noreferrer">
-                                <img src="../images/logo-srs-soft.png" alt="PT SRS Solusi Digital Logo"
+                                <img id="srs-logo" src="../images/Logo_SRS_wobg.webp" alt="PT SRS Solusi Digital Logo"
                                     class="h-6 w-auto"
                                     onerror="this.onerror=null; this.src='https://placehold.co/80x24/1a202c/4a5568?text=SRS';">
                             </a>
