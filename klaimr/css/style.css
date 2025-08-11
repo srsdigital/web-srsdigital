@@ -1,9 +1,9 @@
 /*
  * Klaimr Brand Stylesheet
- * Version: 1.2
- * Last Updated: 2025-08-05
+ * Version: 1.4
+ * Last Updated: 2025-08-11
  * Description: This stylesheet applies the official Klaimr brand guidelines
- * for colors, typography, and all interactive components.
+ * for colors, typography, and all interactive components. Includes light and dark themes.
  *
  */
 
@@ -12,26 +12,79 @@
    ========================================================================== */
 
 :root {
-  /* Primary Colors */
-  --klaimr-brown: #6C4F3D;
-  --latte-cream: #F7E7D6;
-  --warm-yellow: #FCD88D;
+  /* ==========================================================================
+     BRAND COLORS (Accessible Palette based on #294643)
+     ========================================================================== */
+  --primary: #294643;         /* Base brand teal-green */
+  --primary-light: #3d5b58;   /* +20% lighter for hovers */
+  --primary-dark: #1e3431;    /* -20% darker for active/focus */
+  --primary-contrast: #ffffff; /* Text color on primary bg (WCAG AA+) */
 
-  /* Secondary Colors */
-  --soft-coffee: #D6B08C;
-  --clay-pink: #EEC1B1;
+  /* Accents (harmonious with primary) */
+  --accent-warm: #DA7B45;       /* Orange-brown accent */
+  --accent-warm-contrast: #ffffff;
+  --accent-soft: #E4C988;       /* Soft muted yellow */
+  --accent-soft-contrast: #1a1a1a;
 
-  /* Utility Colors */
-  --white: #FFFFFF;
-  --black: #1a1a1a;
-  --gray-light: #f3f4f6;
-  --gray-medium: #d1d5db;
-  --gray-dark: #4b5563;
-  --success-green: #22c55e;
+  /* Functional colors (accessible contrast) */
+  --success: #2f855a;         /* Dark green */
+  --success-contrast: #ffffff;
+  --warning: #d69e2e;         /* Golden yellow */
+  --warning-contrast: #1a1a1a;
+  --error: #c53030;           /* Red */
+  --error-contrast: #ffffff;
+  --info: #3182ce;           /* Blue */
+  --info-contrast: #ffffff;
 
-  /* --- FIXED: Added Font Family Variables --- */
+  /* Neutrals */
+  --neutral-0: #ffffff;        /* White */
+  --neutral-50: #f9fafb;
+  --neutral-100: #f3f4f6;
+  --neutral-200: #e5e7eb;
+  --neutral-300: #d1d5db;
+  --neutral-400: #9ca3af;
+  --neutral-500: #6b7280;
+  --neutral-600: #4b5563;
+  --neutral-700: #374151;
+  --neutral-800: #1f2937;
+  --neutral-900: #111827;
+  --neutral-contrast-light: #1a1a1a;
+  --neutral-contrast-dark: #ffffff;
+
+  /* Light Mode Backgrounds & Text */
+  --bg-light: var(--neutral-0);
+  --text-light: var(--neutral-900);
+  --text-light-secondary: var(--neutral-600);
+
+  /* Dark Mode Backgrounds & Text */
+  --bg-dark: var(--neutral-900);
+  --text-dark: var(--neutral-0);
+  --text-dark-secondary: var(--neutral-300);
+
+  /* Fonts */
   --font-primary: 'Inter', sans-serif;
   --font-secondary: 'Figtree', sans-serif;
+}
+
+/* ==========================================================================
+   DARK THEME OVERRIDES
+   ========================================================================== */
+[data-theme="dark"] {
+  --primary: #3d5b58;
+  --primary-light: #4e6d6b;
+  --primary-dark: #1e3431;
+  
+  /* Override light-mode variables for dark theme */
+  --bg-light: var(--bg-dark);
+  --text-light: var(--text-dark);
+  --text-light-secondary: var(--text-dark-secondary);
+  
+  /* Update neutral contrasts for dark theme */
+  --neutral-0: var(--neutral-900);
+  --neutral-50: var(--neutral-800);
+  --neutral-100: var(--neutral-700);
+  --neutral-200: var(--neutral-600);
+  --neutral-300: var(--neutral-500);
 }
 
 
@@ -40,8 +93,8 @@
    ========================================================================== */
 
 body {
-  background-color: var(--latte-cream);
-  color: var(--klaimr-brown);
+  background-color: var(--bg-light);
+  color: var(--text-light);
   font-family: var(--font-secondary);
   font-weight: 400;
   line-height: 1.6;
@@ -52,7 +105,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-primary);
   font-weight: 800; /* Extra-bold for headings */
-  color: var(--klaimr-brown);
+  color: var(--text-light);
   line-height: 1.2;
 }
 
@@ -67,7 +120,7 @@ a {
 }
 
 a:hover {
-  color: var(--soft-coffee);
+  color: var(--primary-light);
 }
 
 strong, b {
@@ -82,8 +135,8 @@ strong, b {
 /* Call-to-Action Buttons */
 .cta-button {
   display: inline-block;
-  background-color: var(--klaimr-brown);
-  color: var(--white);
+  background-color: var(--primary);
+  color: var(--primary-contrast);
   font-family: var(--font-primary);
   font-weight: 600;
   padding: 0.75rem 1.5rem;
@@ -94,8 +147,8 @@ strong, b {
 }
 
 .cta-button:hover {
-  background-color: var(--soft-coffee);
-  color: var(--white);
+  background-color: var(--primary-light);
+  color: var(--primary-contrast);
   transform: translateY(-2px);
 }
 
@@ -106,26 +159,26 @@ strong, b {
 
 /* Gradient Background */
 .gradient-bg {
-    background: linear-gradient(180deg, #FDF5EC 0%, var(--latte-cream) 100%);
+    background: linear-gradient(180deg, var(--neutral-50) 0%, var(--bg-light) 100%);
 }
 
 /* Section-specific background */
 section:not(.gradient-bg) {
-    background-color: var(--white);
+    background-color: var(--neutral-0);
 }
 section.py-20 {
-    background-color: var(--latte-cream);
+    background-color: var(--bg-light);
 }
 
 
 /* Hero Section Accent Color */
 .hero-accent {
-    color: var(--klaimr-brown);
+    color: var(--primary);
 }
 
 /* Feature Checkmarks */
 .feature-checkmark {
-    color: var(--success-green);
+    color: var(--success);
 }
 
 /* General Tab Styles */
@@ -155,28 +208,28 @@ section.py-20 {
 
 /* Header */
 header {
-    background-color: rgba(247, 231, 214, 0.8); /* Latte Cream with transparency */
+    background-color: rgba(249, 250, 251, 0.8); /* neutral-50 with transparency */
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(108, 79, 61, 0.1);
+    border-bottom: 1px solid rgba(41, 70, 67, 0.1); /* primary with transparency */
 }
 
 /* Testimonial Cards */
 .testimonial-card {
-    background-color: var(--white);
+    background-color: var(--neutral-0);
     padding: 2rem;
     border-radius: 1.25rem;
-    border: 1px solid var(--gray-medium);
+    border: 1px solid var(--neutral-300);
 }
 
 .testimonial-card .testimonial-avatar {
-    background-color: var(--clay-pink);
-    color: var(--klaimr-brown);
+    background-color: var(--accent-warm);
+    color: var(--accent-warm-contrast);
     font-family: var(--font-primary);
     font-weight: 700;
 }
 
 .testimonial-card p:last-of-type {
-    color: var(--gray-dark);
+    color: var(--text-light-secondary);
 }
 
 /* How It Works Tabs */
@@ -184,28 +237,28 @@ header {
     position: relative;
     transition: all 0.3s ease;
     padding: 0.75rem 1.5rem;
-    border: 1px solid var(--gray-medium);
-    background-color: var(--gray-light);
+    border: 1px solid var(--neutral-300);
+    background-color: var(--neutral-100);
     border-radius: 0.75rem 0.75rem 0 0;
     font-family: var(--font-primary);
     font-weight: 500;
-    color: var(--gray-dark);
+    color: var(--neutral-600);
     cursor: pointer;
 }
 
 .tab-button.active {
-    background-color: var(--white);
-    color: var(--klaimr-brown);
-    border-bottom-color: var(--white);
+    background-color: var(--neutral-0);
+    color: var(--primary);
+    border-bottom-color: var(--neutral-0);
     z-index: 2;
 }
 
 .tab-content-container {
-    background-color: var(--white);
+    background-color: var(--neutral-0);
     padding: 2rem;
     border-radius: 0 1.25rem 1.25rem 1.25rem;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    border: 1px solid var(--gray-medium);
+    border: 1px solid var(--neutral-300);
     border-top: none;
     position: relative;
     z-index: 1;
@@ -213,17 +266,17 @@ header {
 
 /* Footer */
 footer {
-    background-color: var(--klaimr-brown);
-    color: var(--latte-cream);
+    background-color: var(--primary-dark);
+    color: var(--neutral-100);
 }
 
 .footer-links a:hover {
-    color: var(--warm-yellow);
+    color: var(--accent-soft);
 }
 
 .footer-copyright {
-    color: var(--soft-coffee);
-    border-top-color: rgba(247, 231, 214, 0.2);
+    color: var(--neutral-400);
+    border-top-color: rgba(243, 244, 246, 0.2); /* neutral-100 with transparency */
 }
 
 /* ==========================================================================
@@ -239,13 +292,13 @@ footer {
 }
 
 .language-toggle-container .lang-icon {
-    color: var(--klaimr-brown);
+    color: var(--primary);
 }
 
 .toggle-switch {
     width: 60px;
     height: 30px;
-    background-color: var(--soft-coffee);
+    background-color: var(--primary-light);
     border-radius: 15px;
     position: relative;
     display: flex;
@@ -260,7 +313,7 @@ footer {
     left: 3px;
     width: calc(50% - 3px);
     height: calc(100% - 6px);
-    background-color: white;
+    background-color: var(--neutral-0);
     border-radius: 12px;
     transition: transform 0.3s ease;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -272,12 +325,12 @@ footer {
     font-size: 12px;
     font-weight: 600;
     z-index: 1;
-    color: var(--latte-cream);
+    color: var(--neutral-200);
     transition: color 0.3s ease;
 }
 
 .lang-option.active {
-    color: var(--klaimr-brown);
+    color: var(--primary);
 }
 
 /* --- Video Controls --- */
@@ -328,8 +381,8 @@ footer {
 }
 
 .chat-widget-button {
-    background-color: var(--white);
-    color: var(--klaimr-brown);
+    background-color: var(--neutral-0);
+    color: var(--primary);
     border-radius: 9999px;
     padding: 0.5rem 0.5rem 0.5rem 1.5rem;
     display: flex;
@@ -337,7 +390,7 @@ footer {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     cursor: pointer;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    border: 1px solid var(--gray-medium);
+    border: 1px solid var(--neutral-300);
 }
 
 .chat-widget-button:hover {
@@ -350,7 +403,7 @@ footer {
     bottom: calc(100% + 1rem);
     right: 0;
     width: 250px;
-    background-color: var(--white);
+    background-color: var(--neutral-0);
     border-radius: 0.75rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     padding: 0.5rem;
@@ -370,7 +423,7 @@ footer {
     display: flex;
     align-items: center;
     padding: 0.75rem 1rem;
-    color: var(--klaimr-brown);
+    color: var(--primary);
     border-radius: 0.5rem;
     transition: background-color 0.2s ease;
     text-decoration: none;
@@ -378,7 +431,7 @@ footer {
 }
 
 .chat-widget-options a:hover {
-    background-color: var(--latte-cream);
+    background-color: var(--neutral-100);
 }
 
 .chat-widget-options a svg {
@@ -423,14 +476,14 @@ footer {
 }
 
 .carousel-card .card-content {
-    background-color: var(--white);
+    background-color: var(--neutral-0);
     border-radius: 1.5rem;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
     overflow: hidden;
     width: 100%;
     height: 100%;
-    border: 1px solid var(--gray-medium);
+    border: 1px solid var(--neutral-300);
     padding-bottom: 1rem; /* Added padding to compensate for progress bar removal */
 }
 
@@ -459,7 +512,7 @@ footer {
 
 .carousel-button {
     background-color: rgba(255, 255, 255, 0.8);
-    color: var(--klaimr-brown);
+    color: var(--primary);
     border-radius: 50%;
     width: 48px;
     height: 48px;
@@ -484,7 +537,7 @@ footer {
     left: 0;
     height: 100%;
     width: 0;
-    background-color: var(--latte-cream);
+    background-color: var(--neutral-100);
     z-index: 1;
     border-radius: 0.65rem;
     transition: width 0.3s;
@@ -514,4 +567,81 @@ footer {
     .carousel-card.is-prev { transform: translateX(-35%) translateZ(-100px) rotateY(60deg) scale(0.75); }
     .carousel-card.is-next { transform: translateX(35%) translateZ(-100px) rotateY(-60deg) scale(0.75); }
     .carousel-button { display: none; }
+}
+
+/* ==========================================================================
+   7. Pricing Page Styles
+   ========================================================================== */
+.pricing-card {
+    background-color: var(--neutral-0);
+    border: 1px solid var(--neutral-300);
+    border-radius: 1.25rem;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+}
+
+.pricing-card.recommended {
+    border-color: var(--primary);
+    border-width: 2px;
+    transform: scale(1.05);
+    position: relative;
+    z-index: 10;
+}
+
+.recommended-badge {
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary);
+    color: var(--primary-contrast);
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: var(--font-primary);
+}
+
+.pricing-features {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.pricing-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-family: var(--font-secondary);
+}
+
+.pricing-features .icon {
+    flex-shrink: 0;
+    margin-right: 0.75rem;
+    width: 20px;
+    height: 20px;
+}
+
+.pricing-features .icon-included { color: var(--success); }
+.pricing-features .icon-excluded { color: var(--neutral-300); }
+
+.pricing-card .cta-button {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}
+
+@media (max-width: 1024px) {
+    .pricing-card.recommended {
+        transform: scale(1); /* Disable scaling on smaller screens to prevent layout issues */
+    }
 }

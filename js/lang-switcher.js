@@ -54,6 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const pageKey = document.body.dataset.page || 'srsdigital';
         const pageTranslations = allTranslations[pageKey];
 
+        // Dynamically update the year in the footer copyright
+        if (pageTranslations && pageTranslations.footer_copyright) {
+            const currentYear = new Date().getFullYear();
+            pageTranslations.footer_copyright = pageTranslations.footer_copyright.replace(/2025/g, currentYear);
+        }
+
         if (!pageTranslations) {
             console.error(`No translations found for "${pageKey}" page.`);
             return;
