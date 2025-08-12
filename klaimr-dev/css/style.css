@@ -1,0 +1,798 @@
+/*
+ * Klaimr Brand Stylesheet
+ * Version: 1.4
+ * Last Updated: 2025-08-11
+ * Description: This stylesheet applies the official Klaimr brand guidelines
+ * for colors, typography, and all interactive components. Includes light and dark themes.
+ *
+ */
+
+/* ==========================================================================
+   1. CSS Variables (Custom Properties)
+   ========================================================================== */
+
+:root {
+    /* ==========================================================================
+     BRAND COLORS (Accessible Palette based on #294643)
+     ========================================================================== */
+    --primary: #294643;
+    /* Base brand teal-green */
+    --primary-light: #3d5b58;
+    /* +20% lighter for hovers */
+    --primary-dark: #1e3431;
+    /* -20% darker for active/focus */
+    --primary-contrast: #ffffff;
+    /* Text color on primary bg (WCAG AA+) */
+
+    /* Accents (harmonious with primary) */
+    --accent-warm: #DA7B45;
+    /* Orange-brown accent */
+    --accent-warm-contrast: #ffffff;
+    --accent-soft: #E4C988;
+    /* Soft muted yellow */
+    --accent-soft-contrast: #1a1a1a;
+
+    /* Functional colors (accessible contrast) */
+    --success: #2f855a;
+    /* Dark green */
+    --success-contrast: #ffffff;
+    --warning: #d69e2e;
+    /* Golden yellow */
+    --warning-contrast: #1a1a1a;
+    --error: #c53030;
+    /* Red */
+    --error-contrast: #ffffff;
+    --info: #3182ce;
+    /* Blue */
+    --info-contrast: #ffffff;
+
+    /* Neutrals */
+    --neutral-0: #ffffff;
+    /* White */
+    --neutral-50: #f9fafb;
+    --neutral-100: #f3f4f6;
+    --neutral-200: #e5e7eb;
+    --neutral-300: #d1d5db;
+    --neutral-400: #9ca3af;
+    --neutral-500: #6b7280;
+    --neutral-600: #4b5563;
+    --neutral-700: #374151;
+    --neutral-800: #1f2937;
+    --neutral-900: #111827;
+    --neutral-contrast-light: #1a1a1a;
+    --neutral-contrast-dark: #ffffff;
+
+    /* Light Mode Backgrounds & Text */
+    --bg-light: var(--neutral-0);
+    --text-light: var(--neutral-900);
+    --text-light-secondary: var(--neutral-600);
+
+    /* Dark Mode Backgrounds & Text */
+    --bg-dark: var(--neutral-900);
+    --text-dark: var(--neutral-0);
+    --text-dark-secondary: var(--neutral-300);
+
+    /* Fonts */
+    --font-primary: 'Inter', sans-serif;
+    --font-secondary: 'Figtree', sans-serif;
+}
+
+/* ==========================================================================
+   DARK THEME OVERRIDES
+   ========================================================================== */
+[data-theme="dark"] {
+    --primary: #3d5b58;
+    --primary-light: #4e6d6b;
+    --primary-dark: #1e3431;
+
+    /* Override light-mode variables for dark theme */
+    --bg-light: var(--bg-dark);
+    --text-light: var(--text-dark);
+    --text-light-secondary: var(--text-dark-secondary);
+
+    /* Update neutral contrasts for dark theme */
+    --neutral-0: var(--neutral-900);
+    --neutral-50: var(--neutral-800);
+    --neutral-100: var(--neutral-700);
+    --neutral-200: var(--neutral-600);
+    --neutral-300: var(--neutral-500);
+}
+
+
+/* ==========================================================================
+   2. Base & Typography Styles
+   ========================================================================== */
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-primary);
+    font-weight: 800;
+    /* Extra-bold for headings */
+    color: var(--text-light);
+    line-height: 1.2;
+}
+
+p {
+    margin-bottom: 1rem;
+    max-width: 65ch;
+    /* Improves readability */
+}
+
+a {
+    color: inherit;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: var(--primary-light);
+}
+
+strong,
+b {
+    font-weight: 700;
+}
+
+
+/* ==========================================================================
+   3. Reusable Components & Classes
+   ========================================================================== */
+
+/* Call-to-Action Buttons */
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary);
+    color: var(--primary-contrast);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-contrast);
+    transform: translateY(-2px);
+}
+
+.cta-button-large {
+    font-size: 1.125rem;
+    /* 18px */
+    padding: 1rem 2rem;
+}
+
+/* Gradient Background */
+.gradient-bg {
+    background: linear-gradient(180deg, var(--neutral-50) 0%, var(--bg-light) 100%);
+}
+
+/* Section-specific background */
+section:not(.gradient-bg) {
+    background-color: var(--neutral-0);
+}
+
+section.py-20 {
+    background-color: var(--bg-light);
+}
+
+
+/* Hero Section Accent Color */
+.hero-accent {
+    color: var(--primary);
+}
+
+/* Feature Checkmarks */
+.feature-checkmark {
+    color: var(--success);
+}
+
+/* General Tab Styles */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom styles for the new section, using variables from style.css */
+.company-info-section {
+    background-color: var(--neutral-50);
+}
+
+.company-info-card {
+    background-color: var(--neutral-0);
+    border: 1px solid var(--neutral-200);
+    border-radius: 1.25rem;
+    /* 20px */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.company-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.company-info-card .srs-logo {
+    max-height: 48px;
+    /* 3rem */
+}
+
+.company-info-card address a {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.company-info-card address a:hover {
+    color: var(--primary-light);
+}
+
+/* ==========================================================================
+   4. Page Sections
+   ========================================================================== */
+
+/* Header */
+header {
+    background-color: rgba(249, 250, 251, 0.8);
+    /* neutral-50 with transparency */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(41, 70, 67, 0.1);
+    /* primary with transparency */
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+    background-color: var(--neutral-0);
+    padding: 2rem;
+    border-radius: 1.25rem;
+    border: 1px solid var(--neutral-300);
+}
+
+.testimonial-card .testimonial-avatar {
+    background-color: var(--accent-warm);
+    color: var(--accent-warm-contrast);
+    font-family: var(--font-primary);
+    font-weight: 700;
+}
+
+.testimonial-card p:last-of-type {
+    color: var(--text-light-secondary);
+}
+
+/* How It Works Tabs */
+.tab-button {
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--neutral-300);
+    background-color: var(--neutral-100);
+    border-radius: 0.75rem 0.75rem 0 0;
+    font-family: var(--font-primary);
+    font-weight: 500;
+    color: var(--neutral-600);
+    cursor: pointer;
+}
+
+.tab-button.active {
+    background-color: var(--neutral-0);
+    color: var(--primary);
+    border-bottom-color: var(--neutral-0);
+    z-index: 2;
+}
+
+.tab-content-container {
+    background-color: var(--neutral-0);
+    padding: 2rem;
+    border-radius: 0 1.25rem 1.25rem 1.25rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--neutral-300);
+    border-top: none;
+    position: relative;
+    z-index: 1;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-dark);
+    color: var(--neutral-100);
+}
+
+.footer-4-columns {
+    background-color: var(--primary-dark);
+    color: var(--neutral-200);
+}
+
+.footer-column {
+    /* Tailwind's grid handles the layout */
+}
+
+.footer-heading {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--neutral-0);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-list li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links-list a,
+.footer-column address a {
+    color: var(--neutral-300);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-links-list a:hover,
+.footer-column address a:hover {
+    color: var(--accent-soft);
+}
+
+.footer-column address {
+    line-height: 1.8;
+}
+
+.footer-copyright {
+    color: var(--neutral-400);
+    border-top-color: rgba(243, 244, 246, 0.2);
+    /* neutral-100 with transparency */
+}
+
+/* Responsive adjustments for the footer */
+@media (max-width: 768px) {
+    .footer-column {
+        margin-bottom: 2rem;
+    }
+
+    .footer-heading {
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* ==========================================================================
+   5. Interactive Components
+   ========================================================================== */
+
+/* --- Language Switcher --- */
+.language-toggle-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 8px;
+}
+
+.language-toggle-container .lang-icon {
+    color: var(--primary);
+}
+
+.toggle-switch {
+    width: 60px;
+    height: 30px;
+    background-color: var(--primary-light);
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: calc(50% - 3px);
+    height: calc(100% - 6px);
+    background-color: var(--neutral-0);
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.lang-option {
+    width: 50%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 1;
+    color: var(--neutral-200);
+    transition: color 0.3s ease;
+}
+
+.lang-option.active {
+    color: var(--primary);
+}
+
+/* --- Video Controls --- */
+.video-container .video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    /* Aligns controls to the right */
+    gap: 0.75rem;
+    align-items: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.video-container:hover .video-controls {
+    opacity: 1;
+}
+
+.video-controls button {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.video-controls button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Chat Widget --- */
+.chat-widget-container {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
+}
+
+.chat-widget-button {
+    background-color: var(--neutral-0);
+    color: var(--primary);
+    border-radius: 9999px;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid var(--neutral-300);
+}
+
+.chat-widget-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.chat-widget-options {
+    position: absolute;
+    bottom: calc(100% + 1rem);
+    right: 0;
+    width: 250px;
+    background-color: var(--neutral-0);
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 0.5rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+    visibility: hidden;
+}
+
+.chat-widget-container.open .chat-widget-options {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.chat-widget-options a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: var(--primary);
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+    font-family: var(--font-secondary);
+}
+
+.chat-widget-options a:hover {
+    background-color: var(--neutral-100);
+}
+
+.chat-widget-options a svg {
+    margin-right: 0.75rem;
+}
+
+/* ==========================================================================
+   6. Animations & Carousel
+   ========================================================================== */
+
+/* --- Problem/Solution Carousel --- */
+#problem-solution-carousel {
+    height: 500px;
+    /* Adjust height as needed */
+}
+
+.carousel-viewport {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    perspective: 1500px;
+    overflow: hidden;
+}
+
+.carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+}
+
+.carousel-card {
+    position: absolute;
+    width: 350px;
+    height: auto;
+    flex-shrink: 0;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.7);
+}
+
+.carousel-card .card-content {
+    background-color: var(--neutral-0);
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--neutral-300);
+    padding-bottom: 1rem;
+    /* Added padding to compensate for progress bar removal */
+}
+
+.carousel-card:not(.is-active) .card-content:hover {
+    transform: translateY(-5px);
+}
+
+.carousel-card.is-active {
+    transform: translateZ(0) rotateY(0) scale(1);
+    opacity: 1;
+    z-index: 10;
+    cursor: default;
+}
+
+.carousel-card.is-prev {
+    transform: translateX(-55%) translateZ(-200px) rotateY(45deg) scale(0.85);
+    opacity: 0.6;
+    z-index: 5;
+}
+
+.carousel-card.is-next {
+    transform: translateX(55%) translateZ(-200px) rotateY(-45deg) scale(0.85);
+    opacity: 0.6;
+    z-index: 5;
+}
+
+.carousel-button {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: var(--primary);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(4px);
+}
+
+.carousel-button:hover {
+    background-color: white;
+    transform: scale(1.05);
+}
+
+/* Tab Loading Bar */
+.loading-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: var(--neutral-100);
+    z-index: 1;
+    border-radius: 0.65rem;
+    transition: width 0.3s;
+}
+
+.tab-button.active .loading-bar.running {
+    animation-timing-function: linear;
+    animation-name: fill-up;
+}
+
+@keyframes fill-up {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .carousel-card {
+        width: 300px;
+    }
+
+    .carousel-card.is-prev {
+        transform: translateX(-45%) translateZ(-150px) rotateY(50deg) scale(0.8);
+    }
+
+    .carousel-card.is-next {
+        transform: translateX(45%) translateZ(-150px) rotateY(-50deg) scale(0.8);
+    }
+
+    .carousel-button {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    #problem-solution-carousel {
+        min-height: 450px;
+    }
+
+    .carousel-card {
+        width: 280px;
+    }
+
+    .carousel-card.is-prev {
+        transform: translateX(-35%) translateZ(-100px) rotateY(60deg) scale(0.75);
+    }
+
+    .carousel-card.is-next {
+        transform: translateX(35%) translateZ(-100px) rotateY(-60deg) scale(0.75);
+    }
+
+    .carousel-button {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   7. Pricing Page Styles
+   ========================================================================== */
+.pricing-card {
+    background-color: var(--neutral-0);
+    border: 1px solid var(--neutral-300);
+    border-radius: 1.25rem;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.pricing-card.recommended {
+    border-color: var(--primary);
+    border-width: 2px;
+    transform: scale(1.05);
+    position: relative;
+    z-index: 10;
+}
+
+.recommended-badge {
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary);
+    color: var(--primary-contrast);
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: var(--font-primary);
+}
+
+.pricing-features {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.pricing-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-family: var(--font-secondary);
+}
+
+.pricing-features .icon {
+    flex-shrink: 0;
+    margin-right: 0.75rem;
+    width: 20px;
+    height: 20px;
+}
+
+.pricing-features .icon-included {
+    color: var(--success);
+}
+
+.pricing-features .icon-excluded {
+    color: var(--neutral-300);
+}
+
+.pricing-card .cta-button {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}
+
+@media (max-width: 1024px) {
+    .pricing-card.recommended {
+        transform: scale(1);
+        /* Disable scaling on smaller screens to prevent layout issues */
+    }
+}
