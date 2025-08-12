@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="pricing_page_title">Harga - Klaimr</title>
+    <!-- Tailwind CSS for layout purposes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Fonts: Inter and Figtree -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Figtree:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io//apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    
+    <!-- Analytics scripts will be here -->
+</head>
+
+<body data-page="klaimr-pricing">
+
+    <header class="sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html">
+                <img id="header-logo" src="../images/klaimr-logo-dark.png" alt="Klaimr Logo" class="h-8 w-auto"
+                    onerror="this.onerror=null; this.src='https://placehold.co/100x32/e2e8f0/4a5568?text=Klaimr';">
+            </a>
+            <div class="flex items-center space-x-6">
+                <a href="pricing.html" class="hidden md:inline-block text-base font-medium transition-colors" data-key="header_pricing">Harga</a>
+                <a href="https://klaimr-dev.srsdigital.co.id/"
+                    class="hidden md:inline-block cta-button"
+                    data-key="header_cta">
+                    Mulai Gratis</a>
+                <!-- Language Toggle -->
+                <div id="lang-switcher" class="language-toggle-container">
+                    <i data-lucide="languages" class="lang-icon"></i>
+                    <div class="toggle-switch">
+                        <div class="toggle-slider"></div>
+                        <span class="lang-option" data-lang="en">EN</span>
+                        <span class="lang-option" data-lang="id">ID</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="gradient-bg py-20 md:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4" data-key="pricing_h2">
+                    Paket Harga Fleksibel
+                </h2>
+                <p class="max-w-3xl mx-auto text-lg md:text-xl text-light-secondary mb-12" data-key="pricing_p">
+                    Pilih paket yang paling sesuai dengan skala bisnis Anda. Mulai gratis, upgrade kapan saja.
+                </p>
+
+                <!-- Pricing Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto items-end">
+                    
+                    <!-- Plan 1: Free Forever -->
+                    <div class="pricing-card">
+                        <h3 class="text-2xl font-bold" data-key="plan1_name">Gratis Selamanya</h3>
+                        <p class="text-4xl font-extrabold my-4" data-key="plan1_price">Rp 0</p>
+                        <ul class="pricing-features text-left">
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan1_feat1"><b>3</b> Sesi / bulan</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan1_feat2">Durasi <b>60 menit</b> / sesi</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan1_feat3"><b>25</b> Kode Produk</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan1_feat4">Daftar Tunggu Otomatis</span></li>
+                            <li><i data-lucide="x-circle" class="icon icon-excluded"></i><span data-key="plan1_feat5">Input Klaim Manual</span></li>
+                            <li><i data-lucide="x-circle" class="icon icon-excluded"></i><span data-key="plan1_feat6">Auto-join Sesi</span></li>
+                            <li><i data-lucide="x-circle" class="icon icon-excluded"></i><span data-key="plan1_feat7">Ekspor Data</span></li>
+                            <li><i data-lucide="x-circle" class="icon icon-excluded"></i><span data-key="plan1_feat8">Dukungan Komunitas</span></li>
+                        </ul>
+                        <a href="https://klaimr-dev.srsdigital.co.id/" class="cta-button" data-key="plan1_cta">Mulai Gratis</a>
+                    </div>
+
+                    <!-- Plan 2: Hobbyist -->
+                    <div class="pricing-card">
+                        <h3 class="text-2xl font-bold" data-key="plan2_name">Hobbyist</h3>
+                        <p class="text-4xl font-extrabold my-4" data-key="plan2_price">Rp 49rb<span class="text-base font-medium text-light-secondary">/bln</span></p>
+                        <ul class="pricing-features text-left">
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan2_feat1"><b>15</b> Sesi / bulan</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan2_feat2">Durasi <b>90 menit</b> / sesi</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan2_feat3"><b>100</b> Kode Produk</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan2_feat4">Daftar Tunggu Otomatis</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan2_feat5">Input Klaim Manual</span></li>
+                            <li><i data-lucide="x-circle" class="icon icon-excluded"></i><span data-key="plan2_feat6">Auto-join Sesi</span></li>
+                            <li><i data-lucide="x-circle" class="icon icon-excluded"></i><span data-key="plan2_feat7">Ekspor Data</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan2_feat8">Dukungan Dasar</span></li>
+                        </ul>
+                        <a href="https://klaimr-dev.srsdigital.co.id/" class="cta-button" data-key="plan2_cta">Pilih Paket</a>
+                    </div>
+
+                    <!-- Plan 3: Pro Seller (Recommended) -->
+                    <div class="pricing-card recommended">
+                        <div class="recommended-badge" data-key="plan3_badge">Paling Populer</div>
+                        <h3 class="text-2xl font-bold" data-key="plan3_name">Pro Seller</h3>
+                        <p class="text-4xl font-extrabold my-4" data-key="plan3_price">Rp 149rb<span class="text-base font-medium text-light-secondary">/bln</span></p>
+                        <ul class="pricing-features text-left">
+                           <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan3_feat1"><b>25</b> Sesi / bulan</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan3_feat2">Durasi <b>Tak Terbatas</b></span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan3_feat3">Kode Produk <b>Tak Terbatas</b></span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan3_feat4">Daftar Tunggu Otomatis</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan3_feat5">Input Klaim Manual</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan3_feat6">Auto-join Sesi</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan3_feat7">Ekspor Data</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan3_feat8">Dukungan Prioritas</span></li>
+                        </ul>
+                        <a href="https://klaimr-dev.srsdigital.co.id/" class="cta-button" data-key="plan3_cta">Pilih Paket</a>
+                    </div>
+
+                    <!-- Plan 4: Superstar -->
+                    <div class="pricing-card">
+                        <h3 class="text-2xl font-bold" data-key="plan4_name">Superstar</h3>
+                        <p class="text-4xl font-extrabold my-4" data-key="plan4_price">Rp 299rb<span class="text-base font-medium text-light-secondary">/bln</span></p>
+                        <ul class="pricing-features text-left">
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan4_feat1">Sesi <b>Tak Terbatas</b></span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan4_feat2">Durasi <b>Tak Terbatas</b></span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan4_feat3">Kode Produk <b>Tak Terbatas</b></span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan4_feat4">Daftar Tunggu Otomatis</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan4_feat5">Input Klaim Manual</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan4_feat6">Auto-join Sesi</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan4_feat7">Ekspor Data</span></li>
+                            <li><i data-lucide="check-circle-2" class="icon icon-included"></i><span data-key="plan4_feat8">Dukungan Terdedikasi</span></li>
+                        </ul>
+                        <a href="https://klaimr-dev.srsdigital.co.id/" class="cta-button" data-key="plan4_cta">Pilih Paket</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Company Info Section -->
+        <section class="company-info-section py-16 sm:py-20">
+            <div class="container mx-auto px-6">
+                <div class="company-info-card max-w-4xl mx-auto p-8 md:p-12">
+                    <div class="flex flex-col md:flex-row items-center text-center md:text-left gap-8">
+                        <!-- Logo -->
+                        <div class="flex-shrink-0">
+                            <img id="srs-logo" src="../images/Logo_SRS_wobg.webp" alt="PT SRS Solusi Digital Logo"
+                                class="srs-logo w-auto mx-auto"
+                                onerror="this.onerror=null; this.src='https://placehold.co/150x48/ffffff/4a5568?text=SRS+Digital';">
+                        </div>
+                        <!-- Text Content -->
+                        <div class="flex-grow">
+                            <p class="text-xl md:text-2xl font-bold mb-4" style="font-family: var(--font-primary);">Klaimr dibuat dan dijual oleh PT SRS Solusi Digital</p>
+                            <address class="not-italic text-base text-light-secondary leading-relaxed">
+                                Alamat: Komplek Migas 41 Nomor 21, Srengseng, Kembangan, Jakarta Barat 11630, Indonesia<br>
+                                Telepon: +62 857 8080 0603 | Email: <a href="mailto:halo@srsdigital.co.id">halo@srsdigital.co.id</a>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container mx-auto px-6 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center justify-center md:justify-start space-x-4">
+                        <img id="footer-logo" src="../images/klaimr-logo-light.png" alt="Klaimr Logo" class="h-7 w-auto"
+                            onerror="this.onerror=null; this.src='https://placehold.co/90x28/1a202c/4a5568?text=Klaimr';">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-sm" data-key="powered_by">didukung oleh</span>
+                            <a href="https://srsdigital.co.id/" target="_blank" rel="noopener noreferrer">
+                                <img id="srs-logo-footer" src="../images/Logo_SRS_wobg.webp" alt="PT SRS Solusi Digital Logo"
+                                    class="h-6 w-auto"
+                                    onerror="this.onerror=null; this.src='https://placehold.co/80x24/1a202c/4a5568?text=SRS';">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 footer-links">
+                    <a href="https://klaimr-dev.srsdigital.co.id/"
+                        data-key="footer_login">Login</a>
+                    <a href="https://srsdigital.co.id/#contact"
+                        data-key="footer_contact">Kontak</a>
+                </div>
+            </div>
+            <div class="mt-10 border-t pt-8 text-center footer-copyright">
+                <p data-key="footer_copyright">&copy; 2025 Klaimr. Semua Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+    <script src="../js/main.js"></script>
+    <script src="../js/klaimr-animations.js"></script>
+    <script src="../js/lang-switcher.js"></script>
+    <script src="../js/chat-widget.js"></script>
+</body>
+
+</html>
