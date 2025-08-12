@@ -327,14 +327,66 @@ footer {
     color: var(--neutral-100);
 }
 
-.footer-links a:hover {
+.footer-4-columns {
+    background-color: var(--primary-dark);
+    color: var(--neutral-200);
+}
+
+.footer-column {
+    /* Tailwind's grid handles the layout */
+}
+
+.footer-heading {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--neutral-0);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-list li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links-list a,
+.footer-column address a {
+    color: var(--neutral-300);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-links-list a:hover,
+.footer-column address a:hover {
     color: var(--accent-soft);
+}
+
+.footer-column address {
+    line-height: 1.8;
 }
 
 .footer-copyright {
     color: var(--neutral-400);
     border-top-color: rgba(243, 244, 246, 0.2);
     /* neutral-100 with transparency */
+}
+
+/* Responsive adjustments for the footer */
+@media (max-width: 768px) {
+    .footer-column {
+        margin-bottom: 2rem;
+    }
+
+    .footer-heading {
+        margin-bottom: 0.75rem;
+    }
 }
 
 /* ==========================================================================
