@@ -139,58 +139,55 @@
             </div>
         </section>
         
-        <!-- Company Info Section -->
-        <section class="company-info-section py-16 sm:py-20">
-            <div class="container mx-auto px-6">
-                <div class="company-info-card max-w-4xl mx-auto p-8 md:p-12">
-                    <div class="flex flex-col md:flex-row items-center text-center md:text-left gap-8">
-                        <!-- Logo -->
-                        <div class="flex-shrink-0">
-                            <img id="srs-logo" src="../images/Logo_SRS_wobg.webp" alt="PT SRS Solusi Digital Logo"
-                                class="srs-logo w-auto mx-auto"
-                                onerror="this.onerror=null; this.src='https://placehold.co/150x48/ffffff/4a5568?text=SRS+Digital';">
-                        </div>
-                        <!-- Text Content -->
-                        <div class="flex-grow">
-                            <p class="text-xl md:text-2xl font-bold mb-4" style="font-family: var(--font-primary);">Klaimr dibuat dan dijual oleh PT SRS Solusi Digital</p>
-                            <address class="not-italic text-base text-light-secondary leading-relaxed">
-                                Alamat: Komplek Migas 41 Nomor 21, Srengseng, Kembangan, Jakarta Barat 11630, Indonesia<br>
-                                Telepon: +62 857 8080 0603 | Email: <a href="mailto:halo@srsdigital.co.id">halo@srsdigital.co.id</a>
-                            </address>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <footer>
-        <div class="container mx-auto px-6 py-12">
-            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-                <div class="mb-6 md:mb-0">
-                    <div class="flex items-center justify-center md:justify-start space-x-4">
-                        <img id="footer-logo" src="../images/klaimr-logo-light.png" alt="Klaimr Logo" class="h-7 w-auto"
-                            onerror="this.onerror=null; this.src='https://placehold.co/90x28/1a202c/4a5568?text=Klaimr';">
-                        <div class="flex items-center space-x-2">
-                            <span class="text-sm" data-key="powered_by">didukung oleh</span>
-                            <a href="https://srsdigital.co.id/" target="_blank" rel="noopener noreferrer">
-                                <img id="srs-logo-footer" src="../images/Logo_SRS_wobg.webp" alt="PT SRS Solusi Digital Logo"
-                                    class="h-6 w-auto"
-                                    onerror="this.onerror=null; this.src='https://placehold.co/80x24/1a202c/4a5568?text=SRS';">
-                            </a>
-                        </div>
-                    </div>
+    <footer class="footer-4-columns">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Column 1: Klaimr -->
+                <div class="footer-column">
+                    <img id="footer-logo" src="../images/klaimr-logo-light.png" alt="Klaimr Logo" class="h-8 w-auto mb-4"
+                        onerror="this.onerror=null; this.src='https://placehold.co/100x32/1a202c/4a5568?text=Klaimr';">
+                    <p class="text-sm" data-key="footer_description">
+                        Klaimr adalah platform untuk menyederhanakan proses klaim dan meningkatkan efisiensi untuk semua orang.
+                    </p>
                 </div>
-                <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 footer-links">
-                    <a href="https://klaimr-dev.srsdigital.co.id/"
-                        data-key="footer_login">Login</a>
-                    <a href="https://srsdigital.co.id/#contact"
-                        data-key="footer_contact">Kontak</a>
+
+                <!-- Column 2: Navigation -->
+                <div class="footer-column">
+                    <h4 class="footer-heading" data-key="footer_nav_heading">Navigasi</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html" data-key="footer_home">Home</a></li>
+                        <li><a href="pricing.html" data-key="footer_pricing">Harga</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Legal -->
+                <div class="footer-column">
+                    <h4 class="footer-heading" data-key="footer_legal_heading">Legal</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#" data-key="footer_terms">Syarat & Ketentuan</a></li>
+                        <li><a href="#" data-key="footer_privacy">Kebijakan Privasi</a></li>
+                        <li><a href="#" data-key="footer_refund">Kebijakan Pengembalian Dana</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div class="footer-column">
+                    <h4 class="footer-heading" data-key="footer_contact_heading">Hubungi Kami</h4>
+                    <address class="not-italic text-sm leading-relaxed">
+                        PT SRS Solusi Digital<br>
+                        Komplek Migas 41 Nomor 21,<br>
+                        Srengseng, Kembangan,<br>
+                        Jakarta Barat 11630, Indonesia<br>
+                        <a href="tel:+6285780800603" class="mt-2 inline-block">+62 857 8080 0603</a><br>
+                        <a href="mailto:halo@srsdigital.co.id">halo@srsdigital.co.id</a>
+                    </address>
                 </div>
             </div>
-            <div class="mt-10 border-t pt-8 text-center footer-copyright">
-                <p data-key="footer_copyright">&copy; 2025 Klaimr. Semua Hak Cipta Dilindungi.</p>
+
+            <div class="mt-12 border-t pt-8 text-center footer-copyright">
+                <p data-key="footer_copyright">&copy; 2025 Klaimr by PT SRS Solusi Digital. Semua Hak Cipta Dilindungi.</p>
             </div>
         </div>
     </footer>
