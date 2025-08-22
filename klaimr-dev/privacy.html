@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kebijakan Privasi - Klaimr</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Figtree:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="public/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
+    <link rel="shortcut icon" href="public/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Klaimr" />
+    <link rel="manifest" href="public/site.webmanifest" />
+</head>
+<body data-page="klaimr-legal">
+
+    <header class="sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html">
+                <img id="header-logo" src="../images/klaimr-logo-dark.png" alt="Klaimr Logo" class="h-8 w-auto" onerror="this.onerror=null; this.src='https://placehold.co/100x32/e2e8f0/4a5568?text=Klaimr';">
+            </a>
+            <div class="flex items-center space-x-6">
+                <a href="pricing.html" class="hidden md:inline-block text-base font-medium transition-colors">Harga</a>
+                <a href="https://klaimr-dev.srsdigital.co.id/" class="hidden md:inline-block cta-button">Mulai Gratis</a>
+                <div id="lang-switcher" class="language-toggle-container">
+                    <i data-lucide="languages" class="lang-icon"></i>
+                    <div class="toggle-switch">
+                        <div class="toggle-slider"></div>
+                        <span class="lang-option" data-lang="en">EN</span>
+                        <span class="lang-option" data-lang="id">ID</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="py-20 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-center mb-4">Kebijakan Privasi untuk Klaimr</h1>
+                    <p class="text-center text-light-secondary mb-12">Terakhir diperbarui: 4 Juli 2025</p>
+                    <div id="privacy-content" class="prose lg:prose-xl max-w-none text-light-secondary">
+                        <!-- Content will be injected by script -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-4-columns">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="footer-column">
+                    <img id="footer-logo" src="../images/klaimr-logo-light.png" alt="Klaimr Logo" class="h-8 w-auto mb-4" onerror="this.onerror=null; this.src='https://placehold.co/100x32/1a202c/4a5568?text=Klaimr';">
+                    <p class="text-sm">Klaimr adalah platform untuk menyederhanakan proses klaim dan meningkatkan efisiensi untuk semua orang.</p>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Navigasi</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pricing.html">Harga</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="terms.html">Syarat & Ketentuan</a></li>
+                        <li><a href="privacy.html">Kebijakan Privasi</a></li>
+                        <li><a href="refund.html">Kebijakan Pengembalian Dana</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Hubungi Kami</h4>
+                    <address class="not-italic text-sm leading-relaxed">
+                        PT SRS Solusi Digital<br>
+                        Komplek Migas 41 Nomor 21,<br>
+                        Srengseng, Kembangan,<br>
+                        Jakarta Barat 11630, Indonesia<br>
+                        <a href="tel:+6285780800603" class="mt-2 inline-block">+62 857 8080 0603</a><br>
+                        <a href="mailto:halo@srsdigital.co.id">halo@srsdigital.co.id</a>
+                    </address>
+                </div>
+            </div>
+            <div class="mt-12 border-t pt-8 text-center footer-copyright">
+                <p>&copy; 2025 Klaimr by PT SRS Solusi Digital. Semua Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        lucide.createIcons();
+
+        const privacyData = {
+          "document_title": "Kebijakan Privasi untuk Klaimr",
+          "last_updated": "4 Juli 2025",
+          "sections": [
+            { "title": "Pendahuluan", "content": "Klaimr (\"kami\") berkomitmen untuk melindungi privasi Anda. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, mengungkapkan, dan melindungi informasi Anda saat Anda menggunakan aplikasi web dan layanan terkait kami (secara kolektif disebut \"Layanan\").\n\nDengan menggunakan Layanan, Anda menyetujui pengumpulan dan penggunaan informasi sesuai dengan kebijakan ini." },
+            { "title": "1. Informasi yang Kami Kumpulkan", "content": "Kami mengumpulkan beberapa jenis informasi yang berbeda untuk berbagai tujuan guna menyediakan dan meningkatkan Layanan kami kepada Anda.\n\nA. Informasi yang Anda Berikan Langsung kepada Kami:\n\n* Informasi Akun: Saat Anda mendaftar akun, kami mengumpulkan alamat email atau nomor telepon Anda yang terdaftar di WhatsApp untuk tujuan otentikasi.\n* Informasi Akun Tertaut: Saat Anda menautkan akun TikTok Anda, kami mengumpulkan pengidentifikasi yang diperlukan seperti ID Akun TikTok dan nama pengguna Anda untuk mengakses data siaran langsung Anda. Kami tidak menyimpan kata sandi TikTok Anda.\n* Konten yang Ditentukan Pengguna: Kami mengumpulkan \"Petunjuk Item\" (kata kunci atau kode) yang Anda buat dan masukkan ke dalam Layanan untuk mengidentifikasi produk selama sesi langsung Anda.\n\nB. Informasi yang Kami Proses atas Nama Anda:\n\n* Data Komentar TikTok Live: Layanan inti kami melibatkan pemrosesan komentar publik yang diposting selama siaran langsung TikTok Anda yang tertaut. Data ini dapat mencakup nama pengguna TikTok, gambar profil, dan teks dari komentar itu sendiri. Kami memproses data ini secara real-time untuk mengidentifikasi klaim dan membuat daftar pemenang/daftar tunggu untuk Anda. Anda adalah pengendali data ini; kami bertindak sebagai pemroses atas nama Anda.\n\nC. Informasi yang Kami Kumpulkan Secara Otomatis:\n\n* Cookie dan Teknologi Sejenis: Kami menggunakan cookie untuk mengoperasikan dan mengelola Layanan kami. Cookie yang kami gunakan sangat penting agar Layanan dapat berfungsi. Ini termasuk:\n    * Cookie Sesi: Untuk mengelola sesi login Anda dan membuat Anda tetap terotentikasi saat Anda menavigasi aplikasi.\n    * Cookie Preferensi: Untuk mengingat pengaturan dan preferensi Anda, seperti bahasa pilihan Anda (Inggris atau Bahasa Indonesia).\n    Anda dapat menginstruksikan browser Anda untuk menolak semua cookie, tetapi beberapa bagian dari Layanan kami mungkin tidak berfungsi tanpanya.\n* Data Penggunaan: Kami dapat mengumpulkan informasi tentang bagaimana Layanan diakses dan digunakan (\"Data Penggunaan\"). Data Penggunaan ini dapat mencakup informasi seperti alamat Protokol Internet (IP) komputer Anda, jenis browser, versi browser, halaman Layanan kami yang Anda kunjungi, waktu dan tanggal kunjungan Anda, dan data diagnostik lainnya. Data ini biasanya dikumpulkan dan dianonimkan." },
+            { "title": "2. Bagaimana Kami Menggunakan Informasi Anda", "content": "Kami menggunakan informasi yang dikumpulkan untuk tujuan berikut:\n\n* Untuk Menyediakan dan Memelihara Layanan: Untuk membuat akun Anda, mengotentikasi Anda, dan memberikan fungsionalitas inti pelacakan klaim secara real-time dan rekap pasca-sesi.\n* Untuk Mengelola Akun Anda: Untuk memungkinkan Anda mengelola petunjuk item Anda, melihat riwayat sesi, dan memperbarui pengaturan profil Anda.\n* Untuk Berkomunikasi dengan Anda: Untuk mengirimi Anda One-Time Password (OTP) dan pemberitahuan penting terkait layanan.\n* Untuk Meningkatkan Layanan Kami: Untuk memahami bagaimana pengguna kami berinteraksi dengan Layanan, mendiagnosis masalah teknis, dan mengembangkan fitur baru.\n* Untuk Menegakkan Ketentuan dan Kebijakan kami." },
+            { "title": "3. Bagaimana Kami Membagikan Informasi Anda", "content": "Kami tidak menjual informasi pribadi Anda. Kami dapat membagikan informasi Anda dengan pihak ketiga hanya dengan cara yang dijelaskan dalam Kebijakan Privasi ini.\n\n* Penyedia Layanan Pihak Ketiga: Kami dapat membagikan informasi Anda dengan vendor dan penyedia layanan pihak ketiga yang melakukan layanan atas nama kami, seperti hosting cloud (misalnya, DigitalOcean), penyedia API untuk pengambilan komentar (misalnya, Euler Stream), dan layanan pengiriman OTP (misalnya, penyedia API Bisnis WhatsApp). Penyedia ini diizinkan untuk menggunakan informasi Anda hanya seperlunya untuk menyediakan layanan ini kepada kami.\n* Persyaratan Hukum: Kami dapat mengungkapkan informasi Anda jika diwajibkan oleh hukum atau dengan itikad baik bahwa tindakan tersebut diperlukan untuk mematuhi kewajiban hukum, melindungi dan membela hak atau properti kami, atau melindungi keselamatan pribadi pengguna Layanan atau publik." },
+            { "title": "4. Keamanan Data", "content": "Kami menggunakan langkah-langkah keamanan administratif, teknis, dan fisik yang wajar untuk melindungi informasi pribadi Anda dari akses, penggunaan, atau pengungkapan yang tidak sah. Namun, tidak ada metode transmisi melalui Internet atau metode penyimpanan elektronik yang 100% aman." },
+            { "title": "5. Penyimpanan Data", "content": "Kami akan menyimpan informasi pribadi Anda selama akun Anda aktif atau selama diperlukan untuk menyediakan Layanan kepada Anda. Anda dapat menghapus akun dan data terkait kapan saja melalui layar \"Profil & Pengaturan\". Harap dicatat bahwa beberapa data mungkin disimpan dalam cadangan kami untuk jangka waktu yang wajar untuk tujuan hukum atau operasional." },
+            { "title": "6. Hak dan Pilihan Anda", "content": "Anda memiliki hak-hak tertentu mengenai informasi pribadi yang kami miliki tentang Anda. Anda dapat:\n* Mengakses dan memperbarui informasi akun Anda melalui pengaturan profil Anda.\n* Mengubah nomor WhatsApp yang tertaut atau memutuskan tautan akun TikTok Anda.\n* Menghapus akun Anda dan data terkait." },
+            { "title": "7. Tautan dan Layanan Pihak Ketiga", "content": "Layanan ini bergantung pada layanan pihak ketiga seperti TikTok dan WhatsApp. Kebijakan Privasi ini tidak berlaku untuk praktik perusahaan yang tidak kami miliki atau kendalikan. Kami mendorong Anda untuk meninjau kebijakan privasi dari layanan pihak ketiga ini:\n* Kebijakan Privasi TikTok\n* Kebijakan Privasi WhatsApp" },
+            { "title": "8. Privasi Anak-Anak", "content": "Layanan kami tidak ditujukan untuk digunakan oleh siapa pun di bawah usia 18 tahun. Kami tidak secara sadar mengumpulkan informasi yang dapat diidentifikasi secara pribadi dari anak-anak." },
+            { "title": "9. Perubahan pada Kebijakan Privasi Ini", "content": "Kami dapat memperbarui Kebijakan Privasi kami dari waktu ke waktu. Kami akan memberitahu Anda tentang perubahan apa pun dengan memposting Kebijakan Privasi yang baru di halaman ini dan memperbarui tanggal \"Terakhir Diperbarui\"." },
+            { "title": "10. Hubungi Kami", "content": "Jika Anda memiliki pertanyaan tentang Kebijakan Privasi ini, silakan hubungi kami melalui bagian \"Bantuan & Dukungan\" di dalam aplikasi Klaimr." }
+          ]
+        };
+
+        const contentDiv = document.getElementById('privacy-content');
+        privacyData.sections.forEach(section => {
+            const sectionEl = document.createElement('div');
+            sectionEl.classList.add('mb-8');
+            
+            const titleEl = document.createElement('h2');
+            titleEl.classList.add('text-2xl', 'font-bold', 'mt-12', 'mb-4');
+            titleEl.textContent = section.title;
+            sectionEl.appendChild(titleEl);
+
+            const paragraphs = section.content.split('\n\n');
+            paragraphs.forEach(pText => {
+                if (pText.trim() !== '') {
+                    const pEl = document.createElement('p');
+                    pEl.innerHTML = pText.replace(/\n/g, '<br>');
+                    sectionEl.appendChild(pEl);
+                }
+            });
+            contentDiv.appendChild(sectionEl);
+        });
+    </script>
+    <script src="../js/lang-switcher.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ketentuan Layanan - Klaimr</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Figtree:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="public/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
+    <link rel="shortcut icon" href="public/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Klaimr" />
+    <link rel="manifest" href="public/site.webmanifest" />
+</head>
+<body data-page="klaimr-legal">
+
+    <header class="sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html">
+                <img id="header-logo" src="../images/klaimr-logo-dark.png" alt="Klaimr Logo" class="h-8 w-auto" onerror="this.onerror=null; this.src='https://placehold.co/100x32/e2e8f0/4a5568?text=Klaimr';">
+            </a>
+            <div class="flex items-center space-x-6">
+                <a href="pricing.html" class="hidden md:inline-block text-base font-medium transition-colors">Harga</a>
+                <a href="https://klaimr-dev.srsdigital.co.id/" class="hidden md:inline-block cta-button">Mulai Gratis</a>
+                <div id="lang-switcher" class="language-toggle-container">
+                    <i data-lucide="languages" class="lang-icon"></i>
+                    <div class="toggle-switch">
+                        <div class="toggle-slider"></div>
+                        <span class="lang-option" data-lang="en">EN</span>
+                        <span class="lang-option" data-lang="id">ID</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="py-20 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-center mb-4">Ketentuan Layanan untuk Klaimr</h1>
+                    <p class="text-center text-light-secondary mb-12">Terakhir diperbarui: 4 Juli 2025</p>
+                    <div id="terms-content" class="prose lg:prose-xl max-w-none text-light-secondary">
+                        <!-- Content will be injected by script -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-4-columns">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="footer-column">
+                    <img id="footer-logo" src="../images/klaimr-logo-light.png" alt="Klaimr Logo" class="h-8 w-auto mb-4" onerror="this.onerror=null; this.src='https://placehold.co/100x32/1a202c/4a5568?text=Klaimr';">
+                    <p class="text-sm">Klaimr adalah platform untuk menyederhanakan proses klaim dan meningkatkan efisiensi untuk semua orang.</p>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Navigasi</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pricing.html">Harga</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="terms.html">Syarat & Ketentuan</a></li>
+                        <li><a href="privacy.html">Kebijakan Privasi</a></li>
+                        <li><a href="refund.html">Kebijakan Pengembalian Dana</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Hubungi Kami</h4>
+                    <address class="not-italic text-sm leading-relaxed">
+                        PT SRS Solusi Digital<br>
+                        Komplek Migas 41 Nomor 21,<br>
+                        Srengseng, Kembangan,<br>
+                        Jakarta Barat 11630, Indonesia<br>
+                        <a href="tel:+6285780800603" class="mt-2 inline-block">+62 857 8080 0603</a><br>
+                        <a href="mailto:halo@srsdigital.co.id">halo@srsdigital.co.id</a>
+                    </address>
+                </div>
+            </div>
+            <div class="mt-12 border-t pt-8 text-center footer-copyright">
+                <p>&copy; 2025 Klaimr by PT SRS Solusi Digital. Semua Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        lucide.createIcons();
+
+        const termsData = {
+          "document_title": "Ketentuan Layanan untuk Klaimr",
+          "last_updated": "4 Juli 2025",
+          "sections": [
+            { "title": "Pendahuluan", "content": "Selamat datang di Klaimr! Ketentuan Layanan (\"Ketentuan\") ini mengatur akses dan penggunaan Anda atas aplikasi web, layanan, dan situs web Klaimr (secara kolektif disebut \"Layanan\"). Harap baca Ketentuan ini dengan saksama. Dengan membuat akun atau menggunakan Layanan kami, Anda setuju untuk terikat oleh Ketentuan ini.\n\nJika Anda tidak menyetujui Ketentuan ini, Anda tidak boleh mengakses atau menggunakan Layanan." },
+            { "title": "1. Deskripsi Layanan", "content": "Klaimr adalah aplikasi Software as a Service (SaaS) mandiri berbasis web yang dirancang untuk membantu penjual (\"Pengguna\", \"Anda\") yang melakukan sesi penjualan langsung di platform TikTok. Fungsi inti Layanan adalah untuk memantau komentar publik dari siaran langsung TikTok Pengguna yang ditentukan, secara otomatis mengidentifikasi klaim berdasarkan \"Petunjuk Item\" yang telah ditetapkan, dan menghasilkan daftar \"Pemenang\" dan \"Daftar Tunggu\" yang terorganisir secara real-time. Layanan ini juga menyediakan rekap pasca-sesi dan fungsionalitas ekspor data untuk membantu administrasi pasca-penjualan.\n\nStatus Minimum Viable Product (MVP): Anda mengakui bahwa Layanan ini disediakan sebagai Minimum Viable Product (MVP). Dengan demikian, Layanan ini disediakan atas dasar \"sebagaimana adanya\" dan \"sebagaimana tersedia\". Layanan mungkin mengandung bug, kesalahan, atau gangguan, dan set fiturnya dapat berubah seiring waktu." },
+            { "title": "2. Akun Pengguna", "content": "2.1. Pendaftaran: Untuk menggunakan Layanan, Anda harus membuat akun dengan memberikan alamat email atau nomor WhatsApp yang valid untuk verifikasi One-Time Password (OTP).\n\n2.2. Penautan Akun TikTok: Untuk mengaktifkan fungsionalitas inti Layanan, Anda harus menautkan akun TikTok Anda. Dengan menautkan akun Anda, Anda memberikan izin kepada Klaimr untuk mengakses data dari siaran langsung TikTok Anda sebagaimana diperlukan untuk menyediakan Layanan. Anda bertanggung jawab untuk memastikan Anda memiliki hak untuk memberikan kami akses ini.\n\n2.3. Tanggung Jawab Akun: Anda sepenuhnya bertanggung jawab atas semua aktivitas yang terjadi di bawah akun Anda dan untuk menjaga keamanan kredensial akun Anda. Anda setuju untuk segera memberitahu kami tentang penggunaan akun Anda yang tidak sah." },
+            { "title": "3. Ketergantungan dan Sangkalan Pihak Ketiga", "content": "INI ADALAH KETENTUAN PENTING. HARAP BACA DENGAN SEKSAMA.\n\nLayanan Klaimr pada dasarnya bergantung pada ketersediaan, keandalan, dan kebijakan platform dan layanan pihak ketiga, termasuk namun tidak terbatas pada:\n* TikTok: Untuk akses ke siaran langsung dan data komentar Anda.\n* Euler Stream (atau penyedia API serupa): Untuk sarana teknis dalam menerima data komentar siaran langsung.\n* WhatsApp (atau penyedia OTP serupa): Untuk otentikasi.\n\nAnda mengakui dan menyetujui bahwa:\n* Klaimr tidak memiliki kendali atas layanan pihak ketiga ini.\n* Pihak ketiga ini dapat mengubah atau menghentikan layanan, API, atau ketentuan penggunaan mereka kapan saja, yang dapat mengganggu, menurunkan kualitas, atau secara permanen mencegah Layanan Klaimr berfungsi.\n* Klaimr tidak bertanggung jawab atas kehilangan, kerusakan, atau gangguan layanan yang diakibatkan oleh tindakan, kelalaian, atau perubahan kebijakan apa pun oleh penyedia pihak ketiga ini. Ini termasuk, namun tidak terbatas pada, kehilangan data, ketidakmampuan untuk mengakses sesi langsung, atau kegagalan untuk menangkap komentar." },
+            { "title": "4. Kebijakan Penggunaan yang Dapat Diterima", "content": "Anda setuju untuk tidak menggunakan Layanan untuk tujuan apa pun yang melanggar hukum atau dilarang oleh Ketentuan ini. Anda bertanggung jawab atas semua aktivitas Anda sehubungan dengan Layanan. Anda tidak akan (dan tidak akan mengizinkan pihak ketiga mana pun untuk):\n\n* Menggunakan Layanan dengan cara apa pun yang melanggar Ketentuan Layanan TikTok atau kebijakan lain yang mengatur platform TikTok.\n* Menggunakan Layanan untuk terlibat dalam, mempromosikan, atau memfasilitasi aktivitas ilegal apa pun.\n* Menggunakan Layanan untuk melecehkan, menyalahgunakan, menguntit, mengancam, atau mencemarkan nama baik orang atau entitas mana pun.\n* Menggunakan Layanan untuk mengumpulkan atau memproses data untuk tujuan diskriminatif apa pun.\n* Mencoba mengganggu, membahayakan integritas atau keamanan sistem, atau menguraikan transmisi apa pun ke atau dari server yang menjalankan Layanan.\n* Mengunggah atau mengirimkan data, file, atau perangkat lunak apa pun yang berisi virus, Trojan horse, worm, atau komponen berbahaya lainnya.\n* Mencoba untuk menghilangkan anonimitas atau mengidentifikasi individu dari data komentar untuk tujuan apa pun selain memenuhi pesanan dari penjualan langsung Anda.\n\nPelanggaran terhadap Kebijakan Penggunaan yang Dapat Diterima ini dapat mengakibatkan penangguhan atau penghentian segera akun Anda tanpa pemberitahuan atau pengembalian dana." },
+            { "title": "5. Konten dan Data Pengguna", "content": "5.1. Konten Anda: Anda memegang semua hak kepemilikan atas konten yang Anda buat dan unggah ke Layanan, seperti daftar \"Petunjuk Item\" Anda dan data rekap terorganisir yang dibuat untuk Anda (secara kolektif, \"Konten Pengguna\").\n\n5.2. Lisensi kepada Kami: Untuk menyediakan Layanan, Anda memberikan Klaimr lisensi di seluruh dunia, non-eksklusif, bebas royalti untuk menggunakan, memproses, menyimpan, menampilkan, dan mereproduksi Konten Pengguna Anda semata-mata untuk tujuan mengoperasikan, memelihara, dan meningkatkan Layanan.\n\n5.3. Data Komentar Publik: Layanan memproses komentar yang tersedia untuk umum dari siaran langsung TikTok Anda. Anda sepenuhnya bertanggung jawab atas cara Anda menggunakan data ini. Klaimr bertindak sebagai pemroses data atas nama Anda, mengatur data publik ini sesuai arahan Anda." },
+            { "title": "6. Kekayaan Intelektual Kami", "content": "Semua hak, kepemilikan, dan kepentingan dalam dan terhadap Layanan (tidak termasuk Konten Pengguna), termasuk situs web, branding, logo, dan perangkat lunak kami, adalah dan akan tetap menjadi milik eksklusif Klaimr dan pemberi lisensinya." },
+            { "title": "7. Penghentian", "content": "7.1. Penghentian oleh Anda: Anda dapat menghentikan akun Anda kapan saja melalui layar \"Profil & Pengaturan\" di aplikasi.\n\n7.2. Penghentian oleh Kami: Kami dapat menangguhkan atau menghentikan akses Anda ke Layanan kapan saja, untuk alasan apa pun, termasuk namun tidak terbatas pada pelanggaran Anda terhadap Ketentuan ini." },
+            { "title": "8. Sangkalan Jaminan", "content": "LAYANAN INI DISEDIAKAN \"SEBAGAIMANA ADANYA\" DAN \"SEBAGAIMANA TERSEDIA\". KLAIMR DAN PEMASOK SERTA PEMBERI LISENSINYA DENGAN INI MENYANGKAL SEMUA JAMINAN DALAM BENTUK APA PUN, BAIK TERSURAT MAUPUN TERSIRAT, TERMASUK, TANPA BATASAN, JAMINAN DAPAT DIPERDAGANGKAN, KESESUAIAN UNTUK TUJUAN TERTENTU, DAN KETIADAAN PELANGGARAN. KAMI TIDAK MENJAMIN BAHWA LAYANAN AKAN BEBAS DARI KESALAHAN, AMAN, ATAU TIDAK TERGANGGU." },
+            { "title": "9. Batasan Tanggung Jawab", "content": "DALAM KEADAAN APA PUN KLAIMR, ATAU PEMASOK ATAU PEMBERI LISENSINYA, TIDAK AKAN BERTANGGUNG JAWAB SEHUBUNGAN DENGAN POKOK PERMASALAHAN PERJANJIAN INI DI BAWAH KONTRAK, KELALAIAN, TANGGUNG JAWAB HUKUM YANG TEGAS ATAU TEORI HUKUM ATAU KEADILAN LAINNYA UNTUK: (I) KERUSAKAN KHUSUS, INSIDENTAL, ATAU KONSEKUENSIAL; (II) BIAYA PENGADAAN PRODUK ATAU LAYANAN PENGGANTI; (III) GANGGUAN PENGGUNAAN ATAU KEHILANGAN ATAU KERUSAKAN DATA." },
+            { "title": "10. Ketentuan Umum", "content": "10.1. Hukum yang Mengatur: Ketentuan ini akan diatur oleh hukum Republik Indonesia.\n\n10.2. Perubahan Ketentuan: Kami berhak untuk mengubah Ketentuan ini kapan saja. Kami akan memberikan pemberitahuan tentang perubahan material apa pun. Penggunaan Layanan oleh Anda secara berkelanjutan setelah perubahan tersebut merupakan penerimaan Anda terhadap Ketentuan yang baru.\n\n10.3. Bahasa: Antarmuka Layanan dapat disediakan dalam Bahasa Inggris dan Bahasa Indonesia. Ketentuan Layanan ini ditulis dalam Bahasa Inggris. Sejauh versi terjemahan dari perjanjian ini bertentangan dengan versi Bahasa Inggris, versi Bahasa Inggris yang akan berlaku.\n\n10.4. Kontak: Untuk pertanyaan apa pun tentang Ketentuan ini, silakan hubungi kami melalui bagian \"Bantuan & Dukungan\" pada Layanan." }
+          ]
+        };
+
+        const contentDiv = document.getElementById('terms-content');
+        termsData.sections.forEach(section => {
+            const sectionEl = document.createElement('div');
+            sectionEl.classList.add('mb-8');
+
+            const titleEl = document.createElement('h2');
+            titleEl.classList.add('text-2xl', 'font-bold', 'mt-12', 'mb-4');
+            titleEl.textContent = section.title;
+            sectionEl.appendChild(titleEl);
+
+            const paragraphs = section.content.split('\n\n');
+            paragraphs.forEach(pText => {
+                if (pText.trim() !== '') {
+                    const pEl = document.createElement('p');
+                    pEl.innerHTML = pText.replace(/\n/g, '<br>');
+                    sectionEl.appendChild(pEl);
+                }
+            });
+            contentDiv.appendChild(sectionEl);
+        });
+    </script>
+    <script src="../js/lang-switcher.js"></script>
+</body>
+</html>
