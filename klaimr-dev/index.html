@@ -264,6 +264,7 @@
             </div>
         </section>
 
+
         <section class="py-20">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -293,42 +294,14 @@
                     </div>
                     <div
                         class="tab-content-container">
+                        <!-- Tab content remains the same -->
                         <div id="step1" class="tab-content active">
-                            <div
-                                class="relative aspect-video bg-neutral-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
-                                <video class="w-full h-full object-cover" muted playsinline loading="lazy"
-                                    preload="metadata" poster="../images/product-code-id.webp"
-                                    onplay="trackEvent('Video Play', { video_name: 'how_it_works_product_code' });">
-                                    <source src="../videos/product-code-id.mp4" type="video/mp4">
-                                    <source src="../videos/product-code-id.webm" type="video/webm">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="video-controls">
-                                    <button class="video-play-pause">
-                                        <svg class="play-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
-                                        </svg>
-                                        <svg class="pause-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg"
-                                            fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M15.75 5.25v13.5m-6-13.5v13.5" />
-                                        </svg>
-                                    </button>
-                                    <button class="video-mute-toggle">
-                                        <svg class="unmute-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
-                                        </svg>
-                                        <svg class="mute-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg"
-                                            fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
-                                        </svg>
-                                    </button>
-                                </div>
+                             <!-- Replaced video with YouTube embed -->
+                            <div class="aspect-video bg-neutral-100 rounded-lg overflow-hidden mb-6">
+                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/y3caNRlXiR8?rel=0"
+                                    title="Masukkan Kode Produk" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                             </div>
                             <div class="text-center">
                                 <h3 class="text-xl font-semibold mb-2" data-key="tab1_h3">Masukkan Kode
@@ -342,41 +315,12 @@
                         </div>
 
                         <div id="step2" class="tab-content hidden">
-                            <div
-                                class="relative aspect-video bg-neutral-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
-                                <video class="w-full h-full object-cover" muted playsinline loading="lazy"
-                                    preload="metadata" poster="../images/live-id.webp"
-                                    onplay="trackEvent('Video Play', { video_name: 'how_it_works_live_session' });">
-                                    <source src="../videos/live-id.mp4" type="video/mp4">
-                                    <source src="../videos/live-id.webm" type="video/webm">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="video-controls">
-                                    <button class="video-play-pause">
-                                        <svg class="play-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
-                                        </svg>
-                                        <svg class="pause-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg"
-                                            fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M15.75 5.25v13.5m-6-13.5v13.5" />
-                                        </svg>
-                                    </button>
-                                    <button class="video-mute-toggle">
-                                        <svg class="unmute-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
-                                        </svg>
-                                        <svg class="mute-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg"
-                                            fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
-                                        </svg>
-                                    </button>
-                                </div>
+                            <!-- Replaced video with YouTube embed -->
+                            <div class="aspect-video bg-neutral-100 rounded-lg overflow-hidden mb-6">
+                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/CjyQoQM9ncc?rel=0"
+                                    title="Mulai Sesi Live" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                             </div>
                             <div class="text-center">
                                 <h3 class="text-xl font-semibold mb-2" data-key="tab2_h3">Mulai Sesi Live
@@ -389,41 +333,12 @@
                         </div>
 
                         <div id="step3" class="tab-content hidden">
-                            <div
-                                class="relative aspect-video bg-neutral-100 rounded-lg overflow-hidden mb-6 video-container cursor-pointer">
-                                <video class="w-full h-full object-cover" muted playsinline loading="lazy"
-                                    preload="metadata" poster="../images/recap-id.webp"
-                                    onplay="trackEvent('Video Play', { video_name: 'how_it_works_recap' });">
-                                    <source src="../videos/recap-id.mp4" type="video/mp4">
-                                    <source src="../videos/recap-id.webm" type="video/webm">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="video-controls">
-                                    <button class="video-play-pause">
-                                        <svg class="play-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
-                                        </svg>
-                                        <svg class="pause-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg"
-                                            fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M15.75 5.25v13.5m-6-13.5v13.5" />
-                                        </svg>
-                                    </button>
-                                    <button class="video-mute-toggle">
-                                        <svg class="unmute-icon w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25M19.5 12l2.25-2.25M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
-                                        </svg>
-                                        <svg class="mute-icon w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg"
-                                            fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M12.75 4.97v14.06l-6.148-4.099H4.5a1.125 1.125 0 0 1-1.125-1.125v-4.5A1.125 1.125 0 0 1 4.5 8.25h2.102L12.75 4.97Z" />
-                                        </svg>
-                                    </button>
-                                </div>
+                            <!-- Replaced video with YouTube embed -->
+                            <div class="aspect-video bg-neutral-100 rounded-lg overflow-hidden mb-6">
+                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/WvGqXgdKMIQ?rel=0"
+                                    title="Lihat Rekap Sesi" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                             </div>
                             <div class="text-center">
                                 <h3 class="text-xl font-semibold mb-2" data-key="tab3_h3">Lihat Rekap Sesi
