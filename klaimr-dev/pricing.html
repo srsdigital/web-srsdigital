@@ -32,7 +32,7 @@
     <header class="sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html">
-                <img id="header-logo" src="../images/klaimr-logo-dark.png" alt="Klaimr Logo" class="h-8 w-auto"
+                <img id="header-logo" src="../images/klaimr-logo-dark.png" alt="Klaimr Logo" class="h-8 w-auto"  loading="lazy"
                     onerror="this.onerror=null; this.src='https://placehold.co/100x32/e2e8f0/4a5568?text=Klaimr';">
             </a>
             <div class="flex items-center space-x-6">
@@ -146,7 +146,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Column 1: Klaimr -->
                 <div class="footer-column">
-                    <img id="footer-logo" src="../images/klaimr-logo-light.png" alt="Klaimr Logo" class="h-8 w-auto mb-4"
+                    <img id="footer-logo" src="../images/klaimr-logo-light.png" alt="Klaimr Logo" class="h-8 w-auto mb-4"  loading="lazy"
                         onerror="this.onerror=null; this.src='https://placehold.co/100x32/1a202c/4a5568?text=Klaimr';">
                     <p class="text-sm" data-key="footer_description">
                         Klaimr adalah platform untuk menyederhanakan proses klaim dan meningkatkan efisiensi untuk semua orang.
@@ -196,10 +196,10 @@
         // Initialize Lucide Icons
         lucide.createIcons();
     </script>
-    <script src="../js/main.js"></script>
-    <script src="../js/klaimr-animations.js"></script>
-    <script src="../js/lang-switcher.js"></script>
-    <script src="../js/chat-widget.js"></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/klaimr-animations.js" defer></script>
+    <script src="../js/lang-switcher.js" defer></script>
+    <script src="../js/chat-widget.js" defer></script>
 </body>
 
 </html>

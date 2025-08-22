@@ -96,7 +96,7 @@
     <header class="sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html">
-                <img id="header-logo" src="../images/klaimr-logo-dark.png" alt="Klaimr Logo" class="h-8 w-auto"
+                <img id="header-logo" src="../images/klaimr-logo-dark.png" alt="Klaimr Logo" class="h-8 w-auto"  loading="lazy"
                     onerror="this.onerror=null; this.src='https://placehold.co/100x32/e2e8f0/4a5568?text=Klaimr';">
             </a>
             <div class="flex items-center space-x-6">
@@ -210,7 +210,7 @@
                         <div class="carousel-track h-full">
                              <div class="carousel-card" data-index="0">
                                 <div class="card-content">
-                                    <img src="../images/klaimr-probsol-1.webp"
+                                    <img src="../images/klaimr-probsol-1.webp"  loading="lazy"
                                         alt="Ilustrasi mencatat manual dengan pusing" width="319" height="319"
                                         class="w-full h-auto rounded-lg object-cover"
                                         onerror="this.onerror=null; this.src='https://placehold.co/319x319/e2e8f0/4a5568?text=Gambar+1';">
@@ -224,7 +224,7 @@
                             </div>
                             <div class="carousel-card" data-index="1">
                                 <div class="card-content">
-                                    <img src="../images/klaimr-probsol-2.webp"
+                                    <img src="../images/klaimr-probsol-2.webp"  loading="lazy"
                                         alt="Ilustrasi Klaimr mencatat klaim otomatis" width="319" height="319"
                                         class="w-full h-auto rounded-lg object-cover"
                                         onerror="this.onerror=null; this.src='https://placehold.co/319x319/e2e8f0/4a5568?text=Gambar+2';">
@@ -238,7 +238,7 @@
                             </div>
                             <div class="carousel-card" data-index="2">
                                 <div class="card-content">
-                                    <img src="../images/klaimr-probsol-3.webp"
+                                    <img src="../images/klaimr-probsol-3.webp"  loading="lazy"
                                         alt="Ilustrasi rekap sesi yang sudah siap" width="319" height="319"
                                         class="w-full h-auto rounded-lg object-cover"
                                         onerror="this.onerror=null; this.src='https://placehold.co/319x319/e2e8f0/4a5568?text=Gambar+3';">
@@ -415,7 +415,7 @@
                         </ul>
                     </div>
                     <div class="bg-neutral-200 rounded-2xl aspect-square flex items-center justify-center">
-                        <img src="../images/klaimr-recap-value.webp" alt="Klaimr Value"
+                        <img src="../images/klaimr-recap-value.webp" alt="Klaimr Value"  loading="lazy"
                             onerror="this.onerror=null; this.src='https://placehold.co/90x28/1a202c/4a5568?text=Klaimr';">
                     </div>
                 </div>
@@ -441,7 +441,7 @@
         <div class="container mx-auto px-6 py-16">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="footer-column">
-                    <img id="footer-logo" src="../images/klaimr-logo-light.png" alt="Klaimr Logo" class="h-8 w-auto mb-4"
+                    <img id="footer-logo" src="../images/klaimr-logo-light.png" alt="Klaimr Logo" class="h-8 w-auto mb-4"  loading="lazy"
                         onerror="this.onerror=null; this.src='https://placehold.co/100x32/1a202c/4a5568?text=Klaimr';">
                     <p class="text-sm" data-key="footer_description">
                         Klaimr adalah platform untuk menyederhanakan proses klaim dan meningkatkan efisiensi untuk semua orang.
@@ -510,15 +510,15 @@
         </div>
         <div id="chat-widget-button" class="chat-widget-button" onclick="trackEvent('Chat Widget Opened');">
             <span class="font-semibold text-lg mr-2 text-center" data-key="chat_widget_text">Tanya\nAdinda</span>
-            <img src="../images/tanya-adinda.webp" alt="Adinda" class="w-14 h-14 sm:w-18 sm:h-18 lg:w-22 lg:h-22"
+            <img src="../images/tanya-adinda.webp" alt="Adinda" class="w-14 h-14 sm:w-18 sm:h-18 lg:w-22 lg:h-22"  loading="lazy"
                 onerror="this.style.display='none'">
         </div>
     </div>
 
-    <script src="../js/main.js"></script>
-    <script src="../js/klaimr-animations.js"></script>
-    <script src="../js/lang-switcher.js"></script>
-    <script src="../js/chat-widget.js"></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/klaimr-animations.js" defer></script>
+    <script src="../js/lang-switcher.js" defer></script>
+    <script src="../js/chat-widget.js" defer></script>
 </body>
 
 </html>
