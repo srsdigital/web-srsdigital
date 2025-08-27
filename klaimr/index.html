@@ -9,15 +9,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <!-- Google Fonts: Inter and Figtree -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Figtree:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Figtree:wght@400;700&display=swap"
+        rel="stylesheet">
+
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="public/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
@@ -25,7 +27,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Klaimr" />
     <link rel="manifest" href="public/site.webmanifest" />
-    
+
     <!-- ===== START: Google Analytics (GA4) Snippet ===== -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DV9955ZNR8"></script>
     <script>
@@ -96,7 +98,7 @@
             if (redirectUrl) {
                 setTimeout(() => {
                     window.location.href = redirectUrl;
-                }, 200); 
+                }, 200);
             }
         }
     </script>
@@ -113,9 +115,8 @@
                     onerror="this.onerror=null; this.src='https://placehold.co/100x32/e2e8f0/4a5568?text=Klaimr';">
             </a>
             <div class="flex items-center space-x-6">
-                <a href="https://klaimr.srsdigital.co.id/"
-                    class="hidden md:inline-block cta-button"
-                    data-key="header_cta" 
+                <a href="https://klaimr.srsdigital.co.id/" class="hidden md:inline-block cta-button"
+                    data-key="header_cta"
                     onclick="trackEvent('CTA Clicked', { location: 'header', cta_text: 'Mulai Gratis' }, this.href); return false;">
                     Mulai Gratis</a>
                 <!-- Language Toggle -->
@@ -144,8 +145,7 @@
                     Dari komentar masuk sampai rekap penjualan, Klaimr bantuin semua. Kamu cukup fokus jualan, Klaimr
                     yang urus sisanya.
                 </p>
-                <a href="https://klaimr.srsdigital.co.id/"
-                    class="cta-button cta-button-large inline-block"
+                <a href="https://klaimr.srsdigital.co.id/" class="cta-button cta-button-large inline-block"
                     data-key="hero_cta"
                     onclick="trackEvent('CTA Clicked', { location: 'hero', cta_text: 'Mulai Gratis Sekarang' }, this.href); return false;">
                     Mulai Gratis Sekarang
@@ -155,7 +155,7 @@
                     <div class="bg-neutral-0 rounded-2xl shadow-2xl p-4">
                         <div class="relative video-container">
                             <video class="w-full h-full object-cover rounded-lg" autoplay muted playsinline
-                                loading="lazy" preload="metadata" 
+                                loading="lazy" preload="metadata"
                                 onplay="trackEvent('Video Play', { video_name: 'hero_video' });">
                                 <source src="../videos/klaimr-landing-id.mp4" type="video/mp4">
                                 <source src="../videos/klaimr-landing-id.webm" type="video/webm">
@@ -214,7 +214,7 @@
 
                     <div class="carousel-viewport w-full h-full">
                         <div class="carousel-track h-full">
-                             <div class="carousel-card" data-index="0">
+                            <div class="carousel-card" data-index="0">
                                 <div class="card-content">
                                     <img src="../images/klaimr-probsol-1.webp"
                                         alt="Ilustrasi mencatat manual dengan pusing" width="319" height="319"
@@ -223,7 +223,8 @@
                                     <div class="text-center p-4">
                                         <h3 class="font-bold text-xl" data-key="carousel1_h3">Capek Jualan
                                             Live Sambil Nyatet Manual?</h3>
-                                        <p class="mt-1 text-light-secondary" data-key="carousel1_p">Komentar Bertubi-tubi,
+                                        <p class="mt-1 text-light-secondary" data-key="carousel1_p">Komentar
+                                            Bertubi-tubi,
                                             Nyatet Manual Bikin Pusing</p>
                                     </div>
                                 </div>
@@ -237,7 +238,8 @@
                                     <div class="text-center p-4">
                                         <h3 class="font-bold text-xl" data-key="carousel2_h3">Otomatis
                                             Catat</h3>
-                                        <p class="mt-1 text-light-secondary" data-key="carousel2_p">Klaimr otomatis catat klaim
+                                        <p class="mt-1 text-light-secondary" data-key="carousel2_p">Klaimr otomatis
+                                            catat klaim
                                             dari komentar saat kamu Live</p>
                                     </div>
                                 </div>
@@ -251,7 +253,8 @@
                                     <div class="text-center p-4">
                                         <h3 class="font-bold text-xl" data-key="carousel3_h3">Setelah
                                             Live, Daftar Klaim Langsung Siap 📋</h3>
-                                        <p class="mt-1 text-light-secondary" data-key="carousel3_p">Rekap Sesi langsung siap -
+                                        <p class="mt-1 text-light-secondary" data-key="carousel3_p">Rekap Sesi langsung
+                                            siap -
                                             tinggal salin ke WhatsApp atau ekspor ke spreadsheet</p>
                                     </div>
                                 </div>
@@ -278,30 +281,26 @@
                 </div>
                 <div id="how-it-works-tabs" class="max-w-5xl mx-auto tabs-container">
                     <div class="flex flex-wrap justify-center gap-4 mb-[-1px]">
-                        <button data-tab="step1"
-                            class="tab-button active"
+                        <button data-tab="step1" class="tab-button active"
                             onclick="trackEvent('Tab Clicked', { tab_name: 'Masukkan Kode Produk' });">
                             <span class="relative z-10" data-key="tab1_button">Masukkan Kode Produk</span>
                             <div class="loading-bar"></div>
                         </button>
-                        <button data-tab="step2"
-                            class="tab-button"
+                        <button data-tab="step2" class="tab-button"
                             onclick="trackEvent('Tab Clicked', { tab_name: 'Mulai Sesi Live' });">
                             <span class="relative z-10" data-key="tab2_button">Mulai Sesi Live</span>
                             <div class="loading-bar"></div>
                         </button>
-                        <button data-tab="step3"
-                            class="tab-button"
+                        <button data-tab="step3" class="tab-button"
                             onclick="trackEvent('Tab Clicked', { tab_name: 'Lihat Rekap Sesi' });">
                             <span class="relative z-10" data-key="tab3_button">Lihat Rekap Sesi</span>
                             <div class="loading-bar"></div>
                         </button>
                     </div>
-                    <div
-                        class="tab-content-container">
+                    <div class="tab-content-container">
                         <!-- Tab content remains the same -->
                         <div id="step1" class="tab-content active">
-                             <!-- Replaced video with YouTube embed -->
+                            <!-- Replaced video with YouTube embed -->
                             <div class="aspect-video bg-neutral-100 rounded-lg overflow-hidden mb-6">
                                 <iframe class="w-full h-full" src="https://www.youtube.com/embed/y3caNRlXiR8?rel=0"
                                     title="Masukkan Kode Produk" frameborder="0"
@@ -378,7 +377,8 @@
                             </div>
                             <div>
                                 <p class="font-bold" data-key="testimonial1_name">Nadya</p>
-                                <p class="text-sm text-light-secondary" data-key="testimonial1_handle">@thriftqueen.id</p>
+                                <p class="text-sm text-light-secondary" data-key="testimonial1_handle">@thriftqueen.id
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -393,7 +393,8 @@
                             </div>
                             <div>
                                 <p class="font-bold" data-key="testimonial2_name">Deni</p>
-                                <p class="text-sm text-light-secondary" data-key="testimonial2_handle">@jualbajumurah</p>
+                                <p class="text-sm text-light-secondary" data-key="testimonial2_handle">@jualbajumurah
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -412,7 +413,8 @@
                                     class="feature-checkmark mr-3 mt-1 font-bold">✓</span> Gak perlu lagi mantengin
                                 komentar satu-satu. Waktu kamu bisa dipakai buat hal lain.</li>
                             <li class="flex items-start" data-key="feature2"><span
-                                    class="feature-checkmark mr-3 mt-1 font-bold">✓</span>Gak kena PHP pembeli—urutan klaim
+                                    class="feature-checkmark mr-3 mt-1 font-bold">✓</span>Gak kena PHP pembeli—urutan
+                                klaim
                                 langsung tercatat otomatis.</li>
                             <li class="flex items-start" data-key="feature3"><span
                                     class="feature-checkmark mr-3 mt-1 font-bold">✓</span> Habis live, hasil jualan
@@ -432,8 +434,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold mb-6" data-key="final_cta_h2">Siap
                     menyederhanakan jualan live Anda?
                 </h2>
-                <a href="https://klaimr.srsdigital.co.id/"
-                    class="cta-button cta-button-large inline-block"
+                <a href="https://klaimr.srsdigital.co.id/" class="cta-button cta-button-large inline-block"
                     data-key="final_cta_button"
                     onclick="trackEvent('CTA Clicked', { location: 'final_cta', cta_text: 'Mulai Gunakan Klaimr Gratis' }, this.href); return false;">
                     Mulai Gunakan Klaimr Gratis
@@ -445,6 +446,8 @@
     <footer>
         <div class="container mx-auto px-6 py-12">
             <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+
+                <!-- Logo + powered by -->
                 <div class="mb-6 md:mb-0">
                     <div class="flex items-center justify-center md:justify-start space-x-4">
                         <img id="footer-logo" src="../images/klaimr-logo-light.png" alt="Klaimr Logo" class="h-7 w-auto"
@@ -459,20 +462,26 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 footer-links">
-                    <a href="https://klaimr.srsdigital.co.id/"
-                        data-key="footer_login"
+
+                <!-- Footer links -->
+                <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 footer-links text-sm">
+                    <a href="https://klaimr.srsdigital.co.id/" data-key="footer_login"
                         onclick="trackEvent('CTA Clicked', { location: 'footer', cta_text: 'Login' }, this.href); return false;">Login</a>
-                    <a href="https://srsdigital.co.id/#contact"
-                        data-key="footer_contact"
+                    <a href="https://srsdigital.co.id/#contact" data-key="footer_contact"
                         onclick="trackEvent('Contact Clicked', { contact_method: 'footer_contact_link' }, this.href); return false;">Kontak</a>
+                    <a href="https://www.instagram.com/klaimr.id/" target="_blank"
+                        rel="noopener noreferrer">Instagram</a>
+                    <a href="https://www.tiktok.com/@klaimr.id" target="_blank" rel="noopener noreferrer">TikTok</a>
                 </div>
             </div>
+
+            <!-- Copyright -->
             <div class="mt-10 border-t pt-8 text-center footer-copyright">
                 <p data-key="footer_copyright">&copy; 2025 Klaimr. Semua Hak Cipta Dilindungi.</p>
             </div>
         </div>
     </footer>
+
 
     <!-- Chat Widget -->
     <div id="chat-widget" class="chat-widget-container">
